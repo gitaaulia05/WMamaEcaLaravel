@@ -13,13 +13,13 @@
         <header>Login</header>
         <form class="form" action="#">
             <div class="input-container">
-                <input type="text" placeholder="Masukkan email">
+                <input type="text" placeholder="Masukkan no hp">
                 <input type="password" placeholder="Masukkan password">
             </div>
             <div class="button-container">
                 <input type="button" value="Daftar" class="button">
-               <a href="/register"> <input type="button" value="Masuk" class="button"></a>
-            </div>
+                <a href="/register" class="button">Masuk</a>
+            </div> 
             <a href="#">Lupa password?</a>
         </form>
     </div>

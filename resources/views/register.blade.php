@@ -14,15 +14,15 @@
             <form class="form" action="#">
                 <div class="input-container">
                     <input type="text" placeholder="Masukkan nama">
-                    <input type="text" placeholder="Masukkan email">
+                    <input type="text" placeholder="Masukkan no hp">
                     <input type="password" placeholder="Masukkan password">
                 </div>
                 <div class="button-container-b">
                     <input type="button" value="Daftar" class="button">
-                    <a href="/login">sudah punya akun? login</a>
                 </div>
+                <a href="/login">Sudah punya akun? login</a>
             </form>
         </div>
-       </div> 
+       </div>
 </body>
 </html>
