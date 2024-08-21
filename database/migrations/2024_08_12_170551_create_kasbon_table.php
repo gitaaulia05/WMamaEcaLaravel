@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kasbon', function (Blueprint $table) {
-            $table->string("id_kasbon")->primary();
-            $table->string("id_detail_pembayaran");
-
+            $table->string("id_kasbon", 100)->primary();
+            $table->double("total_kasbon");
+            $table->double("sisa_kasbon");
+            $table->double('tanggal_kasbon');
             $table->timestamps();
         });
     }
