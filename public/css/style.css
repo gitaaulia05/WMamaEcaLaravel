@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+}
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: white;
+;
+}
+
+.container , .registration{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container header , .registration header{
+    font-size: 30px;
+    text-align: center;
+    margin: 2px 20px 20px;
+    padding: 10px;
+
+}
+.login , .regist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.login img , .regist img{
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+}
+
+.input-container input {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    margin-top: 20px;
+    height: 60px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-container input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.button-container , .button-container-b {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.button-container input.button {
+    height: 60px;
+    width: 48%;
+    padding: 10px 20px;
+    font-size: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #ff8567;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.button-container-b input.button {
+    height: 60px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #ff8567;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+.button-container input.button:hover {
+    background-color: #ff6f5e;
+}
+
+.button-container-b input.button:hover {
+    background-color: #ff6f5e;
+}
+
+.form a {
+    margin-top: 20px;
+    text-align: center;
+    color: #ff8567;
+    text-decoration: none;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
