@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KasbonController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [KasbonController::class, 'index']);
+Route::get('/{id_barang}', [KasbonController::class, 'detail_data']);
+
+
+
