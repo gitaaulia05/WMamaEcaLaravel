@@ -16,12 +16,12 @@ class KasbonController extends Controller
         ]);
     }
 
-    public function detail_data($id_barang){
-        return view('retrieve_detail',[
-            "title" => "Single Post",
-            "Jbarang" => barang::find($id_barang)
-        ]);
-    }
+    // public function detail_data($id_barang){
+    //     return view('retrieve_detail',[
+    //         "title" => "Single Post",
+    //         "Jbarang" => barang::find($id_barang)
+    //     ]);
+    // }
 
 
 

@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class loginController extends Controller
+class registerController extends Controller
 {
     public function index(){
-        return view('login', [
-            "title" => "Login",
+        return view('register', [
+            "title" => "Register"
         ]);
     }
 }

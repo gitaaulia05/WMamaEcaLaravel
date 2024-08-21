@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>{{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -18,7 +18,7 @@
             </div>
             <div class="button-container">
                 <input type="button" value="Daftar" class="button">
-                <input type="button" value="Masuk" class="button">
+               <a href="/register"> <input type="button" value="Masuk" class="button"></a>
             </div>
             <a href="#">Lupa password?</a>
         </form>
