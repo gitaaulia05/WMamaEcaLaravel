@@ -12,7 +12,7 @@
 
         <img src="{{ asset('images/logo1.png') }}" alt="logo" width="80" height="70">
         <header>Login</header>
-        
+
        {{-- INI BENERIN POSISI TAMPILAN ERROR NYA  --}}
     @if(session()->has('loginError'))
            <h1>{{ session('loginError')}}</h1>
@@ -24,13 +24,27 @@
         <form class="form" method="post" action="/auth-login">
          @csrf
             <div class="input-container">
+
+
+                        {{-- INI PUNYA AKU (GITA) YANG DIBENERIN YANG INI  --}}
                 <input type="number" name="no_hp" placeholder="Masukkan nomor Handphone" >
                 <input type="password" name="password" placeholder="Masukkan password">
             </div>
             <div class="button-container">
-                <a href="/register">Daftar</a>
-               <button type="submit" > Masuk </button>
+                <a href="/register" class="button">Daftar</a>
+               <button type="submit"  > Masuk </button>
             </div>
+
+
+                      {{-- INI PUNYA KAMU  (SOFI)
+                <input type="text" placeholder="Masukkan no hp">
+                <input type="password" placeholder="Masukkan password">
+            </div>
+            <div class="button-container">
+                <input type="button" value="Daftar" class="button">
+                <a href="/register" class="button">Masuk</a>
+            </div>  --}}
+
             <a href="#">Lupa password?</a>
         </form>
     </div>

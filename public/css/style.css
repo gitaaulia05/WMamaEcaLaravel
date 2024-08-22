@@ -9,7 +9,6 @@ body {
     min-height: 100vh;
     width: 100%;
     background: white;
-;
 }
 
 .container , .registration{
@@ -24,8 +23,8 @@ body {
     text-align: center;
     margin: 2px 20px 20px;
     padding: 10px;
-
 }
+
 .login , .regist {
     display: flex;
     flex-direction: column;
@@ -67,11 +66,19 @@ body {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-.button-container , .button-container-b {
+.button-container {
+    display: flex;
+    gap:10px;
+    margin-top: 40px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.button-container-b {
     display: flex;
     gap: 10px;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .button-container input.button {
@@ -85,6 +92,24 @@ body {
     color: white;
     cursor: pointer;
     box-sizing: border-box;
+}
+
+.button-container a.button {
+    height: 60px;
+    width: 48%;
+    margin:0;
+    padding: 10px 20px;
+    font-size: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #ff8567;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .button-container-b input.button {
@@ -105,12 +130,17 @@ body {
     background-color: #ff6f5e;
 }
 
+.button-container a.button:hover {
+    background-color: #ff6f5e;
+    text-decoration: none;
+}
+
 .button-container-b input.button:hover {
     background-color: #ff6f5e;
 }
 
 .form a {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     color: #ff8567;
     text-decoration: none;

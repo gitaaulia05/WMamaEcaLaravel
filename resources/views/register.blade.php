@@ -14,6 +14,8 @@
             <form class="form" action="/create-user" method="post">
                 @csrf
                 <div class="input-container">
+
+                         {{-- INI PUNYA AKU (GITA) YANG DIBENERIN YANG INI  --}}
                     <input type="text" name="nama" placeholder="Masukkan nama" value={{old('nama')}}>
                     <input type="textarea" name="alamat" placeholder="Masukkan alamat" value={{old('alamat')}}>
                     <input type="number" name="no_hp"  class="form-control @error('no_hp') is-invalid  @enderror"  placeholder="Masukkan nomor handphone" maxlength="12">
@@ -36,9 +38,21 @@
                 <div class="button-container-b">
                   <button type="submit">Daftar</button>
                     <a href="/login" type="button">sudah punya akun? login</a>
+                {{-- PUNYA GITA SAMPE SINI REGISTER YANG DIBENERIN --}}
+
+                
+                                  {{-- PUNYA SOFI YANG INI  --}}
+                    {{-- <input type="text" placeholder="Masukkan nama">
+                    <input type="text" placeholder="Masukkan no hp">
+                    <input type="password" placeholder="Masukkan password">
                 </div>
+                <div class="button-container-b">
+                    <input type="button" value="Daftar" class="button"> --}}
+    {{-- SAMPE SINI PUNYA SOFI --}}
+                </div>
+                <a href="/login">Sudah punya akun? login</a>
             </form>
         </div>
-       </div> 
+       </div>
 </body>
 </html>
