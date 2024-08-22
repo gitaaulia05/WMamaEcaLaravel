@@ -10,7 +10,9 @@ Route::get('/', [KasbonController::class, 'index']);
 
             // LOGIN  USER - ADMIN 
 Route::get('/login',[loginController::class,'index']);
+Route::post('/auth-login',[loginController::class,'auth_login']);
 
 
             // REGISTER CREATE USER
 Route::get('/register', [registerController::class, 'index']);
+Route::post('/create-user', [registerController::class,'create_user']);

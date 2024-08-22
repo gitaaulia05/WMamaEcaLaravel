@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration
 {
     /**
@@ -17,11 +18,9 @@ return new class extends Migration
             $table->string('no_hp', 12)->nullable()->unique();
             $table->text('alamat');
             $table->string('password');
-            $table->double('limit')->default(0);
-            $table->boolean('role')->default(false);
-            $table->date('dibuat_tanggal');
-            $table->date('diupdate_tanggal');
-                        // $table->timestamps();
+            $table->double('limit')->default(500000);
+            $table->boolean('is_admin')->default(false);
+             $table->timestamps();
         });
     }
 
@@ -32,4 +31,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('user');
     }
+
+ 
+    
+
 };

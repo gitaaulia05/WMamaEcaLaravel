@@ -7,7 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\KasbonController' => $baseDir . '/app/Http/Controllers/KasbonController.php',
+    'App\\Http\\Controllers\\loginController' => $baseDir . '/app/Http/Controllers/loginController.php',
+    'App\\Http\\Controllers\\registerController' => $baseDir . '/app/Http/Controllers/registerController.php',
+    'App\\Models\\JenisBarang' => $baseDir . '/app/Models/JenisBarang.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\barang' => $baseDir . '/app/Models/barang.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
@@ -1007,6 +1012,9 @@ return array(
     'Hamcrest\\Type\\IsString' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+    'Haruncpi\\LaravelIdGenerator\\IdGenerator' => $vendorDir . '/haruncpi/laravel-id-generator/src/IdGenerator.php',
+    'Haruncpi\\LaravelIdGenerator\\IdGeneratorServiceProvider' => $vendorDir . '/haruncpi/laravel-id-generator/src/IdGeneratorServiceProvider.php',
+    'Haruncpi\\LaravelIdGenerator\\Traits\\IdFactory' => $vendorDir . '/haruncpi/laravel-id-generator/src/Traits/IdFactory.php',
     'Illuminate\\Auth\\Access\\AuthorizationException' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
     'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
     'Illuminate\\Auth\\Access\\Gate' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',

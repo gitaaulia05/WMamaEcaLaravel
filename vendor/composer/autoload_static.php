@@ -131,6 +131,10 @@ class ComposerStaticInitd4b19094064e771a84dee806b2b1f03a
             'Illuminate\\Support\\' => 19,
             'Illuminate\\' => 11,
         ),
+        'H' => 
+        array (
+            'Haruncpi\\LaravelIdGenerator\\' => 28,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\UriTemplate\\' => 23,
@@ -337,8 +341,8 @@ class ComposerStaticInitd4b19094064e771a84dee806b2b1f03a
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -421,6 +425,10 @@ class ComposerStaticInitd4b19094064e771a84dee806b2b1f03a
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'Haruncpi\\LaravelIdGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src',
         ),
         'GuzzleHttp\\UriTemplate\\' => 
         array (
@@ -509,7 +517,12 @@ class ComposerStaticInitd4b19094064e771a84dee806b2b1f03a
 
     public static $classMap = array (
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\KasbonController' => __DIR__ . '/../..' . '/app/Http/Controllers/KasbonController.php',
+        'App\\Http\\Controllers\\loginController' => __DIR__ . '/../..' . '/app/Http/Controllers/loginController.php',
+        'App\\Http\\Controllers\\registerController' => __DIR__ . '/../..' . '/app/Http/Controllers/registerController.php',
+        'App\\Models\\JenisBarang' => __DIR__ . '/../..' . '/app/Models/JenisBarang.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\barang' => __DIR__ . '/../..' . '/app/Models/barang.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
@@ -1509,6 +1522,9 @@ class ComposerStaticInitd4b19094064e771a84dee806b2b1f03a
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Haruncpi\\LaravelIdGenerator\\IdGenerator' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/IdGenerator.php',
+        'Haruncpi\\LaravelIdGenerator\\IdGeneratorServiceProvider' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/IdGeneratorServiceProvider.php',
+        'Haruncpi\\LaravelIdGenerator\\Traits\\IdFactory' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/Traits/IdFactory.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
