@@ -15,16 +15,20 @@
 
        {{-- INI BENERIN POSISI TAMPILAN ERROR NYA  --}}
     @if(session()->has('loginError'))
-           <h1>{{ session('loginError')}}</h1>
+        <div class="alert alert-danger">
+           {{ session('loginError')}}
+        </div>
     @endif
+
     @if(session()->has('success'))
-           <h1>{{ session('success')}}</h1>
+        <div class="alert alert-success">
+           {{ session('success')}}
+        </div>
     @endif
 
         <form class="form" method="post" action="/auth-login">
          @csrf
             <div class="input-container">
-
 
                         {{-- INI PUNYA AKU (GITA) YANG DIBENERIN YANG INI  --}}
                 <input type="number" name="no_hp" placeholder="Masukkan nomor Handphone" >
@@ -32,19 +36,8 @@
             </div>
             <div class="button-container">
                 <a href="/register" class="button">Daftar</a>
-               <button type="submit"  > Masuk </button>
+                <button type="submit" class="button">Masuk</button>
             </div>
-
-
-                      {{-- INI PUNYA KAMU  (SOFI)
-                <input type="text" placeholder="Masukkan no hp">
-                <input type="password" placeholder="Masukkan password">
-            </div>
-            <div class="button-container">
-                <input type="button" value="Daftar" class="button">
-                <a href="/register" class="button">Masuk</a>
-            </div>  --}}
-
             <a href="#">Lupa password?</a>
         </form>
     </div>

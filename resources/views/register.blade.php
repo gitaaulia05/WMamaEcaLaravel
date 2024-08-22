@@ -28,7 +28,7 @@
                             @enderror
 
                     <input type="password" name="password"  class="form-control @error('password') is-invalid  @enderror" placeholder="Masukkan password" min>
-           {{-- INI BENERIN POSISI TAMPILAN ERROR NYA  --}}
+                        {{-- INI BENERIN POSISI TAMPILAN ERROR NYA  --}}
                      @error('password')
                             <div class="invalid-feedback">
                               {{ $message }}
@@ -36,21 +36,9 @@
                             @enderror
                 </div>
                 <div class="button-container-b">
-                  <button type="submit">Daftar</button>
-                    <a href="/login" type="button">sudah punya akun? login</a>
-                {{-- PUNYA GITA SAMPE SINI REGISTER YANG DIBENERIN --}}
-
-                
-                                  {{-- PUNYA SOFI YANG INI  --}}
-                    {{-- <input type="text" placeholder="Masukkan nama">
-                    <input type="text" placeholder="Masukkan no hp">
-                    <input type="password" placeholder="Masukkan password">
+                  <button type="submit" class="button">Daftar</button>
+                  <a href="/login" class="link">sudah punya akun? login</a>
                 </div>
-                <div class="button-container-b">
-                    <input type="button" value="Daftar" class="button"> --}}
-    {{-- SAMPE SINI PUNYA SOFI --}}
-                </div>
-                <a href="/login">Sudah punya akun? login</a>
             </form>
         </div>
        </div>

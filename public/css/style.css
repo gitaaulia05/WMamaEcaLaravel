@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Playfair Display", serif;
+    font-family: "Bitter", serif;
 }
 body {
     min-height: 100vh;
@@ -47,6 +47,29 @@ body {
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
 }
 
+/* tampilan alert login*/
+.alert {
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    height: 60px;
+    width: 100%;
+}
+
+.alert-danger {
+    background-color: #da1f1f;
+    border: 1px solid #d36161;
+}
+
+.alert-success {
+    background-color: #a1d169;
+    border: 1px solid #8fa577;
+}
+
 .input-container input {
     display: flex;
     flex-direction: column;
@@ -66,6 +89,19 @@ body {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* alert regist */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+    text-align: left;
+}
+
 .button-container {
     display: flex;
     gap:10px;
@@ -76,28 +112,14 @@ body {
 
 .button-container-b {
     display: flex;
-    gap: 10px;
-    width: 100%;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.button-container input.button {
+.button-container .button {
     height: 60px;
     width: 48%;
-    padding: 10px 20px;
-    font-size: 17px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    background-color: #ff8567;
-    color: white;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-.button-container a.button {
-    height: 60px;
-    width: 48%;
-    margin:0;
+    margin: 0;
     padding: 10px 20px;
     font-size: 17px;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -112,7 +134,7 @@ body {
     text-decoration: none;
 }
 
-.button-container-b input.button {
+.button-container-b .button {
     height: 60px;
     width: 100%;
     padding: 10px 20px;
@@ -126,21 +148,24 @@ body {
     margin: 20px;
 }
 
-.button-container input.button:hover {
-    background-color: #ff6f5e;
+.button-container-b .link{
+    margin-top: 10px;
+    text-align: center;
+    color: #ff8567;
+    text-decoration: none;
 }
 
-.button-container a.button:hover {
+.button-container .button:hover {
     background-color: #ff6f5e;
     text-decoration: none;
 }
 
-.button-container-b input.button:hover {
+.button-container-b .button:hover {
     background-color: #ff6f5e;
 }
 
 .form a {
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
     color: #ff8567;
     text-decoration: none;
