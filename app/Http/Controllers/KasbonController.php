@@ -9,9 +9,11 @@ use App\Http\Controllers\Controller;
 
 class KasbonController extends Controller
 {
+    
     public function index(){
-        return view('retrieve', [
-            "title" => "Show All",
+        return view('admin.kasbon', [
+            "title" => "Admin | KASBON",
+            "page" => "KASBON",
             "barang" => barang::all()
         ]);
     }

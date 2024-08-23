@@ -29,8 +29,6 @@
         <form class="form" method="post" action="/auth-login">
          @csrf
             <div class="input-container">
-
-                        {{-- INI PUNYA AKU (GITA) YANG DIBENERIN YANG INI  --}}
                 <input type="number" name="no_hp" placeholder="Masukkan nomor Handphone" >
                 <input type="password" name="password" placeholder="Masukkan password">
             </div>

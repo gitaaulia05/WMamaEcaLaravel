@@ -15,12 +15,10 @@
                 @csrf
                 <div class="input-container">
 
-                         {{-- INI PUNYA AKU (GITA) YANG DIBENERIN YANG INI  --}}
                     <input type="text" name="nama" placeholder="Masukkan nama" value={{old('nama')}}>
                     <input type="textarea" name="alamat" placeholder="Masukkan alamat" value={{old('alamat')}}>
                     <input type="number" name="no_hp"  class="form-control @error('no_hp') is-invalid  @enderror"  placeholder="Masukkan nomor handphone" maxlength="12">
 
-                         {{-- INI BENERIN POSISI TAMPILAN ERROR NYA  --}}
                       @error('no_hp')
                             <div class="invalid-feedback">
                               {{ $message }}
