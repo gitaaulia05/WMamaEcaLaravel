@@ -1,10 +1,15 @@
 # WARUNK MAMA ECA
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Sebuah website aplikasi yang dibuat dengan latar belakang berdasarkan kondisi nyata, yang di mana seorang admin toko selalu kewalahan dalam mendata barang masuk/keluar, harga-harga barang yang tidak tercatat dengan rapih, serta catatan para pengkasbon yang tidak teratur.
 
 - manfaat
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+Website ini memiliki beberapa manfaat yakni mempermudah admin dalam mengelola barang sehingga tidak akan berserakan data dari masing-masing barangnya, serta memiliki manfaat remainder untuk para pengkasbon agar tidak lupa untuk segera membayar hutangnya sehingga admin tidak perlu bersusah payah mengingatkan satu-satu secara langsung kepada para pengkasbon.
 
 - fitur - fitur 
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+Website ini memiliki beberapa fitur yang bermanfaat di antaranya: 
+- dashboard (menampilkan barang-barang yang dijual serta dapat melakukan penambahan data dari tiap barang dan juga dapat melihat laporan dari suatu barang tersebut).
+- Laporan pengeluaran barang (menampilkan informasi terkait penjualan dari tiap-tiap barang secara rinci).
+- Kasbon (berisikan data-data dari para pengkasbon sehingga memudahkan sang admin dalam mengelolanya).
+- Angsuran kasbon (berisikan informasi mengenai data dari tiap pengkasbon dalam menyicil hutangnya hingga lunas).
+- Remainder kasbon (sebuah notifikasi yang akan diterima oleh para pengkasbon untuk segera melakukan pembayaran terhadap hutangnya).
 
