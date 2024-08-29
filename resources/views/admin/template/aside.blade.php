@@ -12,7 +12,7 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  
+
   <link href="{{ asset('css/css/nucleo-icons.css')}}" rel="stylesheet" />
 
     <link href="{{ asset('css/css/nucleo-svg.css')}}" rel="stylesheet" />
@@ -24,6 +24,7 @@
   <!-- CSS Files -->
   {{-- <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" /> --}}
       <link  id="pagestyle" href="{{ asset('css/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -100,7 +101,7 @@
         </li>
       </ul>
     </div>
-    
+
   </aside>
 
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">

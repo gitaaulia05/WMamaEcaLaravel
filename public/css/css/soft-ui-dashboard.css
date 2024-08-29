@@ -56,17 +56,18 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+
 /* dashboard */
 .button-dashboard {
   display: flex;
-  gap: 10px; 
-  width: 100%; 
-  margin-top: 40px; 
+  gap: 10px;
+  width: 100%;
+  margin-top: 40px;
 }
 
 .button-dashboard a.button {
   height: 60px;
-  width: 48%; 
+  width: 48%;
   padding: 10px 20px;
   font-size: 17px;
   border: 1px solid rgba(0, 0, 0, 0.2);
