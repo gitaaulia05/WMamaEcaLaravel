@@ -29,7 +29,7 @@
         <form class="form" method="post" action="/auth-login">
          @csrf
             <div class="input-container">
-                <input type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Masukkan nomor Handphone" value="{{ old('no_hp') }}">
+                <input type="tel" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Masukkan nomor Handphone" value="{{ old('no_hp') }}">
 
                   @error('no_hp')
                 <div class="invalid-feedback">
