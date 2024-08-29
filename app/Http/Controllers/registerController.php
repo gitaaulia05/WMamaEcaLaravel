@@ -27,7 +27,7 @@ class registerController extends Controller
 
         ]);
         $validateData['id_user'] = (string) Str::uuid();
-        $validateData['password'] = Hash::make($validateData['password']);
+        $validateData['password'] = Hash::make($request->password);
         User::create($validateData);
         return redirect('/login')->with('success' , 'Akun Berhasil Dibuat');
     }

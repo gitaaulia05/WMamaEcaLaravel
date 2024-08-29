@@ -29,8 +29,21 @@
         <form class="form" method="post" action="/auth-login">
          @csrf
             <div class="input-container">
-                <input type="number" name="no_hp" placeholder="Masukkan nomor Handphone" >
-                <input type="password" name="password" placeholder="Masukkan password">
+                <input type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Masukkan nomor Handphone" value="{{ old('no_hp') }}">
+
+                  @error('no_hp')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan password" value="{{ old('password') }}">
+                @error('password')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+                
             </div>
             <div class="button-container">
                 <a href="/register" class="button">Daftar</a>

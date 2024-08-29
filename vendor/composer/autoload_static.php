@@ -518,8 +518,12 @@ class ComposerStaticInitd4b19094064e771a84dee806b2b1f03a
     public static $classMap = array (
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\KasbonController' => __DIR__ . '/../..' . '/app/Http/Controllers/KasbonController.php',
+        'App\\Http\\Controllers\\LaporanPenjualanController' => __DIR__ . '/../..' . '/app/Http/Controllers/LaporanPenjualanController.php',
+        'App\\Http\\Controllers\\adminDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/adminDashboardController.php',
         'App\\Http\\Controllers\\loginController' => __DIR__ . '/../..' . '/app/Http/Controllers/loginController.php',
         'App\\Http\\Controllers\\registerController' => __DIR__ . '/../..' . '/app/Http/Controllers/registerController.php',
+        'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
+        'App\\Http\\Middleware\\CheckUserRole' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckUserRole.php',
         'App\\Models\\JenisBarang' => __DIR__ . '/../..' . '/app/Models/JenisBarang.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\barang' => __DIR__ . '/../..' . '/app/Models/barang.php',

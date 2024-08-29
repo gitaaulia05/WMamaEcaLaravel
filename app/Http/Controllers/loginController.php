@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+  
 
 class loginController extends Controller
 {
@@ -13,19 +14,27 @@ class loginController extends Controller
         return view('login', [
             "title" => "Login",
         ]);
-    }
+    } 
 
-    public function auth_login(Request $request){
+    public function auth_login(Request $request): RedirectResponse
+    {
         $credentials = $request->validate([
             'no_hp' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-            return redirect()->intended('/register');
-        }else 
-        return back()->with('loginError', 'Login Gagal');
+        // if(Auth::attempt($credentials)){
+        //     $request->session()->regenerate();
+        //     return redirect()->intended('/');
+        // }
+        
+        if (Auth::attempt($request->only('email', 'password'))) {
+            return redirect()->intended('/'); // Redirect to intended page
+        }
 
+            return back()->with('loginError', 'Login Gagal');
+        
+            
+      
     }
 }
