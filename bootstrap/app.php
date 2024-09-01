@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\cekUser;
+use App\Http\Middleware\cekLogin;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Foundation\Application;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -14,12 +16,26 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+
+        $middleware->group('web', [
+            // \Illuminate\Cookie\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+        ]);
+
         $middleware->alias([
             'is_admin' => \App\Http\Middleware\isAdmin::class,
             'Tanggal'=> \App\Http\Middleware\dateControl::class,
-            'guest' => RedirectIfAuthenticated::class,
-            'auth.custom' => EnsureUserIsAuthenticated::class,
+            // 'guest' => Authenticate::class,
+            'auth.custom' => RedirectIfAuthenticated::class,
+            
         ]);
+
+        
         //    $middleware->append(Authenticate::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {

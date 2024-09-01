@@ -26,12 +26,12 @@
         </div>
     @endif
 
-        <form class="form" method="post" action="/auth-login">
+       <form class="form" action="{{ route('auth_login') }}" method="POST">
          @csrf
             <div class="input-container">
-                <input type="tel" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Masukkan nomor Handphone" value="{{ old('no_hp') }}">
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan nomor Handphone" value="{{ old('email') }}" maxlength="100">
 
-                  @error('no_hp')
+                  @error('email')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -49,8 +49,10 @@
                 <a href="/register" class="button">Daftar</a>
                 <button type="submit" class="button">Masuk</button>
             </div>
+            
             <a href="#">Lupa password?</a>
         </form>
+       
     </div>
    </div>
 </body>

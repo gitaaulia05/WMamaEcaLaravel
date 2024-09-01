@@ -9,23 +9,19 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 
 
-class RedirectIfAuthenticated
+class RedirectIfAuthenticated 
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$guards): Response
+    public function handle(Request $request, Closure $next): Response
     {
-        $guards = empty($guards) ? [null] : $guards;
+       if(Auth::check()){
+        return $next($request);
+       }
 
-    foreach ($guards as $guard) {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/'); // Ensure this redirect is correct
-        }
-    }
-
-    return $next($request);
+       return redirect()->route('login');
     }
 }

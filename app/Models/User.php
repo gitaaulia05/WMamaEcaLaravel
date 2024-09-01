@@ -10,8 +10,12 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    protected $table = 'user';  
-
+  
+    protected $table = 'users';
+    protected $primary = 'id_user';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +25,7 @@ class User extends Authenticatable
         'id_user',
         'nama',
         'no_hp',
-        '',
+        'email',
         'alamat',
         'password'
     ];
@@ -48,4 +52,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+
 }

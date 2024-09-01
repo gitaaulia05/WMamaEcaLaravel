@@ -8,15 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Authenticate 
 {
-    public function handle($request, Closure $next, ...$guards): Response
+    public function handle($request, Closure $next)
     {
-        // Make sure Auth::check() is working as expected
-        if (!Auth::check()) {
-            \Log::info('User not authenticated, redirecting to login');
-            return redirect()->route('login'); // Correct redirect
+        if (Auth::check()) {
+            return $next($request);
         }
+
+        return route('login');
         
-        \Log::info('User authenticated, proceeding to next middleware');
-        return $next($request);
     }
 }

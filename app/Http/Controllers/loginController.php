@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Illuminate\Http\RedirectResponse;
   
 
@@ -16,22 +16,28 @@ class loginController extends Controller
         ]);
     } 
 
-    public function auth_login(Request $request): RedirectResponse
+    public function auth_login(Request $request)
     {
+
         $credentials = $request->validate([
-            'no_hp' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
 
         // if(Auth::attempt($credentials)){
-        //     $request->session()->regenerate();
+         
+        // $request->session()->regenerate();
+        // dd(session()->all());
+        // // dd(Auth::check());
         //     return redirect()->intended('/');
         // }
         
-        if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->intended('/'); // Redirect to intended page
-        }
 
+        if (Auth::attempt(['email' =>   $credentials['email'] , 'password' =>   $credentials['password'] ])) {
+             $request->session()->regenerate();
+            // dd(Auth::check(), Auth::user()->id, session()->all());
+            return redirect()->intended('/');
+        }
             return back()->with('loginError', 'Login Gagal');
         
             

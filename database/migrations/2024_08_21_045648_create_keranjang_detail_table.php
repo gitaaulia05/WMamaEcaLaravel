@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('keranjang_detail', function (Blueprint $table) {
             $table->string('id_detail_keranjang')->primary();
             $table->string('id_keranjang');
-            $table->foreign('id_keranjang')->references('id_user')->on('keranjang')->onDelete('cascade');
+            $table->foreign('id_keranjang')->references('id_keranjang')->on('keranjang')->onDelete('cascade');
             $table->string('id_barang');
             $table->foreign('id_barang')->references('id_barang')->on('barang')->onDelete('cascade');
             $table->integer('kuantitas');

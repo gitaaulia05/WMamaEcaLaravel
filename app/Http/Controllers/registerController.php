@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\users;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class registerController extends Controller
 {
+   
+
     public function index(){
         return view('register', [
             "title" => "Register"
@@ -22,7 +25,8 @@ class registerController extends Controller
            
             'nama' => 'required',
             'alamat' => 'required',
-            'no_hp' => 'required|numeric|digits:12|unique:user',
+            'no_hp' => 'required|numeric|digits:12|unique:users',
+            'email' => 'required|email:rfc,dns|unique:users',
             'password' => 'required|min:8'
 
         ]);

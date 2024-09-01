@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class dateControl
+class cekUser
 {
     /**
      * Handle an incoming request.
@@ -15,10 +16,11 @@ class dateControl
      */
     public function handle(Request $request, Closure $next): Response
     {
-       if(date('d') == "31"){
-        return $next($request);
-       } else {
-        abort(404);
-       }
+        if(!Auth::check()){
+            return redirect()->route('login');
+            
+           }
+    
+           return $next($request);
     }
 }

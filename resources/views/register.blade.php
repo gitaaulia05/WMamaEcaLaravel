@@ -24,6 +24,13 @@
                         </div>
                     @enderror
 
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan  email"  value="{{ old('email') }}">
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+
                     <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan password">
                     @error('password')
                         <div class="invalid-feedback">

@@ -7,6 +7,8 @@ use App\Http\Controllers\KasbonController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\LaporanPenjualanController;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 
         // TESTING AMBIL DATA KASBON
 // Route::get('/', [KasbonController::class, 'index']);
@@ -14,9 +16,12 @@ use App\Http\Controllers\LaporanPenjualanController;
 
             // LOGIN  USER - ADMIN 
 Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('guest');
-Route::get('/', [UserController::class, 'index'])->name('home')->middleware('auth.custom');
+
+Route::middleware(['auth'])->group(function () {
+Route::get('/', [UserController::class, 'index']);
+});
             
-Route::post('/auth-login',[loginController::class,'auth_login']);
+Route::post('/login',[loginController::class,'auth_login'])->name('auth_login');
 
 
             // REGISTER CREATE USER
