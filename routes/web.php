@@ -13,13 +13,13 @@ use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 // Route::get('/', [KasbonController::class, 'index']);
 //  Route::get('/{id_barang}', [KasbonController::class, 'detail_data']);
 
-          
+
 Route::middleware('guest')->group(function () {
-         // LOGIN  USER - ADMIN 
+         // LOGIN  USER - ADMIN
         Route::get('/login', [AuthenticateController::class, 'index'])->name('login');
 
         Route::post('/login-auth',[AuthenticateController::class,'auth_login'])->name('auth_login');
-        
+
             // REGISTER CREATE USER
         Route::get('/register', [AuthenticateController::class, 'register']);
         Route::post('/create-user', [AuthenticateController::class,'create_user']);
@@ -33,19 +33,18 @@ Route::middleware('auth')->group(function () {
         Route::post('/logout',[AuthenticateController::class,'destroy']);
 });
 
-Route::middleware(['auth', 'cekAdmin'])->group(function () {
+//Route::middleware(['auth', 'cekAdmin'])->group(function () {
                 // DASHBOARD ADMIN
         Route::get('/dashboard-admin', [adminDashboardController::class,'index'])->name('dash_admin');
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);
 
 
-                // DASHBOARD LAPORAN PENJUALAN 
+                // DASHBOARD LAPORAN PENJUALAN
         Route::get('/laporan-penjualan', [LaporanPenjualanController::class,'index']);
 
 
-                // DASHBOARD KASBON 
+                // DASHBOARD KASBON
         Route::get('/kasbon', [KasbonController::class, 'index']);
-    
-});
 
-           
+//});
+
