@@ -21,6 +21,6 @@ class cekAdmin
            
         } 
         
-        return abort(404);
+        return back();
     }
 }

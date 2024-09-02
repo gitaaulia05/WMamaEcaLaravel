@@ -42,8 +42,10 @@ class AuthenticateController extends Controller
      
             if ($user->is_admin == 1) {
                 return redirect()->route('dash_admin');  // Redirect admin users to admin dashboard
-             } else {
+             } else if($user->is_admin == 0) {
                 return redirect()->route('user_home');  // Redirect normal users to their dashboard
+         }else {
+            return back()->with('loginError', 'Login Gagal !');
          }
     
             

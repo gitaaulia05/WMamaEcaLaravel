@@ -19,6 +19,6 @@ class cekUser
         if(Auth::check() && Auth::user()->is_admin == 0){
             return $next($request);
         }  
-        return redirect('/');
+        return back();
     }
 }
