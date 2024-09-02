@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class cekAdmin
+class cekUser
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,9 @@ class cekAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->user()->is_admin === 1  ){
+        if(Auth::check() && Auth::user()->is_admin == 0){
             return $next($request);
-           
-        } 
-        
-        return abort(404);
+        }  
+        return redirect('/');
     }
 }

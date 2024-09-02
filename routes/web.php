@@ -27,13 +27,16 @@ Route::middleware('guest')->group(function () {
 
 
 
-Route::middleware('auth')->group(function () {
-        Route::get('/', [UserController::class, 'index']);
-
-        Route::post('/logout',[AuthenticateController::class,'destroy']);
+Route::middleware('auth' , 'cekUser')->group(function () {
+        Route::get('/home', [UserController::class, 'index'])->name('user_home');
 });
 
-Route::middleware(['auth', 'cekAdmin'])->group(function () {
+Route::get('/', [UserController::class, 'index'])->name('home');
+
+Route::post('/logout',[AuthenticateController::class,'destroy'])->middleware('auth');
+
+
+Route::middleware(['auth','cekAdmin'])->group(function () {
                 // DASHBOARD ADMIN
         Route::get('/dashboard-admin', [adminDashboardController::class,'index'])->name('dash_admin');
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);

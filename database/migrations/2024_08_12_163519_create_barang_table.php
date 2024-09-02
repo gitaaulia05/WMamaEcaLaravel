@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_barang');
         $table->integer('stok_barang');
             $table->text('deks_barang');
-            $table->boolean('is_arsip');
+            $table->boolean('is_arsip')->default('false');
             $table->timestamps();
         });
     }

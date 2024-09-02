@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Middleware\cekUser;
 use App\Http\Middleware\cekAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -28,6 +29,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'is_admin' => \App\Http\Middleware\isAdmin::class,
             'Tanggal'=> \App\Http\Middleware\dateControl::class,
             'cekAdmin' => cekAdmin::class,
+            'cekUser' => cekUser::class,
             
         ]);
 

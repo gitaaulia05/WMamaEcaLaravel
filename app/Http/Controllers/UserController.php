@@ -11,5 +11,9 @@ class UserController extends Controller
             return view('user.index',[
                 "title" => 'USER'
             ]);
-    }   
+    }  
+    
+    public function user_test(){
+        return view('welcome');
+    }
 }

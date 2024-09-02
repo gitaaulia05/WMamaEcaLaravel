@@ -35,8 +35,18 @@ class AuthenticateController extends Controller
                     'no_hp' => 'Maaf , nomor handphone anda tidak valid'
                 ]);
         }
-             request()->session()->regenerate();
-        return redirect('/');
+        $user = Auth::user();
+    
+
+        request()->session()->regenerate();
+     
+            if ($user->is_admin == 1) {
+                return redirect()->route('dash_admin');  // Redirect admin users to admin dashboard
+             } else {
+                return redirect()->route('user_home');  // Redirect normal users to their dashboard
+         }
+    
+            
     }
 
     public function destroy(){
