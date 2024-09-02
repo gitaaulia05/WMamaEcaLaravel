@@ -16,7 +16,7 @@ class isAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if(\Auth::user()->is_admin != 1   ){
-            return redirect('/');
+            return redirect('/')->with('error' , 'kamu bukan admin');
         }
         return $next($request);
     }

@@ -29,7 +29,7 @@
        <form class="form" action="{{ route('auth_login') }}" method="POST">
          @csrf
             <div class="input-container">
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan nomor Handphone" value="{{ old('email') }}" maxlength="100">
+                <input type="no_hp" name="no_hp" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan nomor Handphone" value="{{ old('email') }}" maxlength="100">
 
                   @error('email')
                 <div class="invalid-feedback">

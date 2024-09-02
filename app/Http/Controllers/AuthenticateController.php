@@ -2,19 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use session;
 use App\Models\User;
-use App\Models\users;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
+  
 
-class registerController extends Controller
+class AuthenticateController extends Controller
 {
-   
 
     public function index(){
+        return view('login', [
+            "title" => "Login",
+        ]);
+    } 
+
+    public function auth_login()
+    {
+
+        $credentials = request()->validate([
+        'no_hp' => ['required' , ],
+            'password' => ['required','min:8']
+        ]);
+
+        if(!Auth::attempt($credentials)) {
+                throw ValidationException::withMessages([
+                    'no_hp' => 'Maaf , nomor handphone anda tidak valid'
+                ]);
+        }
+             request()->session()->regenerate();
+        return redirect('/');
+    }
+
+    public function destroy(){
+        Auth::logout();
+
+        return redirect('/login');
+    }
+
+
+    // REGISTER 
+    public function register(){
         return view('register', [
             "title" => "Register"
         ]);
@@ -39,5 +72,6 @@ class registerController extends Controller
 
       return redirect('/')->with('success' , 'Akun Berhasil Dibuat');
     }
+
 
 }

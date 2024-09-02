@@ -1,11 +1,8 @@
 <?php
 
-use App\Http\Middleware\cekUser;
-use App\Http\Middleware\cekLogin;
-use App\Http\Middleware\Authenticate;
+
+use App\Http\Middleware\cekAdmin;
 use Illuminate\Foundation\Application;
-use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Http\Middleware\EnsureUserIsAuthenticated;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
@@ -30,8 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'is_admin' => \App\Http\Middleware\isAdmin::class,
             'Tanggal'=> \App\Http\Middleware\dateControl::class,
-            // 'guest' => Authenticate::class,
-            'auth.custom' => RedirectIfAuthenticated::class,
+            'cekAdmin' => cekAdmin::class,
             
         ]);
 
