@@ -21,9 +21,11 @@
   {{-- <link href="../assets/css/nucleo-svg.css" rel="stylesheet" /> --}}
   <link href="{{ asset('css/css/nucleo-svg.css')}}" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <!-- CSS Files -->
   {{-- <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" /> --}}
       <link  id="pagestyle" href="{{ asset('css/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet" />
+      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
@@ -40,7 +42,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  active" href="/dashboard-admin">
+          <a class="nav-link  {{ Request::is('dashboard-admin') ? 'active' : '' }}" href="/dashboard-admin">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -60,7 +62,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="/laporan-penjualan">
+          <a class="nav-link  {{ Request::is('laporan-penjualan') ? 'active' : '' }}" href="/laporan-penjualan">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -80,7 +82,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="/kasbon">
+          <a class="nav-link  {{ Request::is('kasbon') ? 'active' : '' }}" href="/kasbon">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
