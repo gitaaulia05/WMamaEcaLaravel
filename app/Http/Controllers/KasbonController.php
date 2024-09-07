@@ -20,17 +20,12 @@ class KasbonController extends Controller
     public function index(){
         return view('admin.kasbon.index', [
             "title" => "Admin | KASBON",
+
             "page" => "KASBON",
             "kasbon" => kasbon::with(['pembelian.users'])->get(),
+
         ]);
     }
-
-    // public function detail_data($id_barang){
-    //     return view('retrieve_detail',[
-    //         "title" => "Single Post",
-    //         "Jbarang" => barang::find($id_barang)
-    //     ]);
-    // }
 
     public function detail_data($slug){
         $dataUser = DB::table('users')->join('pembelian', 'pembelian.id_user', '=' , 'users.id_user' )->join('kasbon' , 'kasbon.id_pembelian' , '=' , 'pembelian.id_pembelian')->where('pembelian.slug' , '=' , $slug)->first();

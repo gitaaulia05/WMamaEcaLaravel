@@ -49,9 +49,13 @@ Route::middleware(['auth', 'cekAdmin'])->group(function () {
 
                 // DASHBOARD KASBON
         Route::get('/kasbon', [KasbonController::class, 'index']);
+<<<<<<< HEAD
         Route::get('/detail-kasbon/{slug}', [KasbonController::class, 'detail_data']);
         Route::get('/tambah-data-kasbon/{slug}', [KasbonController::class, 'tambah_data']);
         Route::post('/simpan-data-kasbon', [KasbonController::class, 'simpan_data']);
+=======
+        Route::get('/tambah-data-kasbon', [KasbonController::class, 'tambah_data_kasbon']);
+>>>>>>> 1c516e33eaab9de03164c66cef660836b55f9272
 
 });
 

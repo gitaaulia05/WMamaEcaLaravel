@@ -3,13 +3,15 @@
 
 @section('container')
 
-<div class="container mt-4">
+<div class="container-c mt-4">
+<div class="row justify-content-center">
+<div class="col-md-11">
     <div class="card" style="margin-left: 0; background-color: #EEEEEE; padding-bottom: 5px; min-height: 300px; position: relative;">
         <div class="card-header">
             <h5>Tambah Data Barang</h5>
         </div>
         <div class="card-body">
-            <form class="form" action="/tambah-data" method="POST">
+            <form class="form-b" action="/tambah-data" method="POST">
                 @csrf
 
                 <div class="form-group mb-3">
@@ -29,7 +31,7 @@
 
                 <div class="form-group mb-3">
                     <label for="description">Deskripsi:</label>
-                    <textarea id="description" name="description" class="form-control" style="width: 40%; height: 150px;" required></textarea>
+                    <textarea id="description" name="description" class="form-control" style="width: 40%; height: 100px;" required></textarea>
                 </div>
 
                 <div class="form-group mb-3">
@@ -48,6 +50,8 @@
             </form>
         </div>
     </div>
+</div>
+</div>
 </div>
 
 
