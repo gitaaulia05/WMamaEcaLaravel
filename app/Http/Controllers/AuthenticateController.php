@@ -72,7 +72,6 @@ class AuthenticateController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required|numeric|digits:12|unique:users',
-            'email' => 'required|email:rfc,dns|unique:users',
             'password' => 'required|min:8'
 
         ]);
@@ -80,9 +79,9 @@ class AuthenticateController extends Controller
         $validateData['password'] = Hash::make($request->password);
        $user =  User::create($validateData);
 
-    Auth::login($user);
+    // Auth::login($user);
 
-      return redirect('/')->with('success' , 'Akun Berhasil Dibuat');
+      return redirect('/login')->with('success' , 'Akun Berhasil Dibuat Silahkan Login');
     }
 
 

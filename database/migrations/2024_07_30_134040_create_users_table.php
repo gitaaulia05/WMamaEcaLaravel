@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('id_user' ,100)->primary();
             $table->string('nama', 45)->nullable();
             $table->string('no_hp', 12)->nullable()->unique();
-            $table->string('email', 100)->nullable()->unique();
             $table->text('alamat');
             $table->string('password');
             $table->double('limit')->default(500000);

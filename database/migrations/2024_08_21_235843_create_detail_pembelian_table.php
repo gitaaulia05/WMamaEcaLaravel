@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('detail_pembelian', function (Blueprint $table) {
             $table->string('id_det_pem')->primary();
+            $table->string('slug');
             $table->string('id_pembelian');
             $table->foreign('id_pembelian')->references('id_pembelian')->on('pembelian')->onDelete('cascade');
             $table->string('id_barang');

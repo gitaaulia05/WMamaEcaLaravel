@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+use App\Models\pembelian;
 // use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class users extends Authenticatable
 {
@@ -17,7 +19,6 @@ class users extends Authenticatable
         'id_user',
         'nama',
         'no_hp',
-        'email',
         'alamat',
         'password'
     ];
@@ -32,4 +33,10 @@ class users extends Authenticatable
     protected $primary = 'id_user';
     protected $keyType = 'string';
     public $incrementing = false;
+
+
+    public function pembelian(): HasMany
+    {
+        return $this->hasMany(pembelian::class, 'id_user', 'id_user');
+    }
 }

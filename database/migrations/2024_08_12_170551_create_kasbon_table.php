@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('kasbon', function (Blueprint $table) {
             $table->string("id_kasbon", 100)->primary();
+            $table->string("id_pembelian");
+            $table->foreign("id_pembelian")->references("id_pembelian")->on("pembelian")->onDelete("cascade");
+            $table->string("slug");
             $table->double("total_kasbon");
             $table->double("sisa_kasbon");
-            $table->double('tanggal_kasbon');
+            $table->date('tanggal_kasbon');
             $table->timestamps();
         });
     }
