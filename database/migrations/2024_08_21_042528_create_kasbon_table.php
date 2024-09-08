@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("id_pembelian");
             $table->foreign("id_pembelian")->references("id_pembelian")->on("pembelian")->onDelete("cascade");
             $table->string("slug");
+            $table->foreign("slug")->references("slug")->on("pembelian")->onDelete("cascade");
             $table->double("total_kasbon");
             $table->double("sisa_kasbon");
             $table->date('tanggal_kasbon');
