@@ -1,10 +1,4 @@
 
-
-{{-- //  INI HAPUS AJA LINK BOOTSTRAP NYA CUMAN BUAT TEST AJA --}}
-
-
-
-
     @extends('admin.template.aside')
 
 @section('container')
@@ -32,21 +26,21 @@
                   </thead>
                        @foreach ($pembelian as $d )
                   <tbody>
-                       
-                        
+
+
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
 
                             <img src="{{asset('images/img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
                           </div>
-                        
-               
+
+
                       </td>
                           <td>
                         <p class="text-xs font-weight-bold mb-0">
                          {{$d->users->nama}}
-                      </td> 
+                      </td>
                       <td>
                         <p class="text-xs font-weight-bold mb-0">
                           @foreach($d->kasbon as $p)
@@ -71,9 +65,9 @@
                             style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
                         </a>
                       </td>
-               
+
                     </tr>
-                       
+
                     </tr>
                   </tbody>
                      @endforeach
@@ -84,3 +78,4 @@
         </div>
     </div>
 @endsection
+

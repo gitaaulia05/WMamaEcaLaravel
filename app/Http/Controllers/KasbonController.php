@@ -43,15 +43,12 @@ class KasbonController extends Controller
 
     public function detail_rinci($slug){
 
-            $dataUser = DB::table('users')->join('pembelian', 'pembelian.id_user', '=' , 'users.id_user' )->join('kasbon' , 'kasbon.id_pembelian' , '=' , 'pembelian.id_pembelian')->where('pembelian.slug' , '=' , $slug)->first();
-    
+      
             return view('admin.kasbon.detail_rinci',[
                 'title' => "Admin | Detail Data Kasbon",
                 'page' => 'Detail Data Kasbon',
-                'data' => pembelian::with('users', 'detail_pembelian.namaBarang','kasbon' )->where('slug' , $slug)->first(),
-                // 'data' => kasbon::with('detKasbon')->where('slug' , $slug)->first(),
-                // 'user' => $dataUser,
-                // 'pembelian' => pembelian::with(['detail_pembelian.namaBarang'])->where('slug' , $slug)->first(),
+                'data' => kasbon::with(['detKasbon', 'pembelian.users'])->where('slug' , $slug)->first(),
+                'pembelian' => pembelian::with(['detail_pembelian.namaBarang'])->where('slug' , $slug)->first(),
                 
             ]);
         

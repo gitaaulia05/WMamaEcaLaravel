@@ -54,5 +54,6 @@ Route::middleware(['auth', 'cekAdmin'])->group(function () {
         Route::get('/tambah-data-kasbon/{slug}', [KasbonController::class, 'tambah_data']);
         Route::post('/simpan-data-kasbon', [KasbonController::class, 'simpan_data']);
 
+
 });
 
