@@ -55,7 +55,7 @@
                         {{$d->total_kasbon}}/50.000</span>
                       </td>
                       <td class="align-middle text-center">
-                      <a href="/detail-kasbon/{{$d->slug}}" class="btn btn-orange"
+                      <a href="/detail-kasbon/{{$d->id_user}}" class="btn btn-orange"
                             style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
                         </a>
                       </td>

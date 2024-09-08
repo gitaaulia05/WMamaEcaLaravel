@@ -1,36 +1,95 @@
-@extends('admin.template.aside')
 
-{{-- //  INI HAPUS AJA LINK BOOTSTRAP NYA CUMAN BUAT TEST AJA --}}
+    {{-- @foreach ($data->detKasbon as $d)
+          <div class="bg-danger mx-auto col-5">
+    <h1>cicilan ke {{$d->cicilan_ke}}</h1>
+     @if ($user)
+         <h1> nama pembeli : {{$user->nama}}</h1>
+     @endif
+              @foreach ($pembelian->detail_pembelian as $detail)
+         <h1>Nama Barang : {{$detail->namaBarang->nama_barang}}</h1>
+     @endforeach
+        <h1>total bayar : {{$d->total_bayar}}</h1>
+        <h1>tanggal Bayar : {{$d->created_at}}</h1>
+</div>
+    @endforeach --}}
+
+    @extends('admin.template.aside')
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 @section('container')
-    @foreach ($data->detKasbon as $d)
-    <div class="col-md-7 mt-4 ms-5">
-          <div class="card">
-            <div class="card-header pb-0 px-3" style="border-bottom: none; background-color: white;">
-              <h6 class="mb-0">Cicilan Kasbon</h6>
+
+
+<div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4 ms-3">
+            <div class="card-header pb-0" style="border-bottom: none; background-color: white;">
+              <h6>List Data Kasbon</h6>
             </div>
-            <div class="card-body pt-4 p-3">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                  <div class="d-flex flex-column">
-                    <h6 class="mb-3 text-m">Cicilan Ke-{{$d->cicilan_ke}}</h6>
-			@if ($user)
-                    <span class="mb-2 text-s">Nama Pembeli: <span class="text-dark font-weight-bold ms-sm-2">{{$user->nama}}</span></span>
-			@endif
-			@foreach ($pembelian->detail_pembelian as $detail)
-                    <span class="mb-2 text-s">Nama Barang: <span class="text-dark ms-sm-2 font-weight-bold">{{$detail->namaBarang->nama_barang}}</span></span>
-			@endforeach
-                    <span class="text-s">Total Bayar: <span class="text-dark ms-sm-2 font-weight-bold">{{$d->total_bayar}}</span></span>
-		    <span class="text-s">Tanggal Bayar: <span class="text-dark ms-sm-2 font-weight-bold">{{$d->created_at}}</span></span>
-                  </div>
-                </li>
-              </ul>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0 ms-3">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">profil</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Kasbon</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Barang</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Limit</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
+                    </tr>
+                  </thead>
+                       @foreach ($pembelian as $d )
+                  <tbody>
+
+
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+
+                            <img src="{{asset('images/img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
+                          </div>
+
+
+                      </td>
+                          <td>
+                        <p class="text-xs font-weight-bold mb-0">
+                         {{$d->users->nama}}
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">
+                          @foreach($d->kasbon as $p)
+                        {{$p->total_kasbon}}
+                        @endforeach
+                        </p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+        <span class="text-secondary text-xs font-weight-bold">
+                       @foreach ($d->detail_pembelian as $nB )
+                           {{$nB->namaBarang->nama_barang}}
+                       @endforeach
+                      </span
+                    </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">
+                        2000/50000
+                      </span
+                     </td>
+                      <td class="align-middle text-center">
+                      <a href="/detail-kasbon-rinci/" class="btn btn-orange"
+                            style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
+                        </a>
+                      </td>
+
+                    </tr>
+
+                    </tr>
+                  </tbody>
+                     @endforeach
+                </table>
+              </div>
             </div>
           </div>
         </div>
-    @endforeach
-
-    <div class="button-dashboard d-flex justify-content-end align-items-center" style="padding-right: 90px; padding-top: 300px;">
-    <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none;">Tambah Data</a>
-</div>
+    </div>
 @endsection
+
