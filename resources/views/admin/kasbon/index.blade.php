@@ -5,9 +5,7 @@
 <div class="button-dashboard d-flex justify-content-between align-items-center" style="margin-left:30px;">
     <a href="/tambah-data-kasbon" class="btn btn-orange">Tambah Data</a>
 </div>
-@foreach ($kasbon->pembelian->detail_kuantitas as $d )
-  {{$d->kuantitas}}
-@endforeach
+
 
 
 <div class="container-fluid py-4">
@@ -32,24 +30,24 @@
                   </thead>
                        @foreach ($kasbon as $d )
                   <tbody>
-                       
-                        
+
+
                     <tr>
-                     
-                        
-                   
+
+
+
                       <td>
                         <div class="d-flex px-2 py-1">
 
                             <img src="{{asset('images/img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
                           </div>
-                        
-               
+
+
                       </td>
                           <td>
                         <p class="text-xs font-weight-bold mb-0">
-                         {{$d->pembelian->users->nama}}
-                      </td> 
+                         
+                      </td>
                       <td>
                         <p class="text-xs font-weight-bold mb-0">50.000</p>
                       </td>
@@ -64,9 +62,9 @@
                             style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
                         </a>
                       </td>
-               
+
                     </tr>
-                       
+
                     </tr>
                   </tbody>
                      @endforeach
