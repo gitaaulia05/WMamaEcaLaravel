@@ -20,9 +20,8 @@ class KasbonController extends Controller
     public function index(){
         return view('admin.kasbon.index', [
             "title" => "Admin | KASBON",
-
             "page" => "KASBON",
-            "kasbon" => kasbon::with(['pembelian.users'])->get(),
+            "kasbon" => kasbon::with(['pembelian.users' , 'pembelian.detail_pembelian.namaBarang'])->get(),
 
         ]);
     }

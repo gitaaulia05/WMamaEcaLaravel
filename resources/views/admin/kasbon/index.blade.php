@@ -5,6 +5,11 @@
 <div class="button-dashboard d-flex justify-content-between align-items-center" style="margin-left:30px;">
     <a href="/tambah-data-kasbon" class="btn btn-orange">Tambah Data</a>
 </div>
+@foreach ($kasbon->pembelian->detail_kuantitas as $d )
+  {{$d->kuantitas}}
+@endforeach
+
+
 <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
@@ -49,7 +54,7 @@
                         <p class="text-xs font-weight-bold mb-0">50.000</p>
                       </td>
                       <td class="align-middle text-center text-sm">
-                      <h6 class="mb-0 text-sm">Beras</h6>
+                        <h6 class="mb-0 text-sm">  apa</h6>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">40.000/50.000</span>
