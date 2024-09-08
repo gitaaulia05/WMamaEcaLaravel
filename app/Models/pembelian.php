@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\kasbon;
 use App\Models\users;
+use App\Models\detail_pembelian;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
