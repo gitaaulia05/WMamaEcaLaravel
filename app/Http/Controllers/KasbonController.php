@@ -21,7 +21,9 @@ class KasbonController extends Controller
         return view('admin.kasbon.index', [
             "title" => "Admin | KASBON",
             "page" => "KASBON",
-            "kasbon" => kasbon::with(['pembelian.users' , 'pembelian.detail_pembelian.namaBarang'])->get(),
+            // "kasbon" => kasbon::with(['pembelian.users' , 'pembelian.detail_pembelian.namaBarang'])->get(),
+
+            "pembelian" => pembelian::with(['users' , 'detail_pembelian.namaBarang' , 'kasbon'])->get(),
 
         ]);
     }
@@ -44,7 +46,7 @@ class KasbonController extends Controller
         return view('admin.kasbon.tambah_data', [
             "title" => "Admin | Tambah Data Kasbon",
             "page" => "Tambah Data Kasbon",
-            "data" => kasbon::with('user')->where('slug' , $slug)->first(),
+            "data" => kasbon::with('pembelian')->where('slug' , $slug)->first(),
            
         ]);
     }
