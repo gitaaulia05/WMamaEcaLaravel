@@ -22,7 +22,7 @@ class pembelian extends Model
     protected $fillable = [
         'id_pembelian',
         'id_user',
-    'slug',
+        'slug',
         'total_bayar',
     ];
 

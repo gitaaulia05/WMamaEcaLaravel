@@ -21,9 +21,6 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 @section('container')
 
-<div class="button-dashboard d-flex justify-content-between align-items-center" style="margin-left:30px;">
-    <a href="/tambah-data-kasbon" class="btn btn-orange">Tambah Data</a>
-</div>
 
 <div class="container-fluid py-4">
       <div class="row">
@@ -82,7 +79,7 @@
                       </span
                      </td>
                       <td class="align-middle text-center">
-                      <a href="/detail-kasbon/{{$d->slug}}" class="btn btn-orange"
+                      <a href="/detail-kasbon-rinci/" class="btn btn-orange"
                             style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
                         </a>
                       </td>
@@ -98,9 +95,4 @@
           </div>
         </div>
     </div>
-
-
-
-
-    <a href="/tambah-data-kasbon">Tambah data</a>
 @endsection
