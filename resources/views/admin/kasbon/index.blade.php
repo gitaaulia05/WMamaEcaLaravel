@@ -5,8 +5,11 @@
 <div class="button-dashboard d-flex justify-content-between align-items-center" style="margin-left:30px;">
     <a href="/tambah-data-kasbon" class="btn btn-orange">Tambah Data</a>
 </div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 05a35f410fde10937734a37cc573488f59d9337f
 
 <div class="container-fluid py-4">
       <div class="row">
@@ -28,13 +31,11 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
                     </tr>
                   </thead>
-                       @foreach ($kasbon as $d )
+                       @foreach ($pembelian as $d )
                   <tbody>
 
 
                     <tr>
-
-
 
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -46,16 +47,25 @@
                       </td>
                           <td>
                         <p class="text-xs font-weight-bold mb-0">
-                         
+<<<<<<< HEAD
+
                       </td>
+=======
+                         {{$d->users->nama}}
+                      </td>
+>>>>>>> 05a35f410fde10937734a37cc573488f59d9337f
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">50.000</p>
+                        <p class="text-xs font-weight-bold mb-0">{{$d->total_kasbon}}</p>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm">  apa</h6>
-                      </td>
+
+                  @foreach ($d->detail_pembelian as $dp)
+                    {{$dp->namaBarang->nama_barang}}
+                    @endforeach
+
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">40.000/50.000</span>
+                        <span class="text-secondary text-xs font-weight-bold">
+                        {{$d->total_kasbon}}/50.000</span>
                       </td>
                       <td class="align-middle text-center">
                       <a href="/detail-kasbon/{{$d->slug}}" class="btn btn-orange"
