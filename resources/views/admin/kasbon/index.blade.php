@@ -3,13 +3,9 @@
 @section('container')
 
 <div class="button-dashboard d-flex justify-content-between align-items-center" style="margin-left:30px;">
-    <a href="/tambah-data-kasbon" class="btn btn-orange">Tambah Data</a>
+    <a href="/tambah-data-kasbon" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none;">Tambah Data</a>
 </div>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 05a35f410fde10937734a37cc573488f59d9337f
 
 <div class="container-fluid py-4">
       <div class="row">
@@ -39,21 +35,12 @@
 
                       <td>
                         <div class="d-flex px-2 py-1">
-
                             <img src="{{asset('images/img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
-                          </div>
-
-
+                        </div>
                       </td>
-                          <td>
-                        <p class="text-xs font-weight-bold mb-0">
-<<<<<<< HEAD
-
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">{{$d->users->nama}}</p>
                       </td>
-=======
-                         {{$d->users->nama}}
-                      </td>
->>>>>>> 05a35f410fde10937734a37cc573488f59d9337f
                       <td>
                         <p class="text-xs font-weight-bold mb-0">{{$d->total_kasbon}}</p>
                       </td>
