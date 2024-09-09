@@ -4,11 +4,13 @@
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
+
     "require": {
         "php": "^8.2",
-        "caouecs/laravel-lang": "*",
+        "algolia/algoliasearch-client-php": "*",
         "cviebrock/eloquent-sluggable": "*",
         "haruncpi/laravel-id-generator": "^1.1",
+        "laravel-lang/lang": "^15.7",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "ramsey/uuid": "^4.7"

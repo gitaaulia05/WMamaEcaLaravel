@@ -16,8 +16,21 @@
     </div>
     @endif
 
+    @php
+    $lunas = $data->detKasbon->sortByDesc('created_at')->first();
+    $hasil_lunas = $lunas->is_lunas;
+    @endphp
+
+
+    @if($hasil_lunas == 0)
     <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none; margin-left: 50px; margin-top: 20px;">Tambah Data</a>
+    @else
+    <h1 style="margin-left: 50px; margin-top: 20px;">Cicilan ini sudah lunas</h1>
+    @endif
+
 @foreach ($data->detKasbon as $d)
+
+
     <div class="col-md-7 mt-4 ms-5">
           <div class="card">
             <div class="card-header pb-0 px-3" style="border-bottom: none; background-color: white;">
@@ -28,6 +41,12 @@
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
                     <h6 class="mb-3 text-m">Cicilan Ke-{{$d->cicilan_ke}}</h6>
+                     @if($d->is_lunas == 1)
+                        <h6 class="mb-3 text-m">Lunas</h6>
+                     @else
+                        <h6 class="mb-3 text-m">Belum lunas</h6>
+                     @endif
+                 
 
                     <span class="mb-2 text-s">Nama Pembeli: <span class="text-dark font-weight-bold ms-sm-2">{{$data->pembelian->users->nama}}</span></span>
 
