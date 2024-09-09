@@ -25,7 +25,7 @@ class kasbon extends Model
     protected $keyType = 'string';
     protected $fillable = [
         'id_kasbon',
-        'id_kasus',
+        'id_pembelian',
         'slug',
         'total_kasbon',
         'sisa_kasbon',
@@ -37,7 +37,7 @@ class kasbon extends Model
     {
         return [
             'slug' => [
-                'source' => ['kasus.nama']
+                'source' => ['pembelian.users.nama']
             ]
         ];
     }

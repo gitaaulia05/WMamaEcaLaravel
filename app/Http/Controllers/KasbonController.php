@@ -59,24 +59,25 @@ class KasbonController extends Controller
         return view('admin.kasbon.tambah_data', [
             "title" => "Admin | Tambah Data Kasbon",
             "page" => "Tambah Data Kasbon",
-            "data" => kasbon::with('pembelian')->where('slug' , $slug)->first(),
-           
+            "data" => kasbon::with('pembelian.users' , 'detKasbon')->where('slug' , $slug)->first(),
+         
         ]);
     }
 
-    public function simpan_data(Request $request){
+    public function simpan_data(Request $request ){
        $data= $request->validate([
-        'total_kasbon' =>'required',
-        'sisa_kasbon' =>'required',
-        'tanggal_kasbon' =>'required|date',
+        'id_kasbon' => 'required',
+        'cicilan_ke' => 'required',
+        'total_bayar' =>'required',
+        'tanggal_bayar' =>'required|date',
+        'is_lunas' =>'required',
        ]);
 
-    $data["id_kasbon"] = (String) Str::uuid();
-    $data["id_kasus"] = "1";
-    kasbon::create($data);
-
-    return redirect("/kasbon");
+    $data["id_det_kasbon"] = (String) Str::uuid();
+    detail_kasbon::create($data);
+    $kasbon = kasbon::find($data['id_kasbon']);
+    return redirect()->route('detail-kasbon-rinci' , ['slug' => $kasbon->slug])->with('status', 'Data Cicilan Berhasil Di tambahkan');
     
-    }
+     }
 
 }

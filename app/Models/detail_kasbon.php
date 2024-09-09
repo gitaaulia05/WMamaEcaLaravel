@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class detail_kasbon extends Model
 {
     use HasFactory;
-    protected $table = "detail_kasbon";
-    protected $primaryKey = "id_det_kasbon";
-    protected $keyType = "string";
+    protected $table = 'detail_kasbon';
+    protected $primaryKey = 'id_det_kasbon';
+    protected $keyType = 'string';
 
     protected $fillable = [
         'id_det_kasbon',

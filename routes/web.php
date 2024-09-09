@@ -26,7 +26,7 @@ Route::middleware('guest')->group(function () {
 });
 
 
-
+        // BAGIAN USER
 Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/home', [UserController::class, 'index'])->name('user_home');
 });
@@ -50,8 +50,9 @@ Route::middleware(['auth', 'cekAdmin'])->group(function () {
                 // DASHBOARD KASBON
         Route::get('/kasbon', [KasbonController::class, 'index']);
         Route::get('/detail-kasbon/{id_user}', [KasbonController::class, 'detail_data']);
-        Route::get('/detail-kasbon-rinci/{slug}', [KasbonController::class, 'detail_rinci']);
+        Route::get('/detail-kasbon-rinci/{slug}', [KasbonController::class, 'detail_rinci'])->name('detail-kasbon-rinci');
         Route::get('/tambah-data-kasbon/{slug}', [KasbonController::class, 'tambah_data']);
+
         Route::post('/simpan-data-kasbon', [KasbonController::class, 'simpan_data']);
 
 

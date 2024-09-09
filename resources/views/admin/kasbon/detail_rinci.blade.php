@@ -2,27 +2,17 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 @section('container')
 
+    {{-- INI MESSAGE KALO DATA UDAH BERHASIL DITAMBAHIN --}}
+      @if(session()->has('status'))
+    <h1>{{session('status')}}</h1>
+      @endif
 
-        
-{{-- 
-    <div class="bg-danger mx-auto col-5">
-   <h1>nama pembeli : {{$data->users->nama}}</h1> 
-   <h1>total bayar : {{$data->total_bayar}}</h1> 
+   {{-- INI MESSAGE KALO USER BELUM BUAT DETAIL CICILAN SAMA SEKALI ( TABLE DETAIL_CICILAN) --}}
+    @if ($data->detKasbon->isEmpty())
+      <h1> Pembeli {{$data->pembelian->users->nama}} Belum Membuat Cicilan</h1>      
+    @endif
 
-  @foreach ($data->detail_pembelian as $dp)
-            <h1> nama barang : {{ $dp->namaBarang->nama_barang }}</h1>
-    
-       <h1> jumlah barang : {{ $dp->kuantitas}}</h1>
-    @endforeach
-
-      @foreach ($data->kasbon as $k)
-            <h1>{{ $k->total_bayar }}</h1>
-    
-    @endforeach
-    </div> --}}
-
-
-
+    <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none;">Tambah Data</a>
 @foreach ($data->detKasbon as $d)
     <div class="col-md-7 mt-4 ms-5">
           <div class="card">
@@ -49,11 +39,10 @@
             </div>
           </div>
         </div>
+
     @endforeach
-
-
     <div class="button-dashboard d-flex justify-content-end align-items-center" style="padding-right: 90px; padding-top: 300px;">
-    <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none;">Tambah Data</a>
+   
 </div>
 
 @endsection
