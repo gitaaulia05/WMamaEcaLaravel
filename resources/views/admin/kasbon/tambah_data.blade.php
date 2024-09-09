@@ -4,11 +4,10 @@
 @section('container')
 
 @php
-
  $dataKasbon =  $data->detKasbon->sortByDesc('created_at')->first();
-
  $cicilan_terakhir = $dataKasbon ? $dataKasbon->cicilan_ke +1 : 1;
 @endphp
+
 <div class="container-c mt-4">
     <div class="row justify-content-center">
         <div class="col-md-11">

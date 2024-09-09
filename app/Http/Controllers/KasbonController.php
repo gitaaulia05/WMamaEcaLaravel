@@ -12,18 +12,17 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\detail_kasbon;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class KasbonController extends Controller
 {
   
     public function index(){
-        $pembelians= pembelian::with(['users' , 'detail_pembelian.namaBarang' , 'kasbon'])->get()->unique('id_user');
+        $pembelians= pembelian::with(['users' , 'detail_pembelian.namaBarang' , 'kasbon'])->select('id_user')->groupBy('id_user')->paginate(1);
         return view('admin.kasbon.index', [
             "title" => "Admin | KASBON",
             "page" => "KASBON",
             // "kasbon" => kasbon::with(['pembelian.users' , 'pembelian.detail_pembelian.namaBarang'])->get(),
-
             "pembelian" => $pembelians,
 
         ]);

@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class users extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable ;
 
 
 
@@ -38,5 +38,13 @@ class users extends Authenticatable
     public function pembelian(): HasMany
     {
         return $this->hasMany(pembelian::class, 'id_user', 'id_user');
+    }
+
+    public function toSearchAbleArray(){
+        return[
+            'id' =>$this->id_user,
+            'title' =>$this->nama,
+            'content' =>$this->no_hp,
+        ];
     }
 }

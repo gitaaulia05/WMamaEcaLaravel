@@ -276,6 +276,7 @@ final readonly class Application
 
             $shellExitCode = (new ShellExitCodeCalculator)->calculate(
                 $configuration->failOnDeprecation(),
+                $configuration->failOnPhpunitDeprecation(),
                 $configuration->failOnEmptyTestSuite(),
                 $configuration->failOnIncomplete(),
                 $configuration->failOnNotice(),
@@ -669,7 +670,10 @@ final readonly class Application
         if ($configuration->hasLogfileTestdoxHtml() ||
             $configuration->hasLogfileTestdoxText() ||
             $configuration->outputIsTestDox()) {
-            return new TestDoxResultCollector(EventFacade::instance());
+            return new TestDoxResultCollector(
+                EventFacade::instance(),
+                $configuration->source(),
+            );
         }
 
         return null;

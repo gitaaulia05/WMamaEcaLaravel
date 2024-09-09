@@ -2,7 +2,8 @@
 
 @section('container')
 
-<div class="input-group ms-4 mt-4 w-20 ">
+    
+    <div class="input-group ms-4 mt-4 w-20 ">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" placeholder="Cari di sini...">
             </div>
@@ -65,6 +66,7 @@
 
                     </tr>
                   </tbody>
+                    
                      @endforeach
                 </table>
               </div>
@@ -72,5 +74,7 @@
           </div>
         </div>
     </div>
+  {{$pembelian->links('vendor.pagination.bootstrap-5')}}
+
 
 @endsection
