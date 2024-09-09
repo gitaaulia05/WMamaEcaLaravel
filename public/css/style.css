@@ -102,6 +102,37 @@ body {
     text-align: left;
 }
 
+.status-button-s {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a1d169;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: default;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.message-button {
+    position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    background-color: #eb3838;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 30px;
+    border-radius: 4px;
+    cursor: default;
+    display: inline-block;
+
+}
+
 .button-container {
     display: flex;
     gap:10px;
@@ -163,6 +194,8 @@ body {
 .button-container-b .button:hover {
     background-color: #ff6f5e;
 }
+
+
 
 .form a {
     margin-top: 20px;

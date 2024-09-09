@@ -9,45 +9,60 @@
 
  $cicilan_terakhir = $dataKasbon ? $dataKasbon->cicilan_ke +1 : 1;
 @endphp
-        <form method="post" action="/simpan-data-kasbon">
-        @csrf
-        <input type="hidden" name="id_kasbon" value="{{$data->id_kasbon}}">
+<div class="container-c mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-11">
+            <div class="card" style="margin-left: 0; background-color: #EEEEEE; padding-bottom: 5px; min-height: 300px; position: relative;">
+                <div class="card-header">
+                    <h5>Tambah Data Cicilan</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/simpan-data-kasbon">
+                    @csrf
+                        <input type="hidden" name="id_kasbon" value="{{$data->id_kasbon}}">
+                        <div class="form-group mb-3">
+                            <label for="cicilan_ke"> Cicilan ke: </label>
+                            <input type="text" name="cicilan_ke" value="{{$cicilan_terakhir}}" style="width: 3%; text-align: center;" readonly>
+                        </div>
 
-
-        <label for="cicilan_ke"> cicilan Ke : </label>
-         <input type="text" name="cicilan_ke" value="{{$cicilan_terakhir}}" readonly>
-        
-
-        <input type="number" name="total_bayar" class="form-control @error('total_bayar') is-invalid @enderror" placeholder="masukkan total kasbon" value="{{ old('total_bayar') }}">
-
-                            @error('total_bayar')
-                        <div class="invalid-feedback">
+                        <div class="form-group mt-3 mb-3">
+                            <label for="total bayar">Total kasbon: </label>
+                            <input type="number" name="total_bayar" class="form-control @error('total_bayar') is-invalid @enderror" placeholder="masukkan total kasbon" value="{{ old('total_bayar') }}" style="width: 18%;">
+			            @error('total_bayar')
+                        </div>
+		                <div class="invalid-feedback">
                             {{ $message }}
                         </div>
-                    @enderror
-      
-        <input type="date" name="tanggal_bayar"class="form-control @error('tanggal_bayar') is-invalid @enderror" placeholder="masukkan tanggal kasbon" value="{{date('Y-m-d')}}">
+                        @enderror
 
-                            @error('tanggal_bayar')
-                        <div class="invalid-feedback">
+                        <div class="form-group mt-3 mb-3">
+		                    <label for="tanggal bayar">Tanggal bayar: </label>
+                            <input type="date" name="tanggal_bayar"class="form-control @error('tanggal_bayar') is-invalid @enderror" placeholder="masukkan tanggal kasbon" value="{{date('Y-m-d')}}" style="width: 18%;">
+		                @error('tanggal_bayar')
+                        </div>
+		                <div class="invalid-feedback">
                             {{ $message }}
                         </div>
-                    @enderror
+                        @enderror
 
-
-<label for="is_lunas" class="form-control @error('is_lunas') is-invalid @enderror">Apakah Pembayaran sudah lunas ?</label>
-                        <select name="is_lunas" id="is_lunas">
-        <option value="1">Lunas</option>
-        <option value="0">Belum Lunas</option>
-
-        </select>
-                        @error('is_lunas')
-                        <div class="invalid-feedback">
+                        <div class="form-group mt-3 mb-3">
+                            <label for="is_lunas">Apakah pembayaran sudah lunas?</label>
+                            <select name="is_lunas" id="is_lunas" class="form-control @error('is_lunas') is-invalid @enderror" style="appearance: auto; -webkit-appearance: menulist-button; -moz-appearance: menulist-button; width: 18%;">
+                                <option value="1">Lunas</option>
+                                <option value="0">Belum Lunas</option>
+                            </select>
+		                @error('is_lunas')
+                        </div>
+		                <div class="invalid-feedback">
                             {{ $message }}
                         </div>
-                    @enderror
-        <br>
-        <button type="submit">simpan</button>
-        </form>
+                        @enderror
+                        <button type="submit" class="btn btn-primary" style="background-color: #ff6f5e; color: white; float: right; margin-top: 30px;">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

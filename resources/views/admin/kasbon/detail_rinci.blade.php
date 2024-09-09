@@ -4,15 +4,19 @@
 
     {{-- INI MESSAGE KALO DATA UDAH BERHASIL DITAMBAHIN --}}
       @if(session()->has('status'))
-    <h1>{{session('status')}}</h1>
+      <button class="status-button-s" disabled>
+        {{session('status')}}
+      </button>
       @endif
 
    {{-- INI MESSAGE KALO USER BELUM BUAT DETAIL CICILAN SAMA SEKALI ( TABLE DETAIL_CICILAN) --}}
     @if ($data->detKasbon->isEmpty())
-      <h1> Pembeli {{$data->pembelian->users->nama}} Belum Membuat Cicilan</h1>      
+    <div class="message-button">
+      Pembeli {{$data->pembelian->users->nama}} Belum Membuat Cicilan
+    </div>
     @endif
 
-    <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none;">Tambah Data</a>
+    <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none; margin-left: 50px; margin-top: 20px;">Tambah Data</a>
 @foreach ($data->detKasbon as $d)
     <div class="col-md-7 mt-4 ms-5">
           <div class="card">
@@ -42,7 +46,7 @@
 
     @endforeach
     <div class="button-dashboard d-flex justify-content-end align-items-center" style="padding-right: 90px; padding-top: 300px;">
-   
+
 </div>
 
 @endsection
