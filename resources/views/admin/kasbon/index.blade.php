@@ -2,15 +2,16 @@
 
 @section('container')
 
-<div class="button-dashboard d-flex justify-content-between align-items-center" style="margin-left:30px;">
-    <a href="/tambah-data-kasbon" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none;">Tambah Data</a>
-</div>
+<div class="input-group ms-4 mt-4 w-20 ">
+              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" placeholder="Cari di sini...">
+            </div>
 
 
 <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
-          <div class="card mb-4 ms-3">
+          <div class="card mb-4 me-3 ms-3">
             <div class="card-header pb-0" style="border-bottom: none; background-color: white;">
               <h6>List Data Kasbon</h6>
             </div>
