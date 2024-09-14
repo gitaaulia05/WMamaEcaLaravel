@@ -17,11 +17,11 @@ const FloatSisaBayar = parseFloat(sisaBayar.value) ;
         pesanError.textContent = 'Total Bayar yang Anda Masukkan Melebihi Sisa Bayar!';
         pesanError.style.display = 'block';
         button.disabled = true; 
-        isLunas.disabled = true;
+
        } else {
         pesanError.style.display = 'none';
         button.disabled = false; 
-        isLunas.disabled = false;
+
         const newSisaBayar = Math.max(FloatSisaBayar - totalBayar, 0);
        sisaBayar.setAttribute('value' , newSisaBayar.toFixed(2));
 

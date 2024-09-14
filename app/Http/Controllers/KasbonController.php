@@ -56,8 +56,10 @@ class KasbonController extends Controller
         return view('admin.kasbon.tambah_data', [
             "title" => "Admin | Tambah Data Kasbon",
             "page" => "Tambah Data Kasbon",
-            "data" => kasbon::with('pembelian.users' , 'detKasbon')->where('slug' , $slug)->first(),
-         
+            "data" => kasbon::with(['pembelian.users' , 'detKasbon' => function($query){
+                    $query->orderBy('created_at' , 'desc');
+            }])->where('slug' , $slug)->first(),
+        
         ]);
     }
 

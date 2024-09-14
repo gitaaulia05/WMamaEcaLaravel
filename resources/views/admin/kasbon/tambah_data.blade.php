@@ -58,9 +58,9 @@
 
                         <div class="form-group mt-3 mb-3">
                             <label for="is_lunas">Apakah pembayaran sudah lunas?</label>
-                            <select name="is_lunas" id="is_lunas" class="form-control @error('is_lunas') is-invalid @enderror" style="appearance: auto; -webkit-appearance: menulist-button; -moz-appearance: menulist-button; width: 18%;">
-                                <option value="1">Lunas</option>
-                                <option value="0">Belum Lunas</option>
+                            <select name="is_lunas" id="is_lunas" class="form-control @error('is_lunas') is-invalid @enderror" style="appearance: auto; -webkit-appearance: menulist-button; -moz-appearance: menulist-button; width: 18%;" >
+                                <option value="1" disabled >Lunas</option>
+                                <option value="0" disabled>Belum Lunas</option>
                             </select>
 		                @error('is_lunas')
                         </div>
