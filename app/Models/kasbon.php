@@ -20,7 +20,6 @@ class kasbon extends Model
     use HasFactory;
     use Sluggable;
     protected $table= 'kasbon';
-    public $timestamps = false;
     protected $primaryKey= 'id_kasbon';
     protected $keyType = 'string';
     protected $fillable = [

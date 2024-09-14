@@ -16,23 +16,35 @@
                     <h5>Tambah Data Cicilan</h5>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="/simpan-data-kasbon">
-                    @csrf
+                        <form method="POST" action="/simpan-data-kasbon">
+                        @csrf
                         <input type="hidden" name="id_kasbon" value="{{$data->id_kasbon}}">
                         <div class="form-group mb-3">
                             <label for="cicilan_ke"> Cicilan ke: </label>
-                            <input type="text" name="cicilan_ke" value="{{$cicilan_terakhir}}" style="width: 3%; text-align: center;" readonly>
+                            <input type="text"  name="cicilan_ke" value="{{$cicilan_terakhir}}" style="width: 3%; text-align: center;" readonly>
                         </div>
 
                         <div class="form-group mt-3 mb-3">
                             <label for="total bayar">Total kasbon: </label>
-                            <input type="number" name="total_bayar" class="form-control @error('total_bayar') is-invalid @enderror" placeholder="masukkan total kasbon" value="{{ old('total_bayar') }}" style="width: 18%;">
+                            <input type="number" id="total_bayar" name="total_bayar" class="form-control @error('total_bayar') is-invalid @enderror" placeholder="masukkan total kasbon" value="{{  old('total_bayar') }}" style="width: 18%;" required >
 			            @error('total_bayar')
+                        </div>
+		                <div class="invalid-feedback" >
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                  <div class="invalid-feedback"  id="total_bayar_error"></div>
+        
+                         <div class="form-group mt-3 mb-3">
+                            <label for="sisa_bayar">sisa Bayar: </label>
+                            <input type="number" id="sisa_bayar" name="sisa_bayar" class="form-control @error('sisa_bayar') is-invalid @enderror" placeholder="masukkan sisa kasbon" value="{{ $data->detKasbon->isEmpty() ? $data->total_kasbon  :  $data->detKasbon->first()->sisa_bayar }}" style="width: 18%;" readonly>
+			            @error('sisa_bayar')
                         </div>
 		                <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
+
 
                         <div class="form-group mt-3 mb-3">
 		                    <label for="tanggal bayar">Tanggal bayar: </label>
@@ -56,12 +68,14 @@
                             {{ $message }}
                         </div>
                         @enderror
-                        <button type="submit" class="btn btn-primary" style="background-color: #ff6f5e; color: white; float: right; margin-top: 30px;">Simpan</button>
+                        <button type="sumbit" class="btn btn-primary" id="simpan" style="background-color: #ff6f5e; color: white; float: right; margin-top: 30px;" >Simpan</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+   
 
 @endsection
+

@@ -6,43 +6,41 @@ namespace App\Http\Controllers;
 use App\Models\barang;
 use App\Models\kasbon;
 use App\Models\pembelian;
-use App\Models\detail_pembelian;
 use App\Models\JenisBarang;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 use App\Models\detail_kasbon;
+use App\Models\detail_pembelian;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class KasbonController extends Controller
 {
-  
+    use WithPagination;
     public function index(){
-        $pembelians= pembelian::with(['users' , 'detail_pembelian.namaBarang' , 'kasbon'])->select('id_user')->groupBy('id_user')->paginate(1);
         return view('admin.kasbon.index', [
             "title" => "Admin | KASBON",
             "page" => "KASBON",
-            // "kasbon" => kasbon::with(['pembelian.users' , 'pembelian.detail_pembelian.namaBarang'])->get(),
-            "pembelian" => $pembelians,
+            "pembelian" => pembelian::with(['users' , 'detail_pembelian.namaBarang' , 'kasbon'])->select('id_user')->groupBy('id_user')->paginate(1),
 
         ]);
     }
 
-    public function detail_data($id_user){
-        $dataUser = DB::table('users')->join('pembelian', 'pembelian.id_user', '=' , 'users.id_user' )->join('kasbon' , 'kasbon.id_pembelian' , '=' , 'pembelian.id_pembelian')->where('pembelian.id_user' , '=' , $id_user);
 
+    // INI DIPINDAH KE CONTROLLER DETAILKASBON
+    public function detail_data($id_user){
         return view('admin.kasbon.detail_data', [
             'title' => "Admin | Detail Data Kasbon",
             'page' => 'Detail Data Kasbon',
-            'pembelian' => pembelian::with(['users'], ['kasbon' ],['detail_pembelian.namaBarang'] )->where('id_user' , $id_user)->get(),
-        
+            'pembelian' => pembelian::with(['users'], ['kasbon' ],['detail_pembelian.namaBarang'] )->select('id_user')->where('id_user' , $id_user)->get(),
+            'id_user' => $id_user,
         ]);
     }
 
 
     public function detail_rinci($slug){
 
-      
+    
             return view('admin.kasbon.detail_rinci',[
                 'title' => "Admin | Detail Data Kasbon",
                 'page' => 'Detail Data Kasbon',
@@ -67,7 +65,8 @@ class KasbonController extends Controller
        $data= $request->validate([
         'id_kasbon' => 'required',
         'cicilan_ke' => 'required',
-        'total_bayar' =>'required',
+        'total_bayar' =>'required|integer',
+        'sisa_bayar' =>'required|numeric',
         'tanggal_bayar' =>'required|date',
         'is_lunas' =>'required',
        ]);

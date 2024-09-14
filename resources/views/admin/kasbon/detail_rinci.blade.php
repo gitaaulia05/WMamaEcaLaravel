@@ -18,9 +18,8 @@
 
     @php
     $lunas = $data->detKasbon->sortByDesc('created_at')->first();
-    $hasil_lunas = $lunas->is_lunas;
+    $hasil_lunas = $lunas ? $lunas->is_lunas : null;
     @endphp
-
 
     @if($hasil_lunas == 0)
     <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none; margin-left: 50px; margin-top: 20px;">Tambah Data</a>
@@ -29,7 +28,6 @@
     @endif
 
 @foreach ($data->detKasbon as $d)
-
 
     <div class="col-md-7 mt-4 ms-5">
           <div class="card">

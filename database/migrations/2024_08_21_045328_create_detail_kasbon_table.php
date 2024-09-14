@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('id_kasbon')->references('id_kasbon')->on('kasbon')->onDelete('cascade');
             $table->integer('cicilan_ke');
             $table->double('total_bayar');
+            $table->double('sisa_bayar');
             $table->date('tanggal_bayar');
             $table->boolean('is_lunas');
             $table->timestamps();

@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\KasbonTable;
+use App\Http\Livewire\DetailKasbon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KasbonController;
@@ -48,7 +50,8 @@ Route::middleware(['auth', 'cekAdmin'])->group(function () {
 
 
                 // DASHBOARD KASBON
-        Route::get('/kasbon', [KasbonController::class, 'index']);
+         Route::get('/kasbon', [KasbonController::class, 'index']);
+
         Route::get('/detail-kasbon/{id_user}', [KasbonController::class, 'detail_data']);
         Route::get('/detail-kasbon-rinci/{slug}', [KasbonController::class, 'detail_rinci'])->name('detail-kasbon-rinci');
         Route::get('/tambah-data-kasbon/{slug}', [KasbonController::class, 'tambah_data']);

@@ -18,6 +18,7 @@ class detail_kasbon extends Model
         'id_kasbon',
         'cicilan_ke',
         'total_bayar',
+        'sisa_bayar',
         'tanggal_bayar',
         'is_lunas'
     ];
