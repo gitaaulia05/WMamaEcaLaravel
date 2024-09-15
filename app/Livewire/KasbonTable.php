@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 
 class KasbonTable extends Component
 {
-    use WithPagination;x
+    use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public function render()
     {

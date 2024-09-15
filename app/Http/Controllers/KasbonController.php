@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\users;
 use App\Models\barang;
 use App\Models\kasbon;
 use App\Models\pembelian;
@@ -39,21 +40,20 @@ class KasbonController extends Controller
 
 
     public function detail_rinci($slug){
-
-    
             return view('admin.kasbon.detail_rinci',[
                 'title' => "Admin | Detail Data Kasbon",
                 'page' => 'Detail Data Kasbon',
                 'data' => kasbon::with(['detKasbon', 'pembelian.users'])->where('slug' , $slug)->first(),
-                'pembelian' => pembelian::with(['detail_pembelian.namaBarang'])->where('slug' , $slug)->first(),
+            'pembelian' => pembelian::with(['detail_pembelian.namaBarang' , 'users'])->where('slug' , $slug)->first(),
                 
             ]);
         
     }
 
-
     public function tambah_data($slug){
+        session(['slug' => $slug]);
         return view('admin.kasbon.tambah_data', [
+   
             "title" => "Admin | Tambah Data Kasbon",
             "page" => "Tambah Data Kasbon",
             "data" => kasbon::with(['pembelian.users' , 'detKasbon' => function($query){
@@ -64,8 +64,8 @@ class KasbonController extends Controller
     }
 
     public function simpan_data(Request $request ){
+       
        $data= $request->validate([
-        'id_kasbon' => 'required',
         'cicilan_ke' => 'required',
         'total_bayar' =>'required|integer',
         'sisa_bayar' =>'required|numeric',
@@ -73,9 +73,23 @@ class KasbonController extends Controller
         'is_lunas' =>'required',
        ]);
 
+           // ini ngambil slug dari session 
+    $id_kasbon = session('slug');
+    $kasbon = kasbon::where('slug' , $id_kasbon)->first();
+
     $data["id_det_kasbon"] = (String) Str::uuid();
+    $data["id_kasbon"] = $kasbon->id_kasbon;
     detail_kasbon::create($data);
-    $kasbon = kasbon::find($data['id_kasbon']);
+
+    $pembelian = pembelian::find($kasbon->id_pembelian);
+
+    $user = users::find($pembelian->id_user);
+
+    if($data['is_lunas'] == 1 ){
+        $user->limit = $user->limit + $kasbon->total_kasbon;
+        $user->save();
+    }
+
     return redirect()->route('detail-kasbon-rinci' , ['slug' => $kasbon->slug])->with('status', 'Data Cicilan Berhasil Di tambahkan');
     
      }

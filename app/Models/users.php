@@ -13,7 +13,10 @@ class users extends Authenticatable
 {
     use HasFactory, Notifiable ;
 
-
+    protected $table = 'users';
+    protected $primaryKey = 'id_user';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $fillable= [
         'id_user',
@@ -29,10 +32,7 @@ class users extends Authenticatable
     ];
 
 
-    protected $table = 'users';
-    protected $primary = 'id_user';
-    protected $keyType = 'string';
-    public $incrementing = false;
+
 
 
     public function pembelian(): HasMany
@@ -40,11 +40,4 @@ class users extends Authenticatable
         return $this->hasMany(pembelian::class, 'id_user', 'id_user');
     }
 
-    public function toSearchAbleArray(){
-        return[
-            'id' =>$this->id_user,
-            'title' =>$this->nama,
-            'content' =>$this->no_hp,
-        ];
-    }
 }

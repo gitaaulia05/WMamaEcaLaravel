@@ -8,7 +8,7 @@
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari di sini...">
             </div>
 
-            {{-- INI COMPONEN LIVEWIRE BUAT LIVE SEARCHING ADANYA DI FOLDER LIVEWIRE - DETAIL-KASBON --}}
+            {{-- INI COMPONEN LIVEWIRE BUAT LIVE SEARCHING ADANYA DI FOLDER LIVEWIRE - DETAIL-KASBON  CONTROLLER NYA KASBONTABLEL / LIVEWIRE--}}
             @livewire('detail-kasbon' ,[
                 'id_user' => $id_user
             ])

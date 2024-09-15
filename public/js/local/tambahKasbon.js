@@ -7,6 +7,8 @@ var pesanError = document.getElementById('total_bayar_error');
 
 var isLunas = document.getElementById('is_lunas');
 
+var ResultLunas = document.getElementById('final_is');
+
 const button = document.getElementById('simpan');
 const FloatSisaBayar = parseFloat(sisaBayar.value) ;
 
@@ -26,9 +28,11 @@ const FloatSisaBayar = parseFloat(sisaBayar.value) ;
        sisaBayar.setAttribute('value' , newSisaBayar.toFixed(2));
 
         if (newSisaBayar === 0) {
-          isLunas.value = "1";  // Set to "1" when sisaBayar is 0
+          isLunas.value = "1";  
+          ResultLunas.setAttribute('value' , 1);  
       } else {
-          isLunas.value = "0";  // Set to "0" otherwise
+          isLunas.value = "0";  
+          ResultLunas.setAttribute('value' , 0); 
       }
  
        }

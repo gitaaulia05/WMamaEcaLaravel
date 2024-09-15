@@ -18,8 +18,7 @@
                 <div class="card-body">
                         <form method="POST" action="/simpan-data-kasbon">
                         @csrf
-                        <input type="hidden" name="id_kasbon" value="{{$data->id_kasbon}}">
-                        <div class="form-group mb-3">
+                    
                             <label for="cicilan_ke"> Cicilan ke: </label>
                             <input type="text"  name="cicilan_ke" value="{{$cicilan_terakhir}}" style="width: 3%; text-align: center;" readonly>
                         </div>
@@ -53,14 +52,14 @@
                         </div>
 		                <div class="invalid-feedback">
                             {{ $message }}
-                        </div>
+                        </div>x
                         @enderror
 
                         <div class="form-group mt-3 mb-3">
                             <label for="is_lunas">Apakah pembayaran sudah lunas?</label>
-                            <select name="is_lunas" id="is_lunas" class="form-control @error('is_lunas') is-invalid @enderror" style="appearance: auto; -webkit-appearance: menulist-button; -moz-appearance: menulist-button; width: 18%;" >
-                                <option value="1" disabled >Lunas</option>
-                                <option value="0" disabled>Belum Lunas</option>
+                            <select id="is_lunas" class="form-control @error('is_lunas') is-invalid @enderror" style="appearance: auto; -webkit-appearance: menulist-button; -moz-appearance: menulist-button; width: 18%;" disabled>
+                                <option value="1"  >Lunas</option>
+                                <option value="0" >Belum Lunas</option>
                             </select>
 		                @error('is_lunas')
                         </div>
@@ -68,6 +67,8 @@
                             {{ $message }}
                         </div>
                         @enderror
+
+                        <input id="final_is" name="is_lunas"  value="" type="hidden">
                         <button type="sumbit" class="btn btn-primary" id="simpan" style="background-color: #ff6f5e; color: white; float: right; margin-top: 30px;" >Simpan</button>
                     </form>
                 </div>

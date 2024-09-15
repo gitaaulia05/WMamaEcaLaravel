@@ -54,7 +54,7 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">
                              @foreach($d->kasbon as $t)
-                          {{$t->total_kasbon}}/50000
+                          {{$t->total_kasbon}}/{{$d->users->limit}}
                         @endforeach
                       </span
                      </td>

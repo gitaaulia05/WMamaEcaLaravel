@@ -4,7 +4,7 @@
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari di sini...">
             </div>
-    
+
 <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
@@ -40,7 +40,8 @@
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">
-                        {{$d->total_kasbon}}/50.000</span>
+          {{$d->users->limit}}
+            </span>
                       </td>
                       <td class="align-middle text-center">
                       <a href="/detail-kasbon/{{$d->id_user}}" class="btn btn-orange"
