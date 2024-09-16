@@ -202,3 +202,16 @@ body {
 .form a:hover {
     text-decoration: underline;
 }
+
+.custom-label {
+    background-color: #cfc9c9;
+    color: #ffffff;
+    border-color: #d3d3d3;
+}
+
+.custom-label-b {
+    background-color: #fcfafa;
+    color: black;
+    border-color: #d3d3d3;    
+}
+
