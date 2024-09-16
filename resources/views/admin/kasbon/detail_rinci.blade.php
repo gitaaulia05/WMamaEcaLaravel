@@ -9,6 +9,8 @@
       </button>
       @endif
 
+
+
    {{-- INI MESSAGE KALO USER BELUM BUAT DETAIL CICILAN SAMA SEKALI ( TABLE DETAIL_CICILAN) --}}
     @if ($data->detKasbon->isEmpty())
     <div class="message-button">
@@ -27,44 +29,12 @@
     @else
     <h1 style="margin-left: 50px; margin-top: 20px;">Cicilan ini sudah lunas</h1>
     @endif
-
-@foreach ($data->detKasbon as $d)
-
-    <div class="col-md-7 mt-4 ms-5">
-          <div class="card">
-            <div class="card-header pb-0 px-3" style="border-bottom: none; background-color: white;">
-              <h6 class="mb-0">Cicilan Kasbon</h6>
-            </div>
-            <div class="card-body pt-4 p-3">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                  <div class="d-flex flex-column">
-                    <h6 class="mb-3 text-m">Cicilan Ke-{{$d->cicilan_ke}}</h6>
-                     @if($d->is_lunas == 1)
-                        <h6 class="mb-3 text-m">Lunas</h6>
-                     @else
-                        <h6 class="mb-3 text-m">Belum lunas</h6>
-                     @endif
-                 
-
-                    <span class="mb-2 text-s">Nama Pembeli: <span class="text-dark font-weight-bold ms-sm-2">{{$data->pembelian->users->nama}}</span></span>
+     
+     @livewire('detail-rinci-live', [
+      'slug' => $slug
+     ])
 
 
-			@foreach ($pembelian->detail_pembelian as $detail)
-                    <span class="mb-2 text-s">Nama Barang: <span class="text-dark ms-sm-2 font-weight-bold">{{$detail->namaBarang->nama_barang}}</span></span>
-			@endforeach
-                    <span class="text-s">Total Bayar: <span class="text-dark ms-sm-2 font-weight-bold">{{$d->total_bayar}}</span></span>
-		    <span class="text-s">Tanggal Bayar: <span class="text-dark ms-sm-2 font-weight-bold">{{$d->created_at}}</span></span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-    @endforeach
-    <div class="button-dashboard d-flex justify-content-end align-items-center" style="padding-right: 90px; padding-top: 300px;">
-
-</div>
+                
 
 @endsection

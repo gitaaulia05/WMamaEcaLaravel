@@ -36,16 +36,14 @@ class kasbon extends Model
     {
         return [
             'slug' => [
-                'source' => ['pembelian.users.nama']
+                'source' => ['pembelian.slug']
             ]
         ];
     }
 
-
     public function pembelian():belongsTo{
         return $this->belongsTo(pembelian::class , 'id_pembelian' , 'id_pembelian');
     }
-
 
     public function detKasbon()
     {

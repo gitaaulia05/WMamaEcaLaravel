@@ -16,12 +16,12 @@ class DetailKasbon extends Component
 
     public function render()
     {
-
         return view('livewire.detail-kasbon' ,[
             'title' => "Admin | Detail Data Kasbon",
             'page' => 'Detail Data Kasbon',
-            'pembelian' => pembelian::with(['users', 'kasbon' ,'detail_pembelian.namaBarang'])->where('id_user' , $this->id_user)->paginate(10),
-          
+            'pembelian' => pembelian::with(['users', 'kasbon' ,'detail_pembelian.namaBarang' ])->where('id_user' , $this->id_user)->whereHas('kasbon' , function($query){
+                $query->where('id_kasbon' , 'like' , '%'.$this->search.'%');
+            })->paginate(10),
         ]);
     }
 

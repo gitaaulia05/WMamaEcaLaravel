@@ -40,11 +40,13 @@ class KasbonController extends Controller
 
 
     public function detail_rinci($slug){
+
             return view('admin.kasbon.detail_rinci',[
                 'title' => "Admin | Detail Data Kasbon",
                 'page' => 'Detail Data Kasbon',
                 'data' => kasbon::with(['detKasbon', 'pembelian.users'])->where('slug' , $slug)->first(),
             'pembelian' => pembelian::with(['detail_pembelian.namaBarang' , 'users'])->where('slug' , $slug)->first(),
+                'slug' => $slug,
                 
             ]);
         
