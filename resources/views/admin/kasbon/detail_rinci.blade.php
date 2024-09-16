@@ -9,6 +9,8 @@
       </button>
       @endif
 
+
+
    {{-- INI MESSAGE KALO USER BELUM BUAT DETAIL CICILAN SAMA SEKALI ( TABLE DETAIL_CICILAN) --}}
     @if ($data->detKasbon->isEmpty())
     <div class="message-button">
@@ -25,53 +27,19 @@
     @if($hasil_lunas == 0)
     <a href="/tambah-data-kasbon/{{$data->slug}}" class="btn btn-orange" style="background-color: #ff8567; color: #ffffff; border: none; margin-left: 50px; margin-top: 20px;">Tambah Data</a>
     @else
-    <h1 style="margin-left: 50px; margin-top: 20px;">Cicilan ini sudah lunas</h1>
+    <button class="status-button-l">Cicilan ini sudah lunas</button>
     @endif
 
-@foreach ($data->detKasbon as $d)
 
-    <div class="col-md-7 mt-4 ms-5">
-          <div class="card">
-                <div class="card-header pb-0 px-3" style="border-bottom: none; background-color: white;">
-                    <h6 class="mb-0">Cicilan Kasbon</h6>
-                </div>
 
-            <div class="card-body pt-4 p-3">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                    <div class="d-flex justify-content-between align-items-start" style="width: 100%;">
 
-                    <div class="d-flex flex-column">
-                        <h6 class="mb-3">
-                            <span class="d-inline-block p-2 border rounded custom-label">Cicilan Ke-{{$d->cicilan_ke}}</span>
-                        </h6>
-                        <span class="mb-2 text-s">Nama Pembeli: <span class="text-dark font-weight-bold ms-sm-2">{{$data->pembelian->users->nama}}</span></span>
-			            @foreach ($pembelian->detail_pembelian as $detail)
-                        <span class="mb-2 text-s">Nama Barang: <span class="text-dark ms-sm-2 font-weight-bold">{{$detail->namaBarang->nama_barang}}</span></span>
-			            @endforeach
-                        <span class="text-s">Total Bayar:
-                        <span class="text-dark ms-sm-2 font-weight-bold">{{$d->total_bayar}}</span></span>
-                    </div>
 
-                    <div class="d-flex flex-column align-items-end" style="margin-right: 10px; margin-top: 5px;">
-                        <span class="d-inline-block p-2 border rounded custom-label-b">{{$d->created_at}}</span>
-                    <div class="mt-7">
-                    @if($d->is_lunas == 1)
-                        <h6 class="d-inline-block p-2 border rounded custom-label-b">Lunas</h6>
-                    @else
-                        <h6 class="d-inline-block p-2 border rounded custom-label-b">Belum Lunas</h6>
-                    @endif
-                  </div>
-                 </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+     @livewire('detail-rinci-live', [
+      'slug' => $slug
+     ])
 
-    @endforeach
-    <div class="button-dashboard d-flex justify-content-end align-items-center" style="padding-right: 90px; padding-top: 300px;">
 
-</div>
+
+
 
 @endsection
