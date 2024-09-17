@@ -31,6 +31,7 @@ Route::middleware('guest')->group(function () {
         // BAGIAN USER
 Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/home', [UserController::class, 'index'])->name('user_home');
+        Route::get('/profile', [UserController::class, 'profile']);
 });
 
 

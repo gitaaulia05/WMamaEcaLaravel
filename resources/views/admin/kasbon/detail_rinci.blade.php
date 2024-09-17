@@ -30,6 +30,7 @@
     <h1 style="margin-left: 50px; margin-top: 20px;">Cicilan ini sudah lunas</h1>
     @endif
      
+     {{-- INI DI PINDAH KE DETAIL-RINCI-LIVE CONTROLLER DETAILRINCILIVE / LIVEWIRE --}}
      @livewire('detail-rinci-live', [
       'slug' => $slug
      ])

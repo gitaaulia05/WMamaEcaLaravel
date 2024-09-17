@@ -76,7 +76,6 @@ return array(
     'LaravelLang\\Config\\' => array($vendorDir . '/laravel-lang/config/src'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections', $vendorDir . '/laravel/framework/src/Illuminate/Conditionable'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
-    'Haruncpi\\LaravelIdGenerator\\' => array($vendorDir . '/haruncpi/laravel-id-generator/src'),
     'GuzzleHttp\\UriTemplate\\' => array($vendorDir . '/guzzlehttp/uri-template/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
@@ -104,5 +103,4 @@ return array(
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
     'ArchTech\\Enums\\' => array($vendorDir . '/archtechx/enums/src'),
     'App\\' => array($baseDir . '/app', $vendorDir . '/laravel/pint/app'),
-    'Algolia\\AlgoliaSearch\\' => array($vendorDir . '/algolia/algoliasearch-client-php/lib'),
 );

@@ -12,6 +12,14 @@ class UserController extends Controller
                 "title" => 'USER'
             ]);
     }  
+
+
+    public function profile()
+    {
+        return view('user.profile' , [
+            "title" => "PROFILE | USER"
+        ]);
+    }
     
     public function user_test(){
         return view('welcome');
