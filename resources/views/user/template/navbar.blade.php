@@ -5,8 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{$title}}</title>
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> --}}
+  <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
+  <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
+  <title>
+   {{$title}}
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
 
+  <link href="{{ asset('css/css/nucleo-icons.css')}}" rel="stylesheet" />
+
+    <link href="{{ asset('css/css/nucleo-svg.css')}}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="{{ asset('css/css/nucleo-svg.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- CSS Files -->
+
+      <link  id="pagestyle" href="{{ asset('css/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet" />
+      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+      
       @vite('resources/css/app.css')
+        @livewireStyles
   </head>
   <body>
   
@@ -15,11 +38,11 @@
         <div class="flex justify-around lg:justify-around">
 
           <div class="icon ">
-            <h1 class="text-sm">Hello, world!  </h1>
+            <h1 class="text-sm"> ini icon  </h1>
           </div>
 
           <div class="menu-user hidden lg:block">
-            <h1 class="text-sm">Hello, world!  </h1>
+            <a href="/home" class="text-sm"> Produk </a>
           </div>
 
           <div class="Cart hidden lg:block ">
@@ -43,5 +66,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    @livewireScripts
   </body>
 </html>
