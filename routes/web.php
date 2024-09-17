@@ -32,6 +32,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/home', [UserController::class, 'index'])->name('user_home');
         Route::get('/profile', [UserController::class, 'profile']);
+        Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
 });
 
 

@@ -8,13 +8,20 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileTable extends Component
 {
+    public $search = '';
     public function render()
     {
-         $user = Auth::id();
+
+
         return view('livewire.profile-table', [
             "title" => "PROFILE | USER",
-            "data" => pembelian::with('detail_pembelian.namaBarang')->where('id_user' , $user)->get(),
-            'user' =>$user,
+            "data" => pembelian::with( 'detail_pembelian.namaBarang' )->where('id_user' , Auth::id())->get(),
+
         ]);
     }
+
+     public function updatingSearch()
+     {
+        $this->resetPage();
+     }
 }

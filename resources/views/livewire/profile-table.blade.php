@@ -35,18 +35,21 @@
                         </div>
                       </td>
 
+              
                       <td>
                           @foreach($d->detail_pembelian as $dp)
                         <p class="text-xs font-weight-bold mb-0">{{$dp->namaBarang->nama_barang}}</p>
-                          @endforeach
+                         @endforeach
                       </td>
                     
 
                       <td class="align-middle text-center">
-                      <a href="/" class="btn btn-orange"
+                      
+                      <a href="/pesanan/{{$d->slug}}" class="btn btn-orange"
                             style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
                         </a>
                       </td>
+                        
                     </tr>
                                 @endforeach
 
