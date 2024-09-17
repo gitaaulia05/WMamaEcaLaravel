@@ -1,6 +1,6 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
-      <div class="input-group ms-4 mt-4 w-20 ">
+      <div class="input-group ms-4 mt-4 w-40">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari di sini...">
             </div>
@@ -19,7 +19,7 @@
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">profil</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                    
+
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Limit</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
                     </tr>
@@ -53,7 +53,7 @@
 
                     </tr>
                   </tbody>
-                    
+
                      @endforeach
                 </table>
               </div>

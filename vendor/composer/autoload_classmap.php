@@ -14,7 +14,10 @@ return array(
     'App\\Http\\Controllers\\adminDashboardController' => $baseDir . '/app/Http/Controllers/adminDashboardController.php',
     'App\\Http\\Controllers\\registerController' => $baseDir . '/app/Http/Controllers/registerController.php',
     'App\\Http\\Livewire\\DetailKasbon' => $baseDir . '/app/Http/Livewire/DetailKasbon.php',
+<<<<<<< HEAD
     'App\\Http\\Livewire\\DetailRinciLive' => $baseDir . '/app/Http/Livewire/DetailRinciLive.php',
+=======
+>>>>>>> ec9d1ff574e7650dd8266869f4f51a3ee506496a
     'App\\Http\\Livewire\\KasbonTablel' => $baseDir . '/app/Http/Livewire/KasbonTablel.php',
     'App\\Http\\Middleware\\cekAdmin' => $baseDir . '/app/Http/Middleware/cekAdmin.php',
     'App\\Http\\Middleware\\cekUser' => $baseDir . '/app/Http/Middleware/cekUser.php',

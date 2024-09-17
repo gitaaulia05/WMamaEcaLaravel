@@ -192,6 +192,18 @@ body {
     cursor: default;
 }
 
+.status-button-l {
+    display: block;
+    margin: 20px 0 0 50px;
+    background-color: #a1d169;
+    color: white;
+    border: 1px solid #8fa577;
+    padding: 5px 10px;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: default;
+}
+
 .form a {
     margin-top: 20px;
     text-align: center;
@@ -202,3 +214,16 @@ body {
 .form a:hover {
     text-decoration: underline;
 }
+
+.custom-label {
+    background-color: #cfc9c9;
+    color: #ffffff;
+    border-color: #d3d3d3;
+}
+
+.custom-label-b {
+    background-color: #fcfafa;
+    color: black;
+    border-color: #d3d3d3;
+}
+

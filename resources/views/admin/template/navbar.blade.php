@@ -8,7 +8,7 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-           
+
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
@@ -16,9 +16,9 @@
                 <i class="fa fa-user me-sm-1"></i>
                 @auth
                 <span class="d-sm-inline d-none">{{ auth()->user()->nama }}</span>
-                <form method="POST" action="/logout">
+                <form method="POST" action="/logout" class="d-inline ms-2">
                 @csrf
-                <button type="submit">Log Out</button>
+                <button type="submit" style="padding: 0 2px 0;">Log Out</button>
                 </form>
                 @endauth
               </a>

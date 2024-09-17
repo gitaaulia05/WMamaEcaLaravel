@@ -1,5 +1,5 @@
 <div>
-            <div class="input-group ms-4 mt-4 w-20 ">
+            <div class="input-group ms-4 mt-4 w-40 ">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari ID Kasbon di sini...">
             </div>
