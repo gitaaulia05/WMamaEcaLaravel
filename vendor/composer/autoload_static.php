@@ -597,10 +597,9 @@ class ComposerStaticInit2ff20ac68f5b8aac10695a379686f717
         'App\\Http\\Controllers\\adminDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/adminDashboardController.php',
         'App\\Http\\Controllers\\registerController' => __DIR__ . '/../..' . '/app/Http/Controllers/registerController.php',
         'App\\Http\\Livewire\\DetailKasbon' => __DIR__ . '/../..' . '/app/Http/Livewire/DetailKasbon.php',
-<<<<<<< HEAD
+
         'App\\Http\\Livewire\\DetailRinciLive' => __DIR__ . '/../..' . '/app/Http/Livewire/DetailRinciLive.php',
-=======
->>>>>>> ec9d1ff574e7650dd8266869f4f51a3ee506496a
+
         'App\\Http\\Livewire\\KasbonTablel' => __DIR__ . '/../..' . '/app/Http/Livewire/KasbonTablel.php',
         'App\\Http\\Middleware\\cekAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/cekAdmin.php',
         'App\\Http\\Middleware\\cekUser' => __DIR__ . '/../..' . '/app/Http/Middleware/cekUser.php',
