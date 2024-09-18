@@ -3,7 +3,7 @@
 
        <div class="input-group ms-4 mt-4 w-20 ">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari di sini...">
+              <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari Nama Barang ...">
             </div>
 
 
@@ -14,6 +14,8 @@
             <div class="card-header pb-0" style="border-bottom: none; background-color: white;">
               <h6 class="text-center">Pesanan Anda</h6>
             </div>
+
+            
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0 ms-3">
                 <table class="table align-items-center mb-0">
