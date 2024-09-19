@@ -29,22 +29,9 @@
     @else
     <button class="status-button-l">Cicilan ini sudah lunas</button>
     @endif
-<<<<<<< HEAD
-     
-     {{-- INI DI PINDAH KE DETAIL-RINCI-LIVE CONTROLLER DETAILRINCILIVE / LIVEWIRE --}}
-=======
 
-
-
-
-
->>>>>>> ec9d1ff574e7650dd8266869f4f51a3ee506496a
      @livewire('detail-rinci-live', [
       'slug' => $slug
      ])
-
-
-
-
 
 @endsection

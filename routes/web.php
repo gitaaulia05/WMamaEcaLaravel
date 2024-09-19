@@ -50,10 +50,8 @@ Route::middleware(['auth', 'cekAdmin'])->group(function () {
                 // DASHBOARD LAPORAN PENJUALAN
         Route::get('/laporan-penjualan', [LaporanPenjualanController::class,'index']);
 
-
                 // DASHBOARD KASBON
          Route::get('/kasbon', [KasbonController::class, 'index']);
-
         Route::get('/detail-kasbon/{id_user}', [KasbonController::class, 'detail_data']);
         Route::get('/detail-kasbon-rinci/{slug}', [KasbonController::class, 'detail_rinci'])->name('detail-kasbon-rinci');
         Route::get('/tambah-data-kasbon/{slug}', [KasbonController::class, 'tambah_data']);

@@ -45,7 +45,7 @@ class KasbonController extends Controller
                 'title' => "Admin | Detail Data Kasbon",
                 'page' => 'Detail Data Kasbon',
                 'data' => kasbon::with(['detKasbon', 'pembelian.users'])->where('slug' , $slug)->first(),
-            'pembelian' => pembelian::with(['detail_pembelian.namaBarang' , 'users'])->where('slug' , $slug)->first(),
+                 'pembelian' => pembelian::with(['detail_pembelian.namaBarang' , 'users'])->where('slug' , $slug)->first(),
                 'slug' => $slug,
                 
             ]);

@@ -2,11 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+      <meta name="csrf_token" value="{{ csrf_token() }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{$title}}</title>
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> --}}
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
   <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
   <title>
    {{$title}}
   </title>
@@ -60,6 +64,7 @@
 
         </div>
       </nav>
+
 
               @yield('container')
     </main>

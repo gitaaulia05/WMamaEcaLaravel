@@ -39,9 +39,9 @@
 
               
                       <td>
-                          @foreach($d->detail_pembelian as $dp)
-                        <p class="text-xs font-weight-bold mb-0">{{$dp->namaBarang->nama_barang}}</p>
-                         @endforeach
+                       <p class="text-xs font-weight-bold mb-0">
+                       {{$d->detail_pembelian->pluck('namaBarang.nama_barang')->implode(', ')}}
+                         </p>
                       </td>
                     
 

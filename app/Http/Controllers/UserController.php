@@ -28,7 +28,7 @@ class UserController extends Controller
     {
         return view('user.pesanan' , [
             "title" => "PROFILE | USER",
-            "data" => pembelian::with('detail_pembelian.namaBarang')->where('id_user' , Auth::id())->get(),
+            "data" => pembelian::with(['detail_pembelian.namaBarang' ])->where('id_user' , Auth::id())->get(),
         ]);
     }
     

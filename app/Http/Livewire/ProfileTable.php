@@ -16,7 +16,9 @@ class ProfileTable extends Component
     {
         return view('livewire.profile-table', [
             "title" => "PROFILE | USER",
-            "data" => pembelian::with(['detail_pembelian.namaBarang' ])->where('id_user' , Auth::id())->paginate(10),
+            "data" => pembelian::with(['detail_pembelian.namaBarang' => function($query){
+                    $query->where('nama_barang' , 'like' , '%'.$this->search.'%');
+            }])->where('id_user' , Auth::id())->paginate(10),
 
         ]);
     }
