@@ -30,15 +30,14 @@
 
       <link  id="pagestyle" href="{{ asset('css/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet" />
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-      
-      @vite('resources/css/app.css')
+     
+      {{-- @vite('resources/css/app.css') --}}
         @livewireStyles
   </head>
   <body>
   
     <main>
-      <nav class="navbar-user">
+      {{-- <nav class="navbar-user">
         <div class="flex justify-around lg:justify-around">
 
           <div class="icon ">
@@ -63,8 +62,69 @@
         </div>
 
         </div>
-      </nav>
+      </nav> --}}
 
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="{{asset('images/logo1-removebg-preview.png')}}" alt="Bootstrap" width="52" height="52">
+      </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end">
+
+        <li class="nav-item ">
+          <a class="nav-link active" aria-current="page" href="#">Produk</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">logo keranjang</a>
+        </li>
+
+        <li class="nav-item dropdown">
+           @auth
+
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              logo profile
+          </a>
+          <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="#">Hallo {{ auth()->user() ? auth()->user()->nama : 'Guest' }}</a></li>
+
+              <div class="container-fluid">
+          <form class="d-flex" method="POST" action="/logout" >
+        @csrf
+            <button class="btn btn-outline-success" type="submit">Logout</button>
+        </form>
+        </div>
+           
+          </ul>
+        </li>
+      
+        </li>
+
+          <form class="d-flex" method="POST" action="/logout" >
+        @csrf
+            <button class="btn btn-outline-success" type="submit">Logout</button>
+        </form>
+
+              @else
+                <li class="nav-item text-end">
+                  <a href="/login" class="nav-link">LOGIN </a>
+                  </li>
+          @endauth
+       
+
+    
+    </div>
+  </div>
+</nav>
 
               @yield('container')
     </main>
