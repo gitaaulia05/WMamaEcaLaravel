@@ -33,6 +33,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/home', [UserController::class, 'index'])->name('user_home');
         Route::get('/profile', [UserController::class, 'profile']);
         Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
+
+        Route::get('/cart', [UserController::class, 'cart']);
 });
 
 

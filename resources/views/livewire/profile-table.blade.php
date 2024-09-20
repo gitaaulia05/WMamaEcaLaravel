@@ -1,68 +1,59 @@
-<div>
 
 
-       <div class="input-group ms-4 mt-4 w-20 ">
+<div >
+
+       <div class="input-group ms-4 mt-4 w-20 mb-10">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari Nama Barang ...">
             </div>
 
 
-<div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4 me-3 ms-3">
-            <div class="card-header pb-0" style="border-bottom: none; background-color: white;">
-              <h6 class="text-center">Pesanan Anda</h6>
-            </div>
-
-
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0 ms-3">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gambar</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Produk</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-              @foreach($data as $d)
-                    <tr>
-
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                            <img src="{{asset('images/img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
+      <div class="container pt-5  ">
+ 
+<div class="relative overflow-x-auto  shadow-xl w-11/12 rounded-lg mx-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 lg:w-11/12  mx-auto">
+        <thead class="text-xs text-slate-400 uppercase bg-white border-b-[1px] border-slate-200">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Gambar
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   Nama Produk
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Aksi
+                </th>
+              
+            </tr>
+        </thead>
+        <tbody>
+         @foreach($data as $d)
+            <tr class="bg-white border-b-[1px] border-slate-200 dark:bg-white  ">
+                <th scope="row" class="px-6 py-4 font-medium text-slate-700 whitespace-nowrap dark:text-black">
+                  <div class="d-flex px-2 py-1">
+                            <img src="{{asset('images/img/team-2.jpg')}}" class=" h-11 rounded-md" alt="user1">
                         </div>
-                      </td>
-
-
-                      <td>
-                       <p class="text-xs font-weight-bold mb-0">
+                </th>
+                <td class="px-6 py-4 text-slate-700">
+                   
                        {{$d->detail_pembelian->pluck('namaBarang.nama_barang')->implode(', ')}}
-                         </p>
-                      </td>
-
-
-                      <td class="align-middle text-center">
-
-                      <a href="/pesanan/{{$d->slug}}" class="btn btn-orange"
-                            style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
+                    
+                </td>
+                <td class="px-6 py-4 text-slate-700 ">
+                     <a href="/pesanan/{{$d->slug}}" class="bg-orange-400 text-white rounded-md">
+                     <span class="px-4 my-5 text-center">
+                         Detail
+                     </span>
+                 
                         </a>
-                      </td>
+                </td>
+            </tr>
 
-                    </tr>
-                                @endforeach
+              @endforeach
+        </tbody>
+    </table>
+</div>
+     </div>
 
-                  </tbody>
-
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    </div>
 
 </div>
