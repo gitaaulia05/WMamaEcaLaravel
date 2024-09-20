@@ -1,13 +1,10 @@
-
-
 <div >
 
        <div class="input-group ms-4 mt-4 w-20 mb-10">
+
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari Nama Barang ...">
             </div>
-
-
       <div class="container pt-5  ">
  
 <div class="relative overflow-x-auto  shadow-xl w-11/12 rounded-lg mx-auto">
@@ -32,7 +29,7 @@
                 <th scope="row" class="px-6 py-4 font-medium text-slate-700 whitespace-nowrap dark:text-black">
                   <div class="d-flex px-2 py-1">
                             <img src="{{asset('images/img/team-2.jpg')}}" class=" h-11 rounded-md" alt="user1">
-                        </div>
+
                 </th>
                 <td class="px-6 py-4 text-slate-700">
                    
