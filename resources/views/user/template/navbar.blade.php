@@ -30,12 +30,12 @@
 
       <link  id="pagestyle" href="{{ asset('css/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet" />
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-     
+
       {{-- @vite('resources/css/app.css') --}}
         @livewireStyles
   </head>
   <body>
-  
+
     <main>
       {{-- <nav class="navbar-user">
         <div class="flex justify-around lg:justify-around">
@@ -58,7 +58,7 @@
         <div class="hamburger lg:hidden">
         <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg>
 
-    
+
         </div>
 
         </div>
@@ -73,18 +73,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end">
+      <ul class="navbar-nav me-auto mb-2 mt-2 mb-lg-0">
 
         <li class="nav-item ">
-          <a class="nav-link active" aria-current="page" href="#">Produk</a>
+          <a class="nav-link active fs-6 ms-5" aria-current="page" href="#">Produk</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <a class="nav-link fs-6 ms-8" href="/pesanan">Profile</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">logo keranjang</a>
+        <li class="nav-item ms-auto">
+          <a class="nav-link fs-6 ms-8" href="#">logo keranjang</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -103,10 +103,10 @@
             <button class="btn btn-outline-success" type="submit">Logout</button>
         </form>
         </div>
-           
+
           </ul>
         </li>
-      
+
         </li>
 
           <form class="d-flex" method="POST" action="/logout" >
@@ -119,9 +119,9 @@
                   <a href="/login" class="nav-link">LOGIN </a>
                   </li>
           @endauth
-       
 
-    
+
+
     </div>
   </div>
 </nav>

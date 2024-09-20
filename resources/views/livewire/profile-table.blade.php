@@ -1,7 +1,7 @@
 <div>
 
 
-       <div class="input-group ms-4 mt-4 w-20 ">
+       <div class="input-group ms-5 mt-4 w-20 ">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari Nama Barang ...">
             </div>
@@ -10,8 +10,8 @@
 <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
-          <div class="card mb-4 me-3 ms-3">
-            <div class="card-header pb-0" style="border-bottom: none; background-color: white;">
+          <div class="card mb-4 me-3 ms-3 shadow-sm">
+            <div class="card-header pb-0" style="border-bottom: none; background-color: white; ">
               <h6 class="text-center">Pesanan Anda</h6>
             </div>
 
