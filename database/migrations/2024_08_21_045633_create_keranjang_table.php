@@ -15,8 +15,6 @@ return new class extends Migration
             $table->string('id_keranjang')->primary();
             $table->string('id_user');
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
-            $table->date('tanggal_masukKeranjang');
-            $table->date('update_masukKeranjang');
             $table->timestamps();
         });
     }

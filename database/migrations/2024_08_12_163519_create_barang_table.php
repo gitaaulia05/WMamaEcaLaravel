@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('barang', function (Blueprint $table) {
             $table->string('id_barang',100)->primary();
             $table->string('nama_barang');
+            $table->string('slug');
+            $table->string('img');
             $table->integer('stok_barang');
             $table->text('deks_barang');
             $table->boolean('is_arsip')->default(false);

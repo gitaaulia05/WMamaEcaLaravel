@@ -31,6 +31,11 @@ Route::middleware('guest')->group(function () {
         // BAGIAN USER
 Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/home', [UserController::class, 'index'])->name('user_home');
+
+        Route::get('/barang/{slug}', [UserController::class, 'barang_detail']);
+
+        Route::post('/barang-simpan', [UserController::class, 'barang_simpan']);
+
         Route::get('/profile', [UserController::class, 'profile']);
         Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
 

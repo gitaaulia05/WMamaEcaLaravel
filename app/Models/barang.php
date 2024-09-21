@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class barang extends Model
 {
     use HasFactory;
-    public $timestamps = false;
-    protected $table = "barang";
+    public $table = "barang";
     protected $primaryKey = 'id_barang';
     protected $keyType = 'string';
     protected $fillable = [
         'id_barang',
+        'nama_barang',
+        'slug',
+        'img',
         'nama_barang',
         'stok_barang',
         'deks_barang',
@@ -24,6 +26,8 @@ class barang extends Model
     public function JenisBarang(){
         return $this->hasMany(JenisBarang::class, 'id_barang', 'id_barang' );
     }
+
+    // BIKIN SLUG DISINI 
 
 }
 
