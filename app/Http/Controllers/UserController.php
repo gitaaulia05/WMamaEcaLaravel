@@ -22,10 +22,12 @@ class UserController extends Controller
     }  
 
     public function barang_detail($slug){
+        $barang = barang::where('slug' , $slug)->first();
         return view('user.detail_barang',[
                 "title" => "Detail Barang",
-                "data" => barang::where('slug' , $slug)->first(),
+                "data" => $barang,
                 'slug' => $slug,
+                'id_user' => $barang->id_user,
         ]);
     }
 

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('id_barang');
             $table->foreign('id_barang')->references('id_barang')->on('barang')->onDelete('cascade');
             $table->integer('kuantitas');
-            $table->double('total_hargaProduk');
             $table->timestamps();
         });
     }
