@@ -1,12 +1,17 @@
 <div >
 
-       <div class="input-group ms-4 mt-4 w-20 mb-10">
+       <div class="input-group ms-12 mt-4 w-20 mb-10">
 
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+
+              
+
               <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari Nama Barang ...">
             </div>
+
+
       <div class="container pt-5  ">
- 
+
 <div class="relative overflow-x-auto  shadow-xl w-11/12 rounded-lg mx-auto">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 lg:w-11/12  mx-auto">
         <thead class="text-xs text-slate-400 uppercase bg-white border-b-[1px] border-slate-200">
@@ -20,7 +25,7 @@
                 <th scope="col" class="px-6 py-3">
                     Aksi
                 </th>
-              
+
             </tr>
         </thead>
         <tbody>
@@ -32,16 +37,16 @@
 
                 </th>
                 <td class="px-6 py-4 text-slate-700">
-                   
+
                        {{$d->detail_pembelian->pluck('namaBarang.nama_barang')->implode(', ')}}
-                    
+
                 </td>
                 <td class="px-6 py-4 text-slate-700 ">
                      <a href="/pesanan/{{$d->slug}}" class="bg-orange-400 text-white rounded-md">
-                     <span class="px-4 my-5 text-center">
+                     <span class="px-4 py-5 my-5 text-center">
                          Detail
                      </span>
-                 
+
                         </a>
                 </td>
             </tr>

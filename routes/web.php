@@ -38,6 +38,7 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::get('/profile', [UserController::class, 'profile']);
         Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
+        Route::get('/update-profile', [UserController::class, 'update_profile']);
 
         Route::get('/cart', [UserController::class, 'cart']);
 });
