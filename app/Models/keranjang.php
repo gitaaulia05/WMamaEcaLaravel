@@ -16,7 +16,8 @@ class keranjang extends Model
 
     protected $fillable = [
         'id_keranjang',
-        'id_barang'
+        'id_user',
+
     ];
 
     public function keranjangDetail(): hasMany

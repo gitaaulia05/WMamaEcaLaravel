@@ -2,6 +2,7 @@
 @section('container')
 
 @livewire('barang-user' , [
-    'slug' => $slug
+    'slug' => $slug,
+    'id_user' => $id_user
 ])
 @endsection

@@ -16,12 +16,20 @@ class keranjangDetail extends Model
     
     protected $fillable = [
         'id_detail_keranjang',
-        'id_barang'
+        'id_keranjang',
+        'id_barang',
+        'kuantitas'
+         
     ];
 
     public function barang () :belongsTo
     {
         return $this->BelongsTo(barang::class, 'id_barang' , 'id_barang');
+    }
+
+    public function keranjang() : belongsTo 
+    {
+        return $this->BelongsTo(keranjang::class , 'id_keranjang' , 'id_keranjang');
     }
 }
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('img');
             $table->integer('stok_barang');
+            $table->double('harga_barang');
             $table->text('deks_barang');
             $table->boolean('is_arsip')->default(false);
             $table->timestamps();

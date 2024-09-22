@@ -12,7 +12,7 @@
                    Harga
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   Jumlah
+                   Jumlah Produk
                 </th>
                 <th scope="col" class="px-6 py-3">
                   Pilih
@@ -23,21 +23,21 @@
         </thead>
         <tbody>
          @foreach($keranjang as $d)
-          @foreach ($d->keranjangDetail as $u )
             <tr class="bg-white border-b-[1px] border-slate-200 dark:bg-white  ">
                 <th scope="row" class="px-6 py-4 font-medium text-slate-700 whitespace-nowrap dark:text-black">
-                {{$u->barang->nama_barang}}
+                {{$d->barang->nama_barang}}
                 </th>
-                <td class="px-6 py-4 text-slate-700">
-                       {{$u->id_barang}}
+           
+                <td class="px-6 py-4 text-slate-700" wire:model="hargaBarang">
+                       {{$d->barang->harga_barang}}
                 </td>
                 <td class="px-6 py-4 text-slate-700 ">
-                    {{$u->kuantitas}}
+                    {{$d->count}}
                 </td>
 
                         <td class="px-6 py-4 text-slate-700">
                       <div class="grid grid-cols-2 gap-2">
-                      <input type="checkbox">
+                      <input wire:model="checkBarang" type="checkbox">
                         <div class="hapus-keranjang bg-orange-500 rounded-full text-center w-fit hover:bg-orange-300">
                          <button type="submit" class="mx-5 text-white"> hapus </button>
                         </div>
@@ -46,11 +46,17 @@
                 </td>
 
             </tr>
-    @endforeach
+
               @endforeach
         </tbody>
     </table>
 </div>
 
+    <div class="container price bg-black">
+    <div class="price-content fixed bottom-0 left-0 right-0">
+    <h1> total Harga : </h1>
+    <button button="submit" class="bg-orange-500"> Lanjut Bayar</button>
+    </div>
+    </div>
 
 </div>
