@@ -56,9 +56,15 @@ class UserController extends Controller
         ]);
     }
 
-    public function cart(){
+    public function keranjang(){
         return view('user.keranjang' , [
             "title" => "Keranjang"
+        ]);
+    }
+    public function pembelianPlain($token){
+        return view('user.pembelianCo' , [
+            "title" => "Pembelian Barang",
+            "token" => $token,
         ]);
     }
     

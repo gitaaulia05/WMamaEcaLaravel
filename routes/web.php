@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\KasbonTable;
+use App\Http\Livewire\Pembelian;
 use App\Http\Livewire\DetailKasbon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -39,13 +40,16 @@ Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/profile', [UserController::class, 'profile']);
         Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
 
-        Route::get('/cart', [UserController::class, 'cart']);
+        Route::get('/keranjang', [UserController::class, 'keranjang']);
+
+        Route::get('/pembelian/{token}' , [UserController::class , 'pembelianPlain'] );
+
 });
 
 
-Route::get('/', [UserController::class, 'index'])->name('home');
+        Route::get('/', [UserController::class, 'index'])->name('home');
 
-Route::post('/logout',[AuthenticateController::class,'destroy'])->middleware('auth');
+        Route::post('/logout',[AuthenticateController::class,'destroy'])->middleware('auth');
 
 Route::middleware(['auth', 'cekAdmin'])->group(function () {
 

@@ -15,6 +15,7 @@ class BarangUser extends Component
     public $id_user;
     public $id_barang;
     public $kuantitas;
+    public $counter = '';
 
     public function mount($slug)
 
@@ -28,6 +29,8 @@ class BarangUser extends Component
             // Optional: Handle jika data tidak ditemukan
             abort(404, 'Barang tidak ditemukan');
         }
+
+        $this->kuantitas =1;
     }
 
     public function render()
@@ -49,16 +52,30 @@ class BarangUser extends Component
               keranjang::create($keranjangData);
  
             }
-
             $keranjang = keranjang::where('id_user' , Auth::id())->first();
 
-                $data = $this->validate([
-                    'id_barang' =>'required',
-                    'kuantitas' =>'required|integer',
-                ]);
+            $dataBarang = keranjangDetail::where('id_barang' , $this->id_barang)->first();
 
-                $data['id_keranjang'] = $keranjang->id_keranjang;
-                $data['id_detail_keranjang'] = (String) Str::uuid();
-                keranjangDetail::create($data);
+                if(!$dataBarang){
+                    
+                    $data = $this->validate([
+                        'id_barang' =>'required',
+                        'kuantitas' =>'required|integer',
+                    ]);
+                    $data['id_keranjang'] = $keranjang->id_keranjang;
+                    $data['id_detail_keranjang'] = (String) Str::uuid();
+                    keranjangDetail::create($data);
+                }  else{
+                    $dataBarang->update([
+                        'kuantitas' => $this->kuantitas + $dataBarang->kuantitas,
+                    ]);
+                }
+
+              
+                $this->dispatch('cartUpdated');
+
+                session()->flash('message' , 'barang berhasil masuk keranjang');
     }
+
+
 }

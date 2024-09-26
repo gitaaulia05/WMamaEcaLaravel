@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\users;
 use App\Models\keranjangDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class keranjang extends Model
@@ -23,5 +25,10 @@ class keranjang extends Model
     public function keranjangDetail(): hasMany
     {
         return $this->HasMany(keranjangDetail::class, 'id_keranjang' ,'id_keranjang');
+    }
+
+    public function users() : belongsTo
+    {
+        return $this->belongsTo(users::class , 'id_user' , 'id_user');
     }
 }
