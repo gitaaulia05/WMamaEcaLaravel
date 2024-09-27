@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+ use Cviebrock\EloquentSluggable\Sluggable;
+
 use App\Models\kasbon;
 use App\Models\users;
 use App\Models\detail_pembelian;
@@ -14,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class pembelian extends Model
 {
     use HasFactory;
-
+    use Sluggable;
     protected $table = "pembelian";
     protected $primaryKey = "id_pembelian";
     protected $keyType = "string";
@@ -25,10 +27,17 @@ class pembelian extends Model
         'slug',
         'total_bayar',
     ];
-
     public function users(): belongsTo
     {
         return $this->BelongsTo(users::class , 'id_user' , 'id_user');
+    }
+
+    public function sluggable() : array {
+        return [
+            'slug' => [
+                'source' =>'users.nama'
+            ]
+        ];
     }
 
     public function kasbon() : hasMany{
@@ -41,5 +50,7 @@ class pembelian extends Model
             detail_pembelian::class, 'id_pembelian' ,'id_pembelian'
         );
 }
+
+   
 
 }

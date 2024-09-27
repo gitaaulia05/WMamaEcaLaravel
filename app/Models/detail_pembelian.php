@@ -21,7 +21,9 @@ class detail_pembelian extends Model
         'id_barang',
         'kuantitas',
         'harga_perProduk',
+        'slug'
     ];
+
 
 
     public function namaBarang(): belongsTo 
@@ -33,4 +35,7 @@ class detail_pembelian extends Model
     {
         return $this->BelongsTo(pembelian::class , 'id_pembelian' ,  'id_pembelian');
     }
+
+
+
 }

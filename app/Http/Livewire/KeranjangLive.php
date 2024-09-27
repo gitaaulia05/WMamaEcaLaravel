@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use session;
+use App\Models\users;
 use Livewire\Component;
 use App\Models\keranjang;
 use App\Models\keranjangDetail;
@@ -31,11 +32,12 @@ class KeranjangLive extends Component
     {
         return view('livewire.keranjang-live' , [
             "title" => "Keranjang",
-            "keranjang" =>
-            $keranjang = keranjangDetail::with(['keranjang' => function($query){
+            "keranjang" => keranjangDetail::with(['keranjang' => function($query){
                $query->where("id_user" , Auth::id())->get();
-                 }, 'barang'])->select('id_barang' , DB::raw('count(id_barang) as count') , DB::raw('sum(kuantitas) as total'))->groupBy('id_barang')->get(),
-          
+                 }, 'barang' ])->select('id_barang' , DB::raw('count(id_barang) as count') , DB::raw('sum(kuantitas) as total'))->groupBy('id_barang')->get(),
+            
+                 "user" => users::where('id_user' , Auth::id())->first(),
+                 
         ]);
 
     }
@@ -74,8 +76,10 @@ class KeranjangLive extends Component
          foreach($this->dataBarang as $hargaBarang){
             $total_harga += $hargaBarang->barang->harga_barang;
          }
-
+            
          $this->harga_barang = $total_harga;
+
+         session()->put('harga_barang' , $total_harga);
     }
 
 

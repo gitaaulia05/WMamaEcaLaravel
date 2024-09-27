@@ -3,6 +3,7 @@
 use App\Livewire\KasbonTable;
 use App\Http\Livewire\Pembelian;
 use App\Http\Livewire\DetailKasbon;
+use App\Http\Livewire\PembelianLive;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KasbonController;
@@ -44,6 +45,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/keranjang', [UserController::class, 'keranjang']);
 
         Route::get('/pembelian/{token}' , [UserController::class , 'pembelianPlain'] );
+
+     
 
 });
 

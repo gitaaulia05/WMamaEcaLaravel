@@ -37,6 +37,7 @@
                 </td>
 
                
+               
                 <td class="px-6 py-4 text-slate-700">
                         
                            <input wire:change="updateKuantitas({{$d->barang->id_barang}})" wire:model="kuantitas.{{$d->barang->id_barang}}" wire:key="kuantitas"  type="number" min="1" onkeydown="if(this.value < 1) this.value=1;">
@@ -58,23 +59,29 @@
 
             </tr>
 
+           
+
               @endforeach
         </tbody>
     </table>
 </div>
 
 
-
     <div class="container price bg-black">
     <div class="price-content fixed bottom-0 left-0 right-0">
 
     <h1 wire:model="helo"> total Harga :
-
         {{$harga_barang}}
-
      </h1>
 
-    <button type="button" wire:click="test"  class="bg-orange-500"> Lanjut Bayar</button>
+
+            @if ($harga_barang >  $user->limit )
+                 <button type="button" disabled wire:click="test"  class="bg-orange-600"> Lanjut Bayar</button>
+                 <p>Anda melebihi limit kasbon </p>
+                 @else
+                    <button type="button" wire:click="test"  class="bg-orange-500"> Lanjut Bayar</button>
+            @endif
+   
 
     </div>
     </div>

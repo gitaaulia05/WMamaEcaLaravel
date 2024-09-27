@@ -75,20 +75,19 @@
                     
                </div>
 
-          <h1 class="mx-10 mb-4"> Total : Rp. 
+          <h1 class="mx-10 mb-4"> Total : Rp. {{$hargaBarang}}
           </h1>
-
-          <input name="total_bayar" value="{{$hargaBarang}}">
-
         <div class="py-2 mx-auto bg-orange-400 hover:bg-orange-300 w-fit">
 
-        <button type="submit" class="mx-10 w-40 lg:w-80">Bayar</button>
+       
+        <button type="submit" class="mx-10 w-40 lg:w-80 ">Bayar</button>
         </div>
-      
       </div>
 
 
    </div>
    </form>
+
+  
 
 </div>

@@ -27,8 +27,7 @@ class kasbon extends Model
         'id_pembelian',
         'slug',
         'total_kasbon',
-        'sisa_kasbon',
-        'tanggal_kasbon',
+    
     ];
 
 
