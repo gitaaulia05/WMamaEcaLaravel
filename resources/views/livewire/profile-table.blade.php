@@ -1,9 +1,9 @@
 <div >
 
-       <div class="input-group ms-12 mt-4 w-20 mb-10">
+       <div class="flex items-center ml-16 mt-4 w-80 mb-10 bg-white shadow-md rounded-lg">
 
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari Nama Barang ...">
+              <span class="px-3 text-gray-500"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="w-full py-2 px-3 focus:outline-none focus:ring focus:ring-orange-300 rounded-r-lg" wire:model.live="search"  placeholder="Cari Nama Barang ...">
             </div>
 
 

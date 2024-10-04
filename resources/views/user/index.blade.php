@@ -15,18 +15,18 @@
                 <div class="barang-image">
                  <img src="{{asset('images/img/ivancik.jpg')}}" class="rounded-md">
                  </div>
-                  
+
 
                  <div class="text-button-barang mt-3" id="text-button">
                  <p class="text-center">Nama Produk : {{$b->nama_barang}}</p>
 
-                    <div class="button-lihat-produk rounded-full mx-auto bg-orange-300 w-fit hover:bg-orange-200 " >
+                    <div class="button-lihat-produk rounded-full mx-auto bg-orange-400 w-fit hover:bg-orange-300 " >
                         <a class="mx-2 my-1  "  href="/barang/{{$b->slug}}">Lihat Produk </a>
                     </div>
-             
+
                  </div>
                    </div>
-                   
+
             </div>
                @endforeach
 
