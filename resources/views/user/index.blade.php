@@ -8,6 +8,8 @@
                 <h1 class="greeting"> Sembako Harianmu Ada di sini, Belanja Nyaman Tanpa Khawatir! </h1>
                 <p class="sub">Warung Sembako Mamah Eca <span class="help">Siap Membantumu</span>  </p>
                 <button>Selengkapnya</button>
+
+ 
             </div>
 
             <aside>
