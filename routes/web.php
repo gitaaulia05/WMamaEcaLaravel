@@ -52,6 +52,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
 
         Route::get('/', [UserController::class, 'index'])->name('home');
+        Route::get('/produk', [UserController::class, 'produk']);
+
 
         Route::post('/logout',[AuthenticateController::class,'destroy'])->middleware('auth');
 

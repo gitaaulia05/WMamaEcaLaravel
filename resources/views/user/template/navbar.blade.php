@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{$title}}</title>
 
+  <link href="{{ asset('css/css/home-user-local.css')}}" rel="stylesheet" />
       @vite('resources/css/app.css')
         @livewireStyles
   </head>
@@ -24,7 +25,8 @@
 
                     <nav class="hidden w-full py-2 rounded-md lg:flex lg:w-fit md:w-full transition duration-700" id="navbar">
                         <ul class="flex flex-col text-center mx-auto my-auto rounded-md w-11/12 gap-4 pb-3 pt-3 lg:flex-row lg:pt-1 lg:bg-white cursor-pointer" >
-                            <li class=" hover:bg-amber-300 py-1 lg:px-0 lg:py-0  rounded-lg"><a class="li mx-1  lg:mx-3" href="/">Produk</a></li>
+                            <li class=" hover:bg-amber-300 py-1 lg:px-0 lg:py-0  rounded-lg"><a class="li mx-1  lg:mx-3" href="/">Beranda</a></li>
+                            <li class=" hover:bg-amber-300 py-1 lg:px-0 lg:py-0  rounded-lg"><a class="li mx-1  lg:mx-3" href="/produk">Produk</a></li>
                             <li class=" hover:bg-amber-300  py-1  lg:px-0 lg:py-0  rounded-lg"><a class="li mx-1  lg:mx-3" href="/profile">Profile</a></li>
                         </ul>
                     </nav>
@@ -50,6 +52,10 @@
                        <img src="{{asset('images/img/bruce-mars.jpg')}}" class="rounded-full h-10" >
                     {{-- <svg viewBox="0 0 24 24" class="h-8" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_429_11117)"> <path d="M21 12C21 13.8569 20.4376 15.5825 19.4739 17.0157C17.858 19.4189 15.1136 21 12 21C8.88636 21 6.14202 19.4189 4.52609 17.0157C3.56237 15.5825 3 13.8569 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#292929" stroke-width="2.5"></path> <path d="M14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9C10 7.89543 10.8954 7 12 7C13.1046 7 14 7.89543 14 9Z" stroke="#292929" stroke-width="2.5"></path> <path d="M15 15H8.99998C7.18822 15 5.6578 16.2045 5.16583 17.8564C6.81645 19.7808 9.26583 21 12 21C14.7341 21 17.1835 19.7808 18.8341 17.8564C18.3421 16.2045 16.8117 15 15 15Z" stroke="#292929" stroke-width="2.5"></path> </g> <defs> <clipPath id="clip0_429_11117"> <rect width="24" height="24" fill="white"></rect> </clipPath> </defs> </g></svg> --}}
                     </li>
+                    <form method="Post" action="/logout">
+                    @csrf
+                    <button type="submit">Logout</button>
+                    </form>
                      @else
 
                      <li class=" hover:bg-amber-300  py-1 lg:mx-10  lg:px-3 lg:py-0  rounded-lg text-center mx-auto my-auto  cursor-pointer"><a href="/login">Login </a></li>
@@ -67,16 +73,15 @@
     </header>
 
     <main class="main lg:blur-none bg-white lg:opacity-100 pt-24 px-10">
-    
-
     @yield('container')
     </main>
 
+  <footer></footer>
 
     <script src="{{asset('js/local/navbarUser.js')}}" ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(function(){
             $(document).on('click', '#masukkan', function(e){
                 e.preventDefault();
@@ -87,7 +92,7 @@
                 });
             })
         });
-    </script>
+    </script> --}}
 
     @livewireScripts
   </body>

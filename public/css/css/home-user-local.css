@@ -1,0 +1,1130 @@
+/* * {
+    outline: 1px solid red !important;
+    opacity: 1 !important;
+    visibility: visible !important
+ } */
+
+ html, body {
+    margin:0;
+    scroll-behavior: smooth;
+}
+
+ header.navbar-header{
+     
+        /* max-width: 1200px; */
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        background-color: white;
+        
+        padding: 0px 100px;
+        
+        margin-inline :auto;
+
+        font-family: "Inter", sans-serif;
+
+        border-bottom:   1px solid black;
+        transition: all .5s ease;
+        z-index: 9999;
+ }
+
+ .navbar-fixed {
+    position: fixed;
+    width: 84.11%;
+
+    top: 0px; 
+    transition: all .5s ease;
+    z-index: 9999;
+   
+ }
+
+ 
+ header .logo {
+    display: flex;
+    margin: 0.5rem 0;
+ }
+ header .nav-list ul{
+    display: flex;
+    gap:2rem;
+    
+ }
+
+ 
+ header .nav-list li{
+ 
+    font-size: 1.125rem; /* 20px */
+
+    list-style-type:none;
+
+ }
+
+ header .nav-list li a{
+    margin: auto;
+    text-decoration:none;
+    transition: 0.2s;
+    color: black;
+ }
+
+ header .nav-list li a:hover{
+    color: red;
+ }
+
+ header .nav-list li a.focus{
+    color:red;
+ }
+.hamburger{
+    display:none;
+ }
+
+
+main{
+    font-family: "Rubik", sans-serif;
+}
+ /*  START CSS HOME */
+main .content {
+    width : 100;
+    max-width:1200px;  
+    padding-top: 50px;
+    margin-inline: auto;
+    display: flex;
+    padding: 2rem 4rem;
+
+}
+
+main .content .sambutan .greeting {
+    font-size: 2.25em; /* 30px */
+    line-height: 2.5rem; /* 36px */
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    padding: 0 0.2rem;
+}
+
+main .content .sambutan .sub {
+    font-weight: 400;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */  
+}
+
+main .content .sambutan button {
+    background-color: #FF620B;
+    border: 3px solid transparent;
+    border: none;
+    border-radius: 0.5rem;
+    padding : 0.8rem 2.5rem;
+    color: white;
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    cursor: pointer;
+    transition: all 0.8s;
+
+}
+
+main .content .sambutan button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+main .content aside .content-image{
+    flex: 1;
+    display: flex;
+}
+
+main .content aside img {
+    width: 500px;
+    min-width: 250px;
+    margin: auto;
+    padding-left: 50px;
+}
+/* END CSS HOME */
+
+hr{
+    width: 50%;
+}
+
+/* START CSS LAYANAN */
+main .penawaran {
+  padding: 2rem 4rem ;
+    display: flex;
+}
+.penawaran button{
+    background-color:#FFFAF5;
+    color: #FF9480;
+
+    padding : 0.8rem 2.5rem;
+
+    border-radius: 999px;
+    border: none;
+
+    margin: auto;
+
+    font-weight: 500;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    cursor: pointer;
+}
+
+main .layanan{
+    width : 100;
+    max-width: 1200px;  
+    padding-top: 50px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 4rem;
+}
+
+
+main .layanan .lPembukaan .judul-layanan {
+    font-size: 2.25em; /* 30px */
+    line-height: 2.5rem; /* 36px */
+    font-weight: 500;
+    letter-spacing: 0.025em;
+}
+
+main .layanan .lPembukaan .sub-layanan {
+    font-weight: 400;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */  
+}
+
+main .layanan .lPembukaan button {
+    background-color: #FF620B;
+    border: 3px solid transparent;
+    border: none;
+    border-radius: 0.5rem;
+    padding : 0.8rem 2.5rem;
+    color: white;
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    cursor: pointer;
+    transition: all 0.8s;
+
+}
+
+main .layanan .lPembukaan button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+main .layanan aside .layanan-image{
+    display: flex;
+    order : 1;
+}
+main .layanan aside .layanan-image img{
+    width: 500px;
+}
+
+/* START FITUR TO OFFERING */
+
+main .fitur {
+    width: 100;
+ 
+    padding: 3rem 4rem;
+    gap: 2rem;
+    display: flex;
+    justify-content : space-around;
+     margin: auto;
+}
+
+main .fitur .fitur-content {
+    width: fit-content;
+    background-color: #FAFAFA;
+    border-radius: 0.75rem; /* 12px */
+    transition: all 0.8s;
+    cursor:default;
+}
+
+main .fitur .fitur-content:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+main .fitur .fitur-content .label {
+    min-width: 10px;
+    display: flex;
+    justify-content: end;
+   
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    background-color: red;
+  
+  
+}
+
+main .fitur .fitur-content.label .label-sub{
+    background-color:red;
+    margin:0;
+}
+
+
+main .fitur .ikon-fitur{
+    top: 0;
+
+    text-align: center;
+    color: #FE1B00;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+}
+
+main article .testimoni{
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    letter-spacing: 0.05em;
+    font-weight:450;
+    text-align:center;
+    color: #334155;
+}
+
+main article .text-client{
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+    letter-spacing: 0.025em;
+    font-weight:500;
+    text-align:center;
+}
+
+main .fitur .fitur-content .photo {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    
+}
+
+main .fitur .fitur-content .photo .desc-client{
+    margin:auto;
+    cursor:default;
+}
+main .fitur .fitur-content .photo .desc-client .nama {
+    font-size: 1rem; /* 16px */
+    margin-left: 5px;
+}
+main .fitur .fitur-content .photo .desc-client .pekerjaan{
+    font-size: 0.75rem; /* 12px */
+}
+main .fitur .photo img{
+    width: 50px;
+    height: 50px;
+    margin:auto;
+    padding:1rem 0rem;
+}
+
+main .fitur .fitur-content .photo .ikon-quote{
+    margin:auto;
+    margin-right: 10px;
+}
+main .fitur .fitur-content .photo #quote{
+    color:#FEBCAF;
+    font-size: 2rem;
+}
+
+main .fitur .ikon-fitur i:hover{
+    opacity: 0.8;
+}
+
+main .fitur .fJudul {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 500;
+    text-align: center;
+}
+
+main .fitur .fSub {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    max-width: 700px;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+main .fitur .fSubTest{
+    font-size: 0.850rem; /* 12px */
+    line-height: 1rem; /* 16px */
+    max-width: 700px;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+/* END FITUR TO OFFERING */
+
+/* END CSS LAYANAN */
+
+
+/* START TESTIMONI */
+main .content-testimoni{
+    display: flex;
+    justify-content: space-around;
+}
+main .content-testimoni .person-testimoni{
+    background-color: #FAFAFA;
+}
+main .content-testimoni .person-testimoni .photo img{
+    width:200px;
+    height:200px;
+   border-radius: 50%;
+}
+/* END TESTIMONI */
+
+/* START FAQ */
+
+main .pertanyaan {
+    font-family: "Rubik", sans-serif;
+    width: 100;
+    max-width: 1200px;
+    padding: 2rem 4rem;
+    display: flex;
+}
+
+main .pertanyaan .faq{
+    width: fit-content;
+}
+main .pertanyaan .faq .judul-faq {
+    width: 100;
+    max-width: fit-content;
+    margin: auto;
+}
+
+main .pertanyaan .faq .judul-faq .j_faq{
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+    color: #22293B;
+}
+
+main .pertanyaan .faq .judul-faq .sub_faq {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+    color: rgb(51 65 85);
+}
+
+main .pertanyaan .faq .judul-faq .sub_faq span{
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 6px;
+    text-underline-offset: 8px;
+    text-decoration-color: #FFCC6B;
+}
+
+main .pertanyaan aside {
+    display: flex;
+    margin: auto;
+}
+main .pertanyaan aside img{
+    width: 400px;
+}
+
+main .pertanyaan .faq .accordion {
+    margin: 60px auto;
+    width: fit-content;
+}
+
+.divider-accordion{
+    width: 100%;
+}
+
+main .pertanyaan .faq .accordion li {
+    list-style-type: none;
+    width: 100;
+    margin: 20px;
+    padding: 2px;
+  
+    border-radius:90px;
+
+    /* background-color: #e3edf7; */
+}
+
+main .pertanyaan .faq .accordion li label {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    font-size: 1rem; /* 16px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 600;
+    color: rgb(51 65 85);
+
+    cursor: pointer;
+
+}
+
+label::after{
+    content: '+';
+    align-items: flex-end;
+    /* margin-right: 10px; */
+    font-size: 24px;
+    font-weight: 600;   
+}
+
+main .pertanyaan .faq .accordion li .content-faq {
+    color: #555;
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+main .pertanyaan .faq .accordion li  input[type="checkbox"]{
+    display: none;  
+}
+main .pertanyaan .faq .accordion li  input[type="checkbox"]:checked + label {
+    color: #FF4624;
+}
+
+main .pertanyaan .faq .accordion li  input[type="checkbox"]:checked + label + .content-faq {
+    max-height: 400px;
+    padding: 10px 10px 20px;
+}
+
+main .pertanyaan .faq .accordion li  input[type="checkbox"]:checked + label::after{
+    content: '-';
+}
+/* END FAQ */
+
+
+/* START alamat */
+
+    main .alamat {
+        
+        width: 100;
+        max-width: 1200px;
+        padding: 4rem 4rem;
+        display:flex;
+        margin : auto;
+        
+    }
+
+    main .alamat  .content-alamat{
+         background-color: #FF8657;
+         border-radius: 0.9rem;
+         margin: auto;
+         padding: 2rem 5rem;
+         text-align: center;
+    }
+
+    main .alamat .content-alamat .judul-alamat{
+        font-size: 1.125rem; /* 18px */
+        line-height: 1.75rem; /* 28px */
+        font-weight: 500;
+        
+        color: rgb(15 23 42);
+      
+    }
+
+    main .alamat .content-alamat .text-alamat{
+     
+        text-wrap: balance;
+        color: white;
+        font-weight: 300;
+        font-size: 2.25rem; /* 36px */
+        line-height: 2.5rem; /* 40px */
+        
+    }
+    main .alamat .ikon-chat{
+        
+        font-size: 1.5rem;
+    }
+    main .alamat .ikon-chat ul{
+        display:flex;
+        font-family: "Rubik", sans-serif;
+      
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    main .alamat .ikon-chat li {
+        list-style-type: none;
+        border :5px solid #F2F6FA;
+        background-color: #FDFDFC;
+        border-radius: 1.5rem; /* 24px */
+        min-width: 5rem;
+        max-width: 7rem;
+        font-family: "Rubik", sans-serif;
+        font-size: 1rem; /* 30px */
+       display: flex;
+       transition: all 0.5s;
+    }
+
+    main .alamat .ikon-chat li:hover{
+        transform: scale(.95);
+        border :5px solid #F5FFFF;
+    }
+
+    main .alamat .ikon-chat li .fa-line{
+        font-size: 1.6rem; /* 30px */
+        color: #00C300;
+        margin: auto; 
+    }
+
+    main .alamat .ikon-chat li .text-icon {
+        color: rgb(51 65 85);
+        font-size: 0.75rem; /* 14px */
+        margin: auto;
+        cursor: pointer;
+    }
+
+    main .alamat .ikon-chat li .wa {
+        margin-left: 6px;
+        font-size: 0.75rem; /* 14px */
+        cursor: pointer;
+    }
+
+    main .alamat .ikon-chat li .fa-whatsapp-square {
+     padding: 0.1rem;
+    padding-left: 9px;
+    font-size: 1.3rem; /* 30px */
+    color : #2AB318;
+    margin: auto;
+    }
+        
+/* END alamat */
+
+
+
+.to-footer{
+    width: 90%;
+}
+
+
+footer .content-footer {
+    font-family: "Rubik", sans-serif;
+
+    width: 100;
+    max-width: 1200px;
+    padding: 2rem 4rem;
+
+    display: flex;
+    justify-content: space-around;
+
+    cursor: default;
+}
+
+footer .content-footer .ikon-footer {
+    max-width: 15rem;
+}
+
+footer .content-footer .ikon-footer .hubungi .hub {
+    border-radius: 0.75rem; /* 12px */
+    padding : 0.8rem 1rem;
+    border: none;
+    background-color: black;
+
+    color: white;
+    font-weight: 500;
+}
+
+footer .content-footer .ikon-footer .hubungi .hub:hover{
+    opacity: 0.8;
+}
+
+footer .content-footer .ikon-footer ul {
+    padding-left:  0;
+
+    display: flex;
+
+    justif-content: center;
+    gap: 2rem 1rem;
+    
+}
+
+footer .content-footer .ikon-footer li {
+    list-style-type: none;   
+    padding: 0.5rem 1rem;
+
+    border: 1px solid #DCDCDC;
+    border-radius: 0.5rem; /* 8px */
+}
+
+footer .content-footer .ikon-footer li:hover {
+    background-color: #FD9800;
+    border: 1px solid  #FFE5E2;
+    color: white;
+}
+
+footer .content-footer .footer-image{
+    display: flex;
+    padding-bottom: 0.2rem;
+}
+
+footer .content-footer .footer-image img{
+    width: 80px;
+    margin: auto;
+}
+
+footer .content-footer .alamat{
+
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    font-weight: 400;
+}
+
+footer .content-footer .link-footer .judul-link{
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 500;
+   transition: all 0.5s ease-in-out;
+   position: relative;
+   cursor: pointer;
+}
+
+
+
+footer .content-footer .link-footer .judul-link::before{
+    content: '';
+    height: 2px;
+    position: absolute;
+    width: 0;
+    background-color: red;
+   
+    left:0;
+    bottom: -8px;
+    display: block;
+    transition: all 0.5s;
+   
+}
+
+
+footer .content-footer .link-footer .judul-link:hover::before{
+   width: 100%;
+}
+
+
+footer .content-footer .link-footer .subJudul-link {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rred; /* 28px */
+    font-weight: 500;
+    padding-top: 2rem;
+}
+
+    footer  .end-footer{
+    padding-top:2rem;
+   position: relative;
+   justify-content: center;
+   width: 100;
+
+    }
+
+    footer  .end-footer .text-footer{
+        background-color: #F5F6FB;
+        max-width:1000px; 
+        max-height: 90rem;
+        position: absolute;
+
+        margin: auto;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        bottom: -8px;
+
+        border-top-left-radius: 0.5rem; /* 8px */
+        border-top-right-radius: 0.5rem; /* 8px */
+        
+    }
+
+    footer .end-footer .text-footer {
+        font-family: "Rubik", sans-serif;
+        text-align: center;
+        font-weight: 400;
+        font-size: 1.125rem; /* 18px */
+        color: #9A9B9D;
+
+        bottom: -19px;
+    }
+
+
+/* RESPONSIVE DEVICE  1024 */
+
+ @media screen and (max-width:1024px){
+    header .nav-list{
+        position : absolute;
+        top: 125px;
+        left:0;
+        right:0;
+        width: 100%;
+        height: 0;
+
+        background-color: white;
+
+        /* border-radius: 0.75rem; 12px */
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        z-index: 9999;
+        transition: 0.8s;
+        /* overflow: hidden; */
+        
+    }
+
+    header.navbar-fixed {
+        background-color: white;
+        top:0;
+        width: 75%; 
+         max-width:1200px;
+    }
+
+    header.navbar-fixed .nav-list{
+        top: 115px;
+
+    }
+
+    header .nav-list .list {
+        display: flex;
+        flex-direction: column;
+        width:100;
+        margin: 30px auto 0 auto;
+        opacity:0;
+    }
+
+    header .nav-list .list li a {
+        color: black;
+    }
+    header .nav-list li a:hover{
+        color: red;
+     }
+    
+     header .nav-list li a.focus{
+        color:red;
+     }
+
+
+
+    header .hamburger{ 
+        width: 50px;
+        display: flex;
+        z-index: 9999;
+    }
+    .hamburger a{
+        margin: auto;
+    }
+
+
+    header .nav-list.active{
+        height:200px;
+    }
+
+    header .nav-list.active ul{
+       opacity: 1;
+    }
+
+
+    main .content {
+        display: flex;
+        flex-direction: column;
+    }
+    main .content .sambutan .greeting {
+    	font-size: 1.5rem; /* 24px */
+        line-height: 2rem; /* 32px */
+     
+    }
+    main .content .sambutan .sub{
+        font-size: 1.125rem; /* 18px */
+        line-height: 1.75rem; /* 28px */
+    padding-bottom: 20px;
+    text-align: center;
+    }
+
+    main  .content .sambutan button{
+        margin-bottom: 2rem;
+    }
+
+    main .content aside img {
+        width: 600px;
+        min-width:600px;
+        margin: auto;
+        padding-left: 10px;
+    }
+
+    main .layanan{
+        width: 100;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main .layanan .lPembukaan  {
+        padding: 2rem;
+    }
+
+    main .layanan aside .layanan-image img {
+       width: 600px;
+    }
+
+    main .pertanyaan {
+        width: 100;
+        display:flex;
+    }
+
+    main .pertanyaan aside img {
+        display: none;
+    }
+
+    main .fitur {
+        width: 100;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main .fitur {
+        width: 100;
+        padding: 0;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        margin-top: 4rem;
+        padding-bottom: 1rem;
+      
+    }
+
+
+    main .fitur .fitur-content{
+        margin: auto;
+        max-width:  66.666667%;
+     }
+
+     main .alamat{
+        width:100;
+        max-width: 1000px;
+     }
+
+     main .alamat  .content-alamat {
+        width: 100;
+        max-width: 1000px;
+        padding: 0.1rem 4rem;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        margin-top: 1rem;
+        padding-bottom: 1rem;
+     }
+
+     footer .link-footer {
+        margin-left:1rem;
+     }
+     
+     footer .end-footer{
+        width: 100;
+       
+        position:relative;
+        justify-content: center;
+     }
+    
+     
+    footer  .end-footer .text-footer{ 
+        position: absolute;
+        max-width: 700px;
+        margin:auto;
+      
+    }
+ }
+
+/* END RESPONSIVE DEVICE  1024 */
+
+
+ /* RESPONSIVE DEVICE  768 */
+@media screen and (max-width: 768px) {
+
+    header .nav-list{
+        position : absolute;
+        top: 115px;
+        left:0;
+        right:0;
+        width: 100;
+        max-width: 1200px;
+        height: 0;
+        background-color: white;
+
+        border-radius: 0.75rem; /* 12px */
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        transition: 0.8s;
+        overflow: hidden;
+        z-index:9999;
+    }
+
+    
+
+    header .nav-list .list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 30px auto 0 auto;
+        opacity:0;
+
+    }
+
+ 
+
+    header .nav-list .list li a {
+        color: black;
+    }
+
+    header .nav-list .list li a:hover{
+        color: red;
+    }
+
+    header .nav-list .list li a.focus{
+        color: red;
+    }
+
+.hamburger{
+        
+        display:flex;
+        justify-items: end;
+    }
+
+    .hamburger a{
+        margin: auto;
+    }
+
+    header.navbar-fixed .hamburger{
+        display:flex;
+    } 
+    header .nav-list.active{
+        height:200px;
+    }
+
+    header .nav-list.active ul{
+       opacity: 1;
+    }
+
+    main .navbar-header .nav-list li{
+        display: none;
+     }
+
+         
+        main .content {
+           
+            width: 100;
+            padding: 0;
+            flex-direction: column;
+            gap: 2rem;
+            margin-inline: 0;
+            padding: 0.8rem;
+        }
+
+        main .content .sambutan .greeting {
+            font-size: 1.875rem; /* 30px */
+            line-height: 2.25rem; /* 36px */
+        }
+
+        main .content .sambutan .sub {
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+        }
+
+        main .content aside img {
+            width: 500px;
+            min-width: 250px;
+            margin: auto;
+            padding-left: 0;
+        }
+
+        main .content article button {
+            margin: 0.4rem;
+        }
+  hr {
+    width: 70%;
+  }
+    main .penawaran {
+       display: flex;
+    }
+    main .penawaran button{
+        padding : 0.8rem 2.5rem;
+        margin: auto;
+    }
+
+         main .layanan {
+            flex-direction: column;
+            gap: 2rem;
+            margin-inline: 0;
+            padding: 0.1rem 0.8rem;    
+         }
+         main .layanan article button {
+            margin: 0.4rem;
+        }
+
+        main .layanan img{
+            width:100;
+          max-width: 450px;
+            margin: auto;
+            padding-left: 0;
+         }
+         
+
+         main .fitur {
+            width: 100;
+            padding: 0;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            padding-bottom: 1rem;
+         }
+
+         main .fitur .fitur-content{
+            margin: auto;
+            max-width:  66.666667%;
+         }
+
+         main .pertanyaan {
+            width: 100;
+            padding: 0;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            padding-bottom: 1rem;
+         }
+
+         main .pertanyaan .faq .accordion {
+            width: 100;
+            max-width: fit-content;
+         }
+
+         main .alamat  {
+            width: 100;
+            padding: 0.8rem;   
+            text-align: center;
+            margin-top: 1rem;
+            padding-bottom: 4rem;
+            cursor: default;
+         }
+
+         main .alamat  .content-alamat {
+            width: 100;
+            padding: 0;
+            text-align: center;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+         }
+
+         main .alamat .content-alamat .judul-alamat{ 
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+           
+        }
+        main .alamat .content-alamat .text-alamat{
+            font-size: 1.875rem; /* 30px */
+            line-height: 1.75rem; /* 28px */
+        }
+
+        .warung-alamat {
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            padding: 0.3rem 3rem;
+        }
+
+        footer .content-footer {
+            width: 100;
+            padding: 0;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            text-align: center;
+            margin-top: 4rem;
+            padding-bottom: 1rem;
+         }
+
+         footer .content-footer  .ikon-footer .footer-image img{
+            width: 100px;   
+         }
+
+
+}
+
+
+

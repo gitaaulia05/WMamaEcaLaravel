@@ -17,6 +17,8 @@ class KeranjangLive extends Component
      public $dataBarang=[];
      public $harga_barang;
 
+   
+
      public function mount(){
 
         $kuantitasBarang = keranjangDetail::with(['barang'])->whereHas('keranjang', function($query) {
@@ -26,19 +28,26 @@ class KeranjangLive extends Component
         foreach ($kuantitasBarang as $k ) {
             $this->kuantitas[$k->barang->id_barang] = $k->kuantitas;
         }
+
      }
 
     public function render()
     {
+        // $keranjang = keranjangDetail::with(['keranjang' => function($query){
+        //     $query->where("id_user" , Auth::id())->first();
+        //       }, 'barang' ])->select('id_barang' , DB::raw('count(id_barang) as count') , DB::raw('sum(kuantitas) as total' ))->groupBy('id_barang')->get();
+        //     //   dd($keranjang);
         return view('livewire.keranjang-live' , [
             "title" => "Keranjang",
-            "keranjang" => keranjangDetail::with(['keranjang' => function($query){
-               $query->where("id_user" , Auth::id())->get();
-                 }, 'barang' ])->select('id_barang' , DB::raw('count(id_barang) as count') , DB::raw('sum(kuantitas) as total'))->groupBy('id_barang')->get(),
+            "keranjang" => keranjangDetail::whereHas('keranjang', function($query) {
+                $query->where('id_user', Auth::id());
+            })->get(),
             
                  "user" => users::where('id_user' , Auth::id())->first(),
                  
         ]);
+
+      
 
     }
 
@@ -51,15 +60,14 @@ class KeranjangLive extends Component
     }
 
     public function updateKuantitas($id_barang ){
-        $keranjangUpdate = keranjangDetail::with(['keranjang'  => function($query){
+        $keranjangUpdate = keranjangDetail::whereHas('keranjang' ,function($query){
             $query->where('id_user', Auth::id());
         }
-        ])->where('id_barang' , $id_barang)->first();
+        )->where('id_barang' , $id_barang)->first();
           
       
             $keranjangUpdate->update([
                 'kuantitas' => $this->kuantitas[$id_barang] 
-  
         ]);
        
     }
@@ -69,6 +77,7 @@ class KeranjangLive extends Component
         // pakai ini karena kalo $this->checkBarang mengembalikan array asosiatif, untuk mengambil id_barang
         $barang_dipilih = array_keys(array_filter($this->checkBarang));
 
+        
          $this->dataBarang = keranjangDetail::with(['barang'])->whereIn('id_barang' ,$barang_dipilih)->get();
 
          $total_harga=0;
@@ -80,14 +89,16 @@ class KeranjangLive extends Component
          $this->harga_barang = $total_harga;
 
          session()->put('harga_barang' , $total_harga);
+       
     }
 
 
-    public function test()
+    public function pembelianPass()
     {
         $barang_dipilih = array_keys(array_filter($this->checkBarang));
-
+            
         session()->put('barang_dipilih' , $barang_dipilih);
+
 
             if(session()->has('barang_dipilih')  && !empty(session()->get('barang_dipilih')) )  {
                 $token = bin2hex(random_bytes(16));

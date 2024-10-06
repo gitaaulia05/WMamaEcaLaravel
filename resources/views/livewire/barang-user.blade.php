@@ -1,6 +1,6 @@
 
 <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden px-6 py-8 ">
-    <form wire:submit.prevent="simpanBarang" >
+    <form wire:submit.prevent="simpanBarang">
        @csrf
        <input wire:model="id_barang" hidden name="id_barang" value="{{$data->id_barang}}" readonly>
 
@@ -15,11 +15,12 @@
        </div>
        <div class="mb-4">
          <label>Kuantitas:</label>
-         <input wire:model="kuantitas" name="kuantitas" type="number" value="1" min="1">
+         <input wire:model="kuantitas" name="kuantitas" type="number"  min="1" :max="{{$maxBarang}}"  onkeydown="if(this.value < 1) this.value=1;" >
        </div>
-
+ <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan">Masukkan keranjang</button>
   </form>
   <div class="mb-1">
-  <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan">Masukkan keranjang</button>
+ 
+  {{-- <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan">Beli Sekarang</button> --}}
 </div>
 </div>

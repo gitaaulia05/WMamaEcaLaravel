@@ -31,5 +31,7 @@ class keranjangDetail extends Model
     {
         return $this->BelongsTo(keranjang::class , 'id_keranjang' , 'id_keranjang');
     }
+
+   
 }
 

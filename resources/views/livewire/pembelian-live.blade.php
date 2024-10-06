@@ -3,23 +3,22 @@
 
   <form wire:submit.prevent="simpanData">
    @csrf
-      @foreach ($data as $d )
-       
-      @endforeach
-   <div class="lg:grid md:grid  lg:grid-cols-2  md:grid-cols-2 lg:gap 4  md:gap 4 pt-10" id="section-grid-utama">
 
+   <div class="lg:grid md:grid  lg:grid-cols-2  md:grid-cols-2 lg:gap 4  md:gap 4 pt-10" id="section-grid-utama">
+              @foreach ($filterUser as $d )
        <div class="top-grid" id="section-dataPembeli-Metode">
 
          <div class="bg-white shadow-md cursor-default ">
-
-         
         <p class="header pb-4 text-center">Data Pembeli</p>
 
          <div class="grid grid-cols-3 lg:grid-cols-4 gap-3 px-3 "  id="dataDiriPembeli">
 
          <div  class="Nama_pembeli"> <p>nama Pembeli </p>
           <p>
-         {{$d->keranjang->users->nama}}
+           
+               {{$d->keranjang->users->nama}}
+            
+        
           </p>
           </div>
 
@@ -34,7 +33,7 @@
          </div>
 
          </div>
-
+@endforeach
       </div>
 
          <div class="bg-white shadow-xl mt-5 hover:scale-105 transition duration-700">
@@ -56,7 +55,7 @@
              <div class="grid grid-cols-2  border-2 rounded-lg m-3  lg:mx-10  lg:m-3  " id="detailPembayaran-Content">
                         <div class="nama_produk mx-6 my-2">
                         <p class="pb-3">Nama Produk</p>
-                         @foreach ($data as $d )
+                         @foreach ($filterUser as $d )
                           <p>  {{$d->barang->nama_barang}}</p>
                             <p class="mb-5">Harga Produk </p>
                   @endforeach
@@ -64,8 +63,9 @@
 
                         <div class="Jumlah_produk">
                         <p class="mt-2 pb-3">Jumlah Produk</p>
-                         @foreach ($data as $d )
-                          <p>  {{$d->kuantitas}} </p>
+                         @foreach ($filterUser as $d )
+                          {{-- <p>  {{$d->kuantitas}} </p> --}}
+                          <input wire:model="kuantitas" value=" {{$d->kuantitas}}">
                             
                             <p class="mb-5">{{$d->barang->harga_barang}} </p>
                            @endforeach
