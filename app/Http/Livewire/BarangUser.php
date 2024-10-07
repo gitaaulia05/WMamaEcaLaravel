@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\barang;
+
 use Livewire\Component;
 use App\Models\keranjang;
 use Illuminate\Support\Str;
 use App\Models\keranjangDetail;
 use Illuminate\Support\Facades\Auth;
+use App\Models\barang;
+
 
 class BarangUser extends Component
 {
@@ -20,7 +22,7 @@ class BarangUser extends Component
     public function mount($slug)
 
     {
-        $data = Barang::where('slug', $slug)->first();
+        $data = barang::where('slug', $slug)->first();
 
         if ($data) {
             // Inisialisasi properti dari data yang diterima

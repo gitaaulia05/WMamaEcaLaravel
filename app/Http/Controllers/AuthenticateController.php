@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use session;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -30,7 +30,7 @@ class AuthenticateController extends Controller
             'password' => ['required','min:8']
         ]);
 
-        if(!Auth::attempt($credentials)) {
+        if(!~::attempt($credentials)) {
                 throw ValidationException::withMessages([
                     'no_hp' => 'Maaf , nomor handphone anda tidak valid'
                 ]);
