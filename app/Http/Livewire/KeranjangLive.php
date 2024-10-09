@@ -33,10 +33,6 @@ class KeranjangLive extends Component
 
     public function render()
     {
-        // $keranjang = keranjangDetail::with(['keranjang' => function($query){
-        //     $query->where("id_user" , Auth::id())->first();
-        //       }, 'barang' ])->select('id_barang' , DB::raw('count(id_barang) as count') , DB::raw('sum(kuantitas) as total' ))->groupBy('id_barang')->get();
-        //     //   dd($keranjang);
         return view('livewire.keranjang-live' , [
             "title" => "Keranjang",
             "keranjang" => keranjangDetail::whereHas('keranjang', function($query) {
@@ -81,9 +77,10 @@ class KeranjangLive extends Component
          $this->dataBarang = keranjangDetail::with(['barang'])->whereIn('id_barang' ,$barang_dipilih)->get();
 
          $total_harga=0;
+    
 
          foreach($this->dataBarang as $hargaBarang){
-            $total_harga += $hargaBarang->barang->harga_barang;
+            $total_harga += $hargaBarang->barang->harga_barang * $hargaBarang->kuantitas;
          }
             
          $this->harga_barang = $total_harga;

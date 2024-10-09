@@ -79,21 +79,7 @@
   <footer></footer>
 
     <script src="{{asset('js/local/navbarUser.js')}}" ></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    {{-- <script type="text/javascript">
-        $(function(){
-            $(document).on('click', '#masukkan', function(e){
-                e.preventDefault();
-                Swal.fire({
-                title: "Berhasil!",
-                text: "Barang telah ditambahkan ke keranjang.",
-                icon: "success"
-                });
-            })
-        });
-    </script> --}}
-
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
     @livewireScripts
   </body>
 </html>

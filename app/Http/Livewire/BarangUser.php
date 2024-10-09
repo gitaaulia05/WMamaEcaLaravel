@@ -23,7 +23,9 @@ class BarangUser extends Component
 
     {
         $data = Barang::where('slug', $slug)->first();
-        // dd($data->stok_barang);
+        $dataKeranjang = keranjangDetail::whereHas('keranjang' , function($query){
+            $query->where('id_user' , Auth::id());
+        })->where('id_barang', $data->id_barang)->first();
 
         if ($data) {
             // Inisialisasi properti dari data yang diterima
@@ -34,8 +36,10 @@ class BarangUser extends Component
         }
 
         $this->kuantitas = 1;
-        $this->maxBarang = $data->stok_barang;
+     
 
+        $this->maxBarang = ($data->stok_barang - $dataKeranjang->kuantitas) < 0 ?  1:  $data->stok_barang - $dataKeranjang->kuantitas;
+           
     }
 
     public function render()
@@ -46,8 +50,25 @@ class BarangUser extends Component
         ]);
     }
 
+
+    public function checkKuantitas() 
+    {
+
+
+    if($this->kuantitas >= $this->maxBarang ){
+        session()->flash('kuantitasMessage' , 'Anda telah Memasukkan Barang  Anda Tidak Bisa Menambahkan Jumlah Barang. Karena melebihi batas stok !' );
+} 
+
+ if($this->kuantitas < 1) {
+    session()->flash('disabled' , 'Masukkan Barang minimal 1 buah');
+ }
+
+    }
+
     
     public function simpanBarang(){
+
+       
 
         $keranjangCheck = keranjang::where('id_user' , Auth::id())->first();
 
@@ -81,8 +102,11 @@ class BarangUser extends Component
               
                 $this->dispatch('cartUpdated');
 
-            // session()->flash('message' , 'barang berhasil masuk keranjang');
+               
+                session()->flash('message', 'Barang telah ditambahkan ke keranjang.');
+
     }
+    
 
 
 }
