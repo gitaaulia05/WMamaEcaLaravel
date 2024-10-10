@@ -30,7 +30,7 @@ class AuthenticateController extends Controller
             'password' => ['required','min:8']
         ]);
 
-        if(!~::attempt($credentials)) {
+        if(!Auth::attempt($credentials)) {
                 throw ValidationException::withMessages([
                     'no_hp' => 'Maaf , nomor handphone anda tidak valid'
                 ]);

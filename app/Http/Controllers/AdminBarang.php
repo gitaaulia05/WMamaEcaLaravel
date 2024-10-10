@@ -35,6 +35,6 @@ class AdminBarang extends Controller
         $barang = barang::all();
 
         // Pass the data to a Blade view
-        return view('barang.read', compact('barang'));
+        return view('barang.read', compact('barang'));  
     }
 }
