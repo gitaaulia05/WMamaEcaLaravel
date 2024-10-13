@@ -41,9 +41,10 @@ class AuthenticateController extends Controller
         request()->session()->regenerate();
      
             if ($user->is_admin == 1) {
-                return redirect()->route('dash_admin');  // Redirect admin users to admin dashboard
+                return redirect()->route('dash_admin');  
              } else if($user->is_admin == 0) {
-                return redirect('/produk');  // Redirect normal users to their dashboard
+                return redirect('/produk');
+             
          }else {
             return back()->with('loginError', 'Login Gagal !');
          }

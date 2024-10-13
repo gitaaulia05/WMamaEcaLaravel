@@ -21,7 +21,7 @@
 
     <form wire:submit.prevent="simpanBarang">
        @csrf
-       <input wire:model="id_barang" hidden name="id_barang" value="{{$data->id_barang}}" readonly>
+      <input wire:model="id_barang" hidden name="id_barang" value="{{$data->id_barang}}" readonly>
 
        <div class="mb-4">
          <h2 class="text-lg font-semibold"> Nama Produk: {{$data->nama_barang}}</h2>
@@ -34,13 +34,13 @@
        </div>
        <div class="mb-4">
          <label>Kuantitas:</label>
-         <input wire:model="kuantitas" wire:input="checkKuantitas" name="kuantitas" type="number" value="1"  min="1"  max="{{$maxBarang}}"  oninput ="if(this.value > {{$maxBarang}}) this.value={{$maxBarang}};">
+         <input wire:model="kuantitas" wire:input="checkKuantitas" name="kuantitas" type="number" value="1"  min="1"  max="{{$maxBarang}}"  oninput ="if(this.value > {{$maxBarang}}) this.value={{$maxBarang}};" class="focus">
          
          @if (session()->has('kuantitasMessage'))
            <h1 class="text-center text-red-400">{{session('kuantitasMessage')}}</h1>
          @endif
        </div>
-        @if(session()->has('disabled'))
+        @if(session()->has('disabled') || $data->is_arsip == 1)
  <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" disabled type="submit" id="masukkan">Masukkan keranjang</button>
  <p class="text-red-500">{{session('disabled')}}</p>
   @else
@@ -49,7 +49,13 @@
 
 
   </form>
-  <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan" >Beli Sekarang</button>
+
+   
+  @if($data->is_arsip == 1)
+  <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" wire:submit="arsipButton" type="submit" id="masukkan" disabled >Beli Sekarang</button>
+        @else 
+        <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan" >Beli Sekarang</button>
+  @endif
 
   <div class="mb-1">
  

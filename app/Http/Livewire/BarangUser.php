@@ -36,9 +36,8 @@ class BarangUser extends Component
         }
 
         $this->kuantitas = 1;
-     
 
-        $this->maxBarang = ($data->stok_barang - $dataKeranjang->kuantitas) < 0 ?  1:  $data->stok_barang - $dataKeranjang->kuantitas;
+         $this->maxBarang = ($dataKeranjang && $dataKeranjang->kuantitas !== null )  ? $data->stok_barang - $dataKeranjang->kuantitas : $data->stok_barang ;
            
     }
 
@@ -59,16 +58,14 @@ class BarangUser extends Component
         session()->flash('kuantitasMessage' , 'Anda telah Memasukkan Barang  Anda Tidak Bisa Menambahkan Jumlah Barang. Karena melebihi batas stok !' );
 } 
 
- if($this->kuantitas < 1) {
-    session()->flash('disabled' , 'Masukkan Barang minimal 1 buah');
- }
+        if($this->kuantitas < 1) {
+            session()->flash('disabled' , 'Masukkan Barang minimal 1 buah');
+        }
 
     }
 
     
     public function simpanBarang(){
-
-       
 
         $keranjangCheck = keranjang::where('id_user' , Auth::id())->first();
 
@@ -107,6 +104,10 @@ class BarangUser extends Component
 
     }
     
+
+    public function arsipButton(){
+        dd("hm");
+    }
 
 
 }

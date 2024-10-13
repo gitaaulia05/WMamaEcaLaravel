@@ -23,7 +23,7 @@ class UserController extends Controller
     public function produk(){
             return view('user.produk',[   
                 "title" => 'Katalog Produk',
-                "data" => barang::all(),
+                "data" => barang::orderBy('is_arsip' , 'asc')->get(),
                 
             ]);
     }  
