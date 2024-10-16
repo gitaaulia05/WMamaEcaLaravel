@@ -17,10 +17,11 @@ class KeranjangLive extends Component
      public $dataBarang=[];
      public $harga_barang;
 
+    //  protected $listeners = ['beliLangsung' => 'hello'];
    
 
      public function mount(){
-
+        // $this->hello();
         $kuantitasBarang = keranjangDetail::with(['barang'])->whereHas('keranjang', function($query) {
             $query->where('id_user', Auth::id());
         })->get();
@@ -29,7 +30,12 @@ class KeranjangLive extends Component
             $this->kuantitas[$k->barang->id_barang] = $k->kuantitas;
         }
 
+
      }
+
+    //  public function hello (){
+    //     dd('he');
+    //  }
 
     public function render()
     {
@@ -56,6 +62,7 @@ class KeranjangLive extends Component
     }
 
     public function updateKuantitas($id_barang ){
+
         $keranjangUpdate = keranjangDetail::whereHas('keranjang' ,function($query){
             $query->where('id_user', Auth::id());
         }
@@ -65,7 +72,8 @@ class KeranjangLive extends Component
             $keranjangUpdate->update([
                 'kuantitas' => $this->kuantitas[$id_barang] 
         ]);
-       
+
+    
     }
 
     public function pembelian()
@@ -75,10 +83,8 @@ class KeranjangLive extends Component
 
         
          $this->dataBarang = keranjangDetail::with(['barang'])->whereIn('id_barang' ,$barang_dipilih)->get();
-
          $total_harga=0;
     
-
          foreach($this->dataBarang as $hargaBarang){
             $total_harga += $hargaBarang->barang->harga_barang * $hargaBarang->kuantitas;
          }
@@ -92,6 +98,8 @@ class KeranjangLive extends Component
 
     public function pembelianPass()
     {
+
+     
         $barang_dipilih = array_keys(array_filter($this->checkBarang));
             
         session()->put('barang_dipilih' , $barang_dipilih);
@@ -105,7 +113,6 @@ class KeranjangLive extends Component
             } else {
                 return redirect()->back();
             }
-       
     }
    
 }

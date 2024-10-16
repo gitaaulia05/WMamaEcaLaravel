@@ -19,6 +19,7 @@ class BarangUser extends Component
     public $maxBarang;
     public $counter = '';
 
+   
     public function mount($slug)
 
     {
@@ -103,11 +104,12 @@ class BarangUser extends Component
                 session()->flash('message', 'Barang telah ditambahkan ke keranjang.');
 
     }
+
+
+    // public function test(){
+    //   $this->dispatch('beliLangsung');
+
+    // }
     
-
-    public function arsipButton(){
-        dd("hm");
-    }
-
-
+   
 }
