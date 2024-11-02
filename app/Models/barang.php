@@ -23,13 +23,14 @@ class barang extends Model
         // 'img',
         'nama_barang',
         'stok_barang',
+        'harga_barang',
         'is_arsip',
         'deks_barang',
-       
+
     ];
 
-  
-    
+
+
     public function JenisBarang(){
         return $this->hasMany(JenisBarang::class, 'id_barang', 'id_barang' );
     }
@@ -38,7 +39,7 @@ class barang extends Model
         return $this->hasMany(keranjangDetail::class, 'id_barang', 'id_barang' );
     }
 
-    // BIKIN SLUG DISINI 
+    // BIKIN SLUG DISINI
 
     public function sluggable() : array {
         return [

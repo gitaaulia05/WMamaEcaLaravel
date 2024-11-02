@@ -21,7 +21,7 @@
 
     <form wire:submit.prevent="simpanBarang">
        @csrf
-    
+
        <div class="mb-4">
          <img src="{{asset('images/img/bruce-mars.jpg')}}" >
        </div>
@@ -60,11 +60,11 @@
   @if($data->is_arsip == 1)
 
   <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" id="masukkan" disabled >Beli Sekarang</button>
-        @else 
+        @else
        <input  wire:model="checkBarang.{{$data->id_barang}}" type="checkbox" wire:click="simpanBarangDanBeliLangsung">
   @endif
 
- 
+
 
 </div>
 </div>
