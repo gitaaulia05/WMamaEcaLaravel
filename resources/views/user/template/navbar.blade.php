@@ -4,6 +4,10 @@
     <meta charset="utf-8">
       <meta name="csrf_token" value="{{ csrf_token() }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>{{$title}}</title>
 
   <link href="{{ asset('css/css/home-user-local.css')}}" rel="stylesheet" />
@@ -14,7 +18,7 @@
 
 
 
-    <header class="bg-white w-full font-lato fixed z-10 top-0 start-0 border-b">
+    <header class="bg-white w-full font-lato fixed z-10 top-0 start-0 border-b font-serif">
   <div class="container-navbar">
    <div class="flex flex-wrap justify-between md:mx-2 ">
 

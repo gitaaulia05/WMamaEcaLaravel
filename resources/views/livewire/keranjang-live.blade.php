@@ -9,7 +9,7 @@
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 lg:w-11/12  mx-auto">
         <thead class="text-xs text-slate-400 uppercase bg-white border-b-[1px] border-slate-200">
             <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 ">
                     Nama Produk
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -46,7 +46,7 @@
                         <td class="px-6 py-4 text-slate-700">
                       <div class="grid grid-cols-2 gap-2">
 
-                      <input  wire:model="checkBarang.{{$d->barang->id_barang}}" wire:click="pembelian" type="checkbox">
+                      <input  wire:model="checkBarang.{{$d->barang->id_barang}}" wire:click="pembelian" type="checkbox" value="{{$d->barang->id_barang}}">
 
                         <div class="hapus-keranjang bg-orange-500 rounded-full text-center w-fit hover:bg-orange-300">
 
@@ -69,15 +69,15 @@
     <div class="price-content fixed bottom-0 left-0 right-0 flex flex-col items-center justify-center p-4">
 
     <h1 wire:model="helo"> Total Harga :
-        Rp{{$harga_barang}}
+        Rp{{$harga_barangLive}}
      </h1>
 
 
-            @if ($harga_barang >  $user->limit )
+            @if ($harga_barangLive >  $user->limit )
                  <button type="button" disabled wire:click="limitOut"  class="bg-orange-600"> Lanjut Bayar</button>
                  <p>Anda melebihi limit kasbon </p>
                  @else
-                    <button type="button" wire:click="pembelianPass"  class="bg-orange-500 text-white py-2 px-3 rounded-md"> Lanjut Bayar</button>
+                    <button type="button" wire:click="setSessionLive"  class="bg-orange-500 text-white py-2 px-3 rounded-md"> Lanjut Bayar</button>
             @endif
 
 

@@ -16,7 +16,7 @@
                     <div class="barang-content  mx-3 my-3 ">
 
                 <div class="barang-image">
-                 <img src="{{asset('images/img/ivancik.jpg')}}" class="rounded-md">
+                 <img src="{{asset('images/img/ivancik.jp g')}}" class="rounded-md">
                  </div>
 
 
@@ -44,7 +44,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
             @foreach ($data as $b )
 
-            @if($b->is_arsip == 0)
+            @if($b->is_arsip == 1)
             <div class="list-barang-card bg-slate-50 shadow-sm hover:scale-105 mb-5  hover:shadow-lg transition duration-500" id="barang-list " >
 
                     <div class="barang-content  mx-3 my-3 ">

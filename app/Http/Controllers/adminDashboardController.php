@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\barang;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 class adminDashboardController extends Controller
 {
@@ -19,6 +20,20 @@ class adminDashboardController extends Controller
             'title' => 'ADMIN | Tambah Data',
             'page' => 'Dashboard - Tambah Data'
         ]);
+    }
+
+
+    public function simpanBarang(Request $request){
+         $data = $request->validate([
+            'nama_barang' => 'required',
+            'stok_barang' => 'required|numeric',
+            'harga_barang' => 'required|numeric',
+            'deks_barang' => 'required',
+            'created_at' => 'required',
+         ]);
+
+         barang::create($data);
+         return redirect()->route('tambah-data');
     }
 
 }

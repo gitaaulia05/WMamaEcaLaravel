@@ -11,37 +11,39 @@
             <h5>Tambah Data Barang</h5>
         </div>
         <div class="card-body">
-            <form class="form-b" action="/tambah-data" method="POST">
+            <form class="form-b" action="/simpanBarang" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group mb-3">
                     <label for="name">Nama Barang:</label>
-                    <input type="text" id="name" name="name" class="form-control" style="width: 30%;" required>
+                    <input type="text" id="name" name="nama_barang" class="form-control" style="width: 30%;" required>
+                </div>
+
+               <div class="form-group mb-3">
+                    <label for="stock">Stok Barang:</label>
+                    <input type="number" id="stock" name="stock_barang" class="form-control" style="width: 20%;" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="price">Harga Barang:</label>
-                    <input type="number" id="price" name="price" class="form-control" style="width: 25%;" required>
+                    <input type="number" id="price" name="harga_barang" class="form-control" style="width: 25%;" required>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for="stock">Stok Barang:</label>
-                    <input type="number" id="stock" name="stock" class="form-control" style="width: 20%;" required>
-                </div>
+             
 
                 <div class="form-group mb-3">
                     <label for="description">Deskripsi:</label>
-                    <textarea id="description" name="description" class="form-control" style="width: 40%; height: 100px;" required></textarea>
+                    <textarea id="description" name="deks_barang" class="form-control" style="width: 40%; height: 100px;" required></textarea>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="date">Tanggal Input:</label>
-                    <input type="date" id="date" name="date" class="form-control" style="width: 18%;" required>
+                    <input type="date" id="date" name="created_at" class="form-control" style="width: 18%;" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <div style="position: absolute; top: 300px; right: 70px; width: 20%;">
-                        <input type="file" id="image" name="image" class="form-control" required>
+                        <input type="file" id="image" name="imag" class="form-control" required>
                         <label for="image">Gambar Barang</label>
                     </div>
                 </div>

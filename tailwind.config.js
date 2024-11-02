@@ -5,7 +5,11 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+     fontFamily :{
+          serif : ['Merriweather'],
+     },
+    },
   },
   plugins: [],
 }

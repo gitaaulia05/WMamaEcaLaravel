@@ -13,10 +13,12 @@ use App\Models\keranjangDetail;
 use App\Models\detail_pembelian;
 use Illuminate\Support\Facades\Auth;
 
+use App\Helpers\keranjangHelp;
+
 class PembelianLive extends Component
 {
     public $dataBarang;
-    public $hargaBarang;
+    public $hargaBarang=[];
     public $token;
 
     public $total_bayar;
@@ -26,61 +28,61 @@ class PembelianLive extends Component
 
     public $barangDipilih;
 
+
     public function mount($token)
     {
-        // mengambil session dari keranjangLive
-        $barang_dipilih = session()->get('barang_dipilih' , []);
-        $this->barangDipilih = $barang_dipilih;
-
-       $this->hargaBarang = session()->get('harga_barang' , []);
-
+    
+        $this->barangDipilih = array_keys(keranjangHelp::getBarangDipilihSession());
+ 
+        $this->kuantitas = keranjanghelp::getKuantitasDipilihSession();
+        $this->hargaBarang = keranjanghelp::getHargaDipilihSession();
+     
+    
         $sessiontoken = session()->get('token' , []);
 
         if($token !== $sessiontoken){
             return redirect()->back();
         }
 
-        if(empty($barang_dipilih)){
+        if(empty($this->barangDipilih)){
             return redirect()->back();
-        } else {
-            $this->dataBarang = keranjangDetail::whereHas('keranjang' , function($query) {
-                $query->where('id_user' , Auth::id());
-            })->with(['barang' , 'keranjang.users' => function($query){
-                $query->where('id_user' , Auth::id());
-            }])->whereIn('id_barang', $barang_dipilih)->get();
-        }
-        
+        } 
 
-        foreach($this->dataBarang as $u){
-            $this->kuantitas = $u->kuantitas;
-        }
+
+                $this->dataBarang = barang::whereIn('id_barang' , $this->barangDipilih)->get();
 
     }
 
     public function render()
     {
-        $barang = array_keys(array_filter($this->dataBarang->toArray()));
 
+        $barang = array_keys(array_filter($this->dataBarang->toArray()));
+        // dd($this->kuantitas);
         return view('livewire.pembelian-live', [
             "title" => "Pembelian Barang",
             "data" => $this->dataBarang,
-            "filterUser" => keranjangDetail::whereHas('keranjang' , function($query) {
-                $query->where('id_user' , Auth::id());
-            })->with('keranjang.users')->get(),
+            "kuantitas" => $this->kuantitas,
+            "filterUser" => users::where('id_user' , Auth::id())->get(),
+          
+          
             "hargaBarang" => $this->hargaBarang,
             
+            
+            
     ] );
+
+  
     }
 
         public function simpanData(){
         
-            $pembelian['total_bayar'] = $this->hargaBarang;
+            $pembelian['total_bayar'] = is_array($this->hargaBarang) ? array_sum($this->hargaBarang) : $this->hargaBarang;;
 
             $pembelian['id_pembelian'] = (String) Str::uuid();
            
             $pembelian['id_user'] = Auth::id();
 
-          $pembelianFinal =  pembelian::create($pembelian);
+            $pembelianFinal =  pembelian::create($pembelian);
 
             foreach( $this->barangDipilih as $barang){
                 // karena yang di dapat hanya bilangan bukan array
@@ -91,6 +93,8 @@ class PembelianLive extends Component
                 })->where('id_barang', $barang->id_barang)->first();
 
 
+                $kuantitas = isset($this->kuantitas[$barang->id_barang]) ? $this->kuantitas[$barang->id_barang] : 1;
+                   
                 detail_pembelian::create([
                     'id_det_pem' => (String) Str::uuid(),
                     'id_pembelian' => $pembelian['id_pembelian'],
@@ -101,11 +105,21 @@ class PembelianLive extends Component
                 ]);
 
                 $barangUpdate = $barang->update([
-                    'stok_barang' => $barang->stok_barang - $this->kuantitas,
-
+                    'stok_barang' => $barang->stok_barang - $kuantitas,  
                 ]);
 
-                $detailKeranjang->delete();
+                if($barang->stok_barang - $kuantitas <= 0){
+                    $barang->update([
+                        'is_arsip' => 1,
+                    ]);
+                }
+
+                // $detailKeranjang->delete();
+                   // Tambahkan pengecekan sebelum delete
+        if ($detailKeranjang) {
+            $detailKeranjang->delete();
+        }
+    
 
             }
 
@@ -113,13 +127,13 @@ class PembelianLive extends Component
                     'id_kasbon' => (String) Str::uuid(),
                     'id_pembelian' => $pembelian['id_pembelian'],
                     'slug' => $pembelianFinal->slug, 
-                    'total_kasbon' => $this->hargaBarang,
+                    'total_kasbon' => array_sum($this->hargaBarang),
                 ]);
 
                     $userUpdate = users::where('id_user' , Auth::id())->first();
                    
                 $updated = $userUpdate->update([
-                    'limit' =>$userUpdate->limit - $this->hargaBarang,
+                    'limit' =>$userUpdate->limit - array_sum($this->hargaBarang),
                 ]);
 
 

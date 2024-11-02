@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Helpers\keranjangHelp;
 use session;
 use App\Models\users;
 use Livewire\Component;
@@ -15,13 +16,13 @@ class KeranjangLive extends Component
      public $kuantitas= [];
      public $checkBarang= [];
      public $dataBarang=[];
-     public $harga_barang;
+     public $barangDipilih=[];
+     public $harga_barangLive;
 
-    //  protected $listeners = ['beliLangsung' => 'hello'];
-   
+
 
      public function mount(){
-        // $this->hello();
+
         $kuantitasBarang = keranjangDetail::with(['barang'])->whereHas('keranjang', function($query) {
             $query->where('id_user', Auth::id());
         })->get();
@@ -32,10 +33,6 @@ class KeranjangLive extends Component
 
 
      }
-
-    //  public function hello (){
-    //     dd('he');
-    //  }
 
     public function render()
     {
@@ -68,10 +65,11 @@ class KeranjangLive extends Component
         }
         )->where('id_barang' , $id_barang)->first();
           
-      
             $keranjangUpdate->update([
                 'kuantitas' => $this->kuantitas[$id_barang] 
         ]);
+
+
 
     
     }
@@ -79,36 +77,53 @@ class KeranjangLive extends Component
     public function pembelian()
     {
         // pakai ini karena kalo $this->checkBarang mengembalikan array asosiatif, untuk mengambil id_barang
-        $barang_dipilih = array_keys(array_filter($this->checkBarang));
-
         
-         $this->dataBarang = keranjangDetail::with(['barang'])->whereIn('id_barang' ,$barang_dipilih)->get();
+        $barang_dipilih = array_keys(array_filter($this->checkBarang));
+     
+         $this->dataBarang = keranjangDetail::with(['barang'])->whereHas('keranjang' , function($query){
+            $query->where('id_user' , auth::id());
+         })->whereIn('id_barang' ,$barang_dipilih)->get();
          $total_harga=0;
-    
+         $kuantitasDipilih=[];
+         $totalSession=[];
+      
          foreach($this->dataBarang as $hargaBarang){
             $total_harga += $hargaBarang->barang->harga_barang * $hargaBarang->kuantitas;
-         }
-            
-         $this->harga_barang = $total_harga;
+            $kuantitasDipilih[] = $hargaBarang->kuantitas;
 
-         session()->put('harga_barang' , $total_harga);
+            $totalSession[] = $hargaBarang->barang->harga_barang * $hargaBarang->kuantitas;
+          
+         }
+
+       $kuantitas = keranjangHelp::setKuantitasDipilih($kuantitasDipilih);
+       keranjangHelp::setHargaDipilih($totalSession);
+           
+         $this->harga_barangLive = $total_harga;
        
+
+         session()->put('harga_barangLive' , $total_harga);
+       
+    }
+
+    public function setSessionLive()
+    {
+        $this->barangDipilih = keranjangHelp::setBarangDipilih($this->checkBarang);
+        return app('App\Http\Livewire\KeranjangLive')->pembelianPass();
     }
 
 
     public function pembelianPass()
     {
-
-     
-        $barang_dipilih = array_keys(array_filter($this->checkBarang));
-            
-        session()->put('barang_dipilih' , $barang_dipilih);
-
-
+       
+        $this->barangDipilih = keranjangHelp::getBarangDipilihSession();
+        $this->kuantitas =  keranjangHelp::getKuantitasDipilihSession();
+             
+        
             if(session()->has('barang_dipilih')  && !empty(session()->get('barang_dipilih')) )  {
+               
                 $token = bin2hex(random_bytes(16));
                 session()->put('token' , $token);
-        
+               
                return redirect()->to("/pembelian/$token");
             } else {
                 return redirect()->back();

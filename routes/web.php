@@ -3,6 +3,7 @@
 use App\Livewire\KasbonTable;
 use App\Http\Livewire\Pembelian;
 use App\Http\Livewire\DetailKasbon;
+use App\Http\Livewire\KeranjangLive;
 use App\Http\Livewire\PembelianLive;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -44,6 +45,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::get('/keranjang', [UserController::class, 'keranjang']);
 
+        route::post('/beli-langsung' , [KeranjangLive::class , 'pembelianPass']);
+
         Route::get('/pembelian/{token}' , [UserController::class , 'pembelianPlain'] );
 
      
@@ -57,11 +60,12 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::post('/logout',[AuthenticateController::class,'destroy'])->middleware('auth');
 
-Route::middleware(['auth', 'cekAdmin'])->group(function () {
+        Route::middleware(['auth', 'cekAdmin'])->group(function () {
 
                 // DASHBOARD ADMIN
         Route::get('/dashboard-admin', [adminDashboardController::class,'index'])->name('dash_admin');
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);
+        Route::post('/simpanBarang', [adminDashboardController::class,'simpanBarang']);
 
 
                 // DASHBOARD LAPORAN PENJUALAN

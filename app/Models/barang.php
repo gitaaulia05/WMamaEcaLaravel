@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+// use sluggable;
 use App\Models\keranjangDetail;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class barang extends Model
 {
+
     use HasFactory;
+    use Sluggable;
     public $table = "barang";
     protected $primaryKey = 'id_barang';
     protected $keyType = 'string';
@@ -16,10 +20,12 @@ class barang extends Model
         'id_barang',
         'nama_barang',
         'slug',
-        'img',
+        // 'img',
         'nama_barang',
         'stok_barang',
+        'is_arsip',
         'deks_barang',
+       
     ];
 
   
@@ -33,6 +39,15 @@ class barang extends Model
     }
 
     // BIKIN SLUG DISINI 
+
+    public function sluggable() : array {
+        return [
+            'slug' => [
+                'source' =>'nama_barang'
+            ]
+        ];
+    }
+
 
 }
 
