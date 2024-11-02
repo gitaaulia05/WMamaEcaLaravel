@@ -20,6 +20,11 @@
 
 <form wire:submit.prevent="simpanBarang">
        @csrf
+
+    <div class="grid lg:grid-cols-2 " >
+
+
+
    {{-- start gambar produk --}}
         <div class="Gambar-produk bg-[#F2F2F2] w-10/12 rounded-xl mx-9">
       <img src="{{asset('images/img/bruce-mars.jpg')}}" class="w-1/2 rounded-xl shadow-sm mx-auto py-10">
@@ -69,6 +74,6 @@
     </div>
 </form>
   
-=
+
 </div>
 </div>
