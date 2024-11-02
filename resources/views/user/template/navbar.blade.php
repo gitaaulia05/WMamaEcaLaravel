@@ -83,7 +83,9 @@
     @yield('container')
     </main>
 
-  <footer></footer>
+  <footer>
+  
+  </footer>
 
     <script src="{{asset('js/local/navbarUser.js')}}" ></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>

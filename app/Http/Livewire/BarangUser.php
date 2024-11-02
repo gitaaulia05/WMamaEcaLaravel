@@ -129,9 +129,14 @@ class BarangUser extends Component
 
          $kuantitas = keranjangHelp::setKuantitasDipilih($this->kuantitas , array_keys($this->checkBarang));
 
-   
+
+         if($barang && $barang->harga_barang){
+            $harga[0] = $barang->harga_barang * reset($kuantitas);
+         }  else {
+            $harga[0] =0;
+         }
         
-         $harga[0] = $barang->harga_barang * reset($kuantitas);
+     
          $this->hargaBarang = keranjangHelp::setHargaDipilih($harga, array_keys($this->checkBarang));
 
              if(empty($barang_dipilih)) {
