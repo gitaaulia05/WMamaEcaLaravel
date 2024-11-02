@@ -20,8 +20,6 @@
 
 <form wire:submit.prevent="simpanBarang">
        @csrf
-    <div class="grid lg:grid-cols-2 " >
-
    {{-- start gambar produk --}}
         <div class="Gambar-produk bg-[#F2F2F2] w-10/12 rounded-xl mx-9">
       <img src="{{asset('images/img/bruce-mars.jpg')}}" class="w-1/2 rounded-xl shadow-sm mx-auto py-10">
@@ -55,6 +53,7 @@
         
   @if($data->is_arsip == 1)
   <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" id="masukkan" disabled >Beli Sekarang</button>
+
         @else 
        <input id="beliCheckbox"  wire:model="checkBarang.{{$data->id_barang}}" type="checkbox" wire:click="simpanBarangDanBeliLangsung" class=" text-white px-1 py-1 rounded-lg hidden peer">
 
@@ -70,6 +69,6 @@
     </div>
 </form>
   
-
+=
 </div>
 </div>
