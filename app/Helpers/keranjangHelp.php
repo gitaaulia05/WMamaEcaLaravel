@@ -14,20 +14,30 @@ class keranjangHelp
         return session()->get('barang_dipilih' , []);
     }
 
-    public static function setKuantitasDipilih(array $kuantitas){
+        public static function setKuantitasDipilih(array $kuantitas , array $barangId){
+            $kuantitasDipilih = [];
 
-        session()->put('kuantitas_barang', $kuantitas);
-        return $kuantitas;
-    }
+          foreach($barangId as $index => $id_barang){
+            $kuantitasDipilih[$id_barang] = $kuantitas[$index] ?? 1;
+          }
+            session()->put('kuantitas_barang', $kuantitasDipilih);
+            return $kuantitasDipilih;
+        }
     
     public static function getKuantitasDipilihSession(){
         return session()->get('kuantitas_barang', []);
     }
 
-    public static function setHargaDipilih(array $harga){
+    public static function setHargaDipilih(array $harga , array $barangId){
 
-        session()->put('harga_barang', $harga);
-        return $harga;
+        $hargaDipilih = [];
+
+        foreach($barangId as $index => $id_barang){
+            $hargaDipilih[$id_barang] = $harga[$index] ?? 1;
+        }
+
+        session()->put('harga_barang', $hargaDipilih);
+        return $hargaDipilih;
     }
     
     public static function getHargaDipilihSession(){

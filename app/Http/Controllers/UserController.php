@@ -7,6 +7,7 @@ use App\Models\pembelian;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\keranjangDetail;
+use App\Models\detail_pembelian;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,8 +24,6 @@ class UserController extends Controller
     public function produk(){
             return view('user.produk',[   
                 "title" => 'Katalog Produk',
-                "data" => barang::orderBy('is_arsip' , 'asc')->get(),
-                
             ]);
     }  
 
@@ -57,12 +56,15 @@ class UserController extends Controller
 
     public function pesanan($slug)
     {
-    
+
+       
         return view('user.pesanan' , [
             "title" => "PROFILE | USER",
             "data" => pembelian::with(['detail_pembelian' => function($query) use ($slug){
                 $query->where('slug' , $slug)->first();
             } , 'detail_pembelian.namaBarang'])->where('id_user' , Auth::id())->get(),
+
+            "data1" => detail_pembelian::with('namaBarang')->where('slug' , $slug)->get(),
         ]);
     }
 

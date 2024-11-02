@@ -62,15 +62,15 @@ class BarangUser extends Component
 
     public function checkKuantitas() 
     {
-        $kuantitasIni = isset($this->kuantitas[0]) ? (int)$this->kuantitas[0] : 1;
+          $kuantitasIni = isset($this->kuantitas[0]) ? (int)$this->kuantitas[0] : 1;
        
         if($kuantitasIni  >= $this->maxBarang ){
-            session()->flash('kuantitasMessage' , 'Anda telah Memasukkan Barang  Anda Tidak Bisa Menambahkan Jumlah Barang. Karena melebihi batas stok !' );
+            session()->flash('kuantitasMessage' , 'Anda telah Memasukkan Barang Anda Tidak Bisa Menambahkan Jumlah Barang. Karena melebihi batas stok !' );
          } 
            elseif($kuantitasIni  < 1) {
                 session()->flash('disabled' , 'Masukkan Barang minimal 1 buah');
          }
-            keranjangHelp::setKuantitasDipilih($this->kuantitas);
+            keranjangHelp::setKuantitasDipilih($this->kuantitas , array_keys($this->checkBarang));
 
 
     }
@@ -79,7 +79,8 @@ class BarangUser extends Component
     public function simpanBarang(){
 
         $keranjangCheck = keranjang::where('id_user' , Auth::id())->first();
-      
+
+    
             if(!$keranjangCheck){
                 $keranjangData['id_keranjang'] = (String) Str::uuid();
                 $keranjangData['id_user'] = Auth::id();
@@ -96,7 +97,7 @@ class BarangUser extends Component
                     
                     $data = $this->validate([
                         'id_barang' =>'required',
-                        // 'kuantitas' =>'required',
+                        
                     ]);
                     $data['kuantitas'] = isset($this->kuantitas[0]) ? (int) $this->kuantitas[0] : 1;
                     $data['id_keranjang'] = $keranjang->id_keranjang;
@@ -122,11 +123,16 @@ class BarangUser extends Component
     {
 
         $barang_dipilih =  keranjangHelp::setBarangDipilih($this->checkBarang);
+       
+       
         $barang = barang::where('id_barang' , $barang_dipilih)->first();
-         $kuantitas = keranjangHelp::setKuantitasDipilih($this->kuantitas);
+
+         $kuantitas = keranjangHelp::setKuantitasDipilih($this->kuantitas , array_keys($this->checkBarang));
+
+   
         
          $harga[0] = $barang->harga_barang * reset($kuantitas);
-         $this->hargaBarang = keranjangHelp::setHargaDipilih($harga);
+         $this->hargaBarang = keranjangHelp::setHargaDipilih($harga, array_keys($this->checkBarang));
 
              if(empty($barang_dipilih)) {
               

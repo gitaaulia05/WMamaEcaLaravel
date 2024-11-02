@@ -4,7 +4,7 @@
 
               <span class="px-3 text-gray-500"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="w-full py-2 px-3 focus:outline-none focus:ring focus:ring-orange-300 rounded-r-lg" wire:model.live="search"  placeholder="Cari Nama Barang ...">
-            </div>
+            </div>  
 
 
       <div class="container pt-5  ">
@@ -33,7 +33,7 @@
                             <img src="{{asset('images/img/team-2.jpg')}}" class=" h-11 rounded-md" alt="user1">
 
                 </th>
-                <td class="px-6 py-4 text-slate-700">
+                <td class="px-6 py-4 text-slate-700 capitalize">
 
                        {{$d->detail_pembelian->pluck('namaBarang.nama_barang')->implode(', ')}}
 

@@ -95,8 +95,8 @@ class KeranjangLive extends Component
           
          }
 
-       $kuantitas = keranjangHelp::setKuantitasDipilih($kuantitasDipilih);
-       keranjangHelp::setHargaDipilih($totalSession);
+       $kuantitas = keranjangHelp::setKuantitasDipilih($kuantitasDipilih , array_keys($this->checkBarang));
+       keranjangHelp::setHargaDipilih($totalSession, array_keys($this->checkBarang));
            
          $this->harga_barangLive = $total_harga;
        

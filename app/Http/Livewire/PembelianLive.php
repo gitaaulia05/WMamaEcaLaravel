@@ -66,16 +66,14 @@ class PembelianLive extends Component
           
           
             "hargaBarang" => $this->hargaBarang,
-            
-            
-            
+          
     ] );
 
   
     }
 
         public function simpanData(){
-        
+     
             $pembelian['total_bayar'] = is_array($this->hargaBarang) ? array_sum($this->hargaBarang) : $this->hargaBarang;;
 
             $pembelian['id_pembelian'] = (String) Str::uuid();
@@ -94,21 +92,21 @@ class PembelianLive extends Component
 
 
                 $kuantitas = isset($this->kuantitas[$barang->id_barang]) ? $this->kuantitas[$barang->id_barang] : 1;
-                   
+               
                 detail_pembelian::create([
                     'id_det_pem' => (String) Str::uuid(),
                     'id_pembelian' => $pembelian['id_pembelian'],
                     'id_barang' => $barang->id_barang,
-                    'kuantitas' =>$barang->id_barang,
+                    'kuantitas' =>   $kuantitas ,
                     'harga_perProduk' => $barang->harga_barang,
                     'slug' => $pembelianFinal->slug,
                 ]);
 
                 $barangUpdate = $barang->update([
-                    'stok_barang' => $barang->stok_barang - $kuantitas,  
+                    'stok_barang' => $barang->stok_barang - $kuantitas ,  
                 ]);
 
-                if($barang->stok_barang - $kuantitas <= 0){
+                if($barang->stok_barang - $kuantitas == 0){
                     $barang->update([
                         'is_arsip' => 1,
                     ]);
@@ -138,7 +136,7 @@ class PembelianLive extends Component
 
 
 
-               return redirect('/keranjang');
+               return redirect('/profile');
 
         }
 }

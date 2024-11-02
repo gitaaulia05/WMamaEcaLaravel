@@ -23,6 +23,7 @@ class barang extends Model
         // 'img',
         'nama_barang',
         'stok_barang',
+        'harga_barang',
         'is_arsip',
         'deks_barang',
        

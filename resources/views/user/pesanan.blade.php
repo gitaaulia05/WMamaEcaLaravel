@@ -2,8 +2,8 @@
 
 @section('container')
 
-@foreach ($data as $d)
-  @foreach ($d->detail_pembelian as $dp)
+@foreach ($data1 as $d)
+ 
         <div class="container mx-auto  py-2">
             <div class="card mx-auto lg:w-1/2 w-full bg-white shadow-lg rounded-lg overflow-hidden mb-4">
                 <h5 class="bg-gray-100 text-lg font-bold py-3 px-4">Detail Pesanan</h5>
@@ -15,23 +15,22 @@
                                 <img src="{{ asset('images/img/curved-images/white-curved.jpeg') }}" class="w-full h-full object-cover rounded" alt="gambar">
                             </div>
                             <div class="ml-4">
-                                    <h5 class="text-base font-semibold">Nama Produk: {{$dp->namaBarang->nama_barang}}</h5>
+                                    <h5 class="text-base font-semibold capitalize">Nama Produk: {{$d->namaBarang->nama_barang}}</h5>
                             </div>
                         </div>
 
-
+    
                         <div class="text-right">
-                            @foreach($d->detail_pembelian as $k)
-                                <h5 class="text-gray-500">Kuantitas: {{$k->kuantitas}}x</h5>
-                                <h5 class="text-gray-700">Harga: {{$k->harga_perProduk}}</h5>
-                            @endforeach
+                          
+                                <h5 class="text-gray-500">Kuantitas: {{$d->kuantitas}}x</h5>
+                                <h5 class="text-gray-700">Harga: {{$d->harga_perProduk}}</h5>
+                          
                         </div>
                     </div>
                     <p class="text-gray-600">Tanggal Pemesanan: {{$d->created_at->format('d-m-Y, H:i')}}</p>
                 </div>
             </div>
         </div>
-    @endforeach
     @endforeach
 
 

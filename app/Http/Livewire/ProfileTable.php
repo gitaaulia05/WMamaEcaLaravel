@@ -18,7 +18,7 @@ class ProfileTable extends Component
             "title" => "PROFILE | USER",
             "data" => pembelian::with(['detail_pembelian.namaBarang' => function($query){
                     $query->where('nama_barang' , 'like' , '%'.$this->search.'%');
-            }])->where('id_user' , Auth::id())->paginate(10),
+            }])->where('id_user' , Auth::id())->orderBy('created_at', 'desc')->paginate(10),
 
         ]);
     }

@@ -1,4 +1,4 @@
-<div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden px-6 py-8 ">
+<div class="width-11/12   shadow-lg rounded-lg overflow-hidden px-6 py-8 mb-10 font-serif">
 {{-- dari file detail_barang --}}
   @if(session()->has('message'))
 
@@ -18,53 +18,58 @@
 </div>
     @endif
 
-
-    <form wire:submit.prevent="simpanBarang">
+<form wire:submit.prevent="simpanBarang">
        @csrf
-    
-       <div class="mb-4">
-         <img src="{{asset('images/img/bruce-mars.jpg')}}" >
-       </div>
+    <div class="grid lg:grid-cols-2 " >
 
-       <div class="mb-4">
-        <h2 class="text-lg font-semibold"> Nama Produk: {{$data->nama_barang}}</h2>
-       </div>
-       <div class="mb-4">
-         <h2 class="text-gray-600"> Stock: {{$data->stok_barang}}</h2>
-       </div>
-       <div class="mb-4">
-         <h2 class="text-gray-600">Deksripsi: {{$data->deks_barang}}</h2>
-       </div>
-       <div class="mb-4">
-         <label>Kuantitas:</label>
+   {{-- start gambar produk --}}
+        <div class="Gambar-produk bg-[#F2F2F2] w-10/12 rounded-xl mx-9">
+      <img src="{{asset('images/img/bruce-mars.jpg')}}" class="w-1/2 rounded-xl shadow-sm mx-auto py-10">
+    </div>
+    {{-- end gambar produk --}}
+
+      {{-- start deks produk --}}
+        <div class="Deks-produk-Button ">
+        <h1 class=" text-4xl pt-5 lg:text-3xl lg:pt-0 mb-2 capitalize">{{$data->nama_barang}}</h1>
+        <h1 class=" pt-2 text-2xl lg:text-3xl lg:pt-3">Rp. {{$data->harga_barang}}</h1>
+        <h1 class="pt-3 lg:text-lg lg:mt-5">Deskripsi</h1>
+        <p class="pt-1 text-sm lg:text-md text-slate-700 text-pretty leading-relaxed">{{$data->deks_barang}}</p>
+
+          <div class="kuantitas">
+             <label>Kuantitas:</label>
          <input wire:model="kuantitas.0" wire:input="checkKuantitas" name="kuantitas" type="number" value="1"  min="1"  max="{{$maxBarang}}"  oninput ="if(this.value < 1) this.value=1; if(this.value > {{$maxBarang}}) this.value={{$maxBarang}};" class="border-2 border-gray-100 focus:border-orange-500 focus:ring-0 focus:outline-none rounded-md">
 
          @if (session()->has('kuantitasMessage'))
            <h1 class="text-center text-red-400">{{session('kuantitasMessage')}}</h1>
          @endif
-       </div>
+          </div>
+
+    
         @if(session()->has('disabled') || $data->is_arsip == 1)
- <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" disabled type="submit" id="masukkan">Masukkan keranjang</button>
- <p class="text-red-500">{{session('disabled')}}</p>
-  @else
-   <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan">Masukkan keranjang</button>
-  @endif
+        <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" disabled type="submit" id="masukkan">Masukkan keranjang</button>
+        <p class="text-red-500">{{session('disabled')}}</p>
+          @else
+          <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan">Masukkan keranjang</button>
+        @endif
 
-
-  </form>
-
-
-
-
-
+        
   @if($data->is_arsip == 1)
-
   <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" id="masukkan" disabled >Beli Sekarang</button>
         @else 
-       <input  wire:model="checkBarang.{{$data->id_barang}}" type="checkbox" wire:click="simpanBarangDanBeliLangsung">
-  @endif
+       <input id="beliCheckbox"  wire:model="checkBarang.{{$data->id_barang}}" type="checkbox" wire:click="simpanBarangDanBeliLangsung" class=" text-white px-1 py-1 rounded-lg hidden peer">
 
- 
+       <label for="beliCheckbox" class="ms-6 bg-orange-400  text-white px-1 py-1 rounded-lg hover:bg-orange-300">Beli Sekarang</label>
+
+  @endif 
+
+    </div>
+
+    </div>
+    {{-- end deks produk --}}
+
+    </div>
+</form>
+  
 
 </div>
 </div>
