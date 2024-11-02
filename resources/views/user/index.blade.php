@@ -14,7 +14,7 @@
 
             <aside>
                 <div class="content-image">
-                    <image src="assets/thumbHome.jpeg">
+                    <image src="{{asset('images/img/pexels-huy-nguy-n-1640325753-28494745.jpg')}}" >
                 </div>
             </aside>
           
