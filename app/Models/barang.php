@@ -20,7 +20,7 @@ class barang extends Model
         'id_barang',
         'nama_barang',
         'slug',
-        // 'img',
+        'img',
         'nama_barang',
         'stok_barang',
         'harga_barang',
