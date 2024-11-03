@@ -111,6 +111,7 @@ main .content .sambutan button {
     border: none;
     border-radius: 0.5rem;
     padding : 0.8rem 2.5rem;
+    margin-top: 20px;
     color: white;
     font-size: 1rem; /* 16px */
     line-height: 1.5rem; /* 24px */
@@ -130,10 +131,10 @@ main .content aside .content-image{
 }
 
 main .content aside img {
-    width: 500px;
+    width: 770px;
     min-width: 250px;
-    margin: auto;
-    padding-left: 50px;
+    margin-left: 30px;
+    border-radius: 20px;
 }
 /* END CSS HOME */
 
@@ -193,6 +194,7 @@ main .layanan .lPembukaan button {
     border: none;
     border-radius: 0.5rem;
     padding : 0.8rem 2.5rem;
+    margin-top: 20px;
     color: white;
     font-size: 1rem; /* 16px */
     line-height: 1.5rem; /* 24px */
@@ -210,7 +212,9 @@ main .layanan aside .layanan-image{
     order : 1;
 }
 main .layanan aside .layanan-image img{
-    width: 500px;
+    width: 1200px;
+    margin-left: 10px;
+    border-radius: 20px;
 }
 
 /* START FITUR TO OFFERING */
@@ -367,10 +371,12 @@ main .content-testimoni .person-testimoni .photo img{
 
 main .pertanyaan {
     font-family: "Rubik", sans-serif;
-    width: 100;
+    width: 100%;
     max-width: 1200px;
     padding: 2rem 4rem;
     display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 main .pertanyaan .faq{
@@ -407,7 +413,9 @@ main .pertanyaan aside {
     margin: auto;
 }
 main .pertanyaan aside img{
-    width: 400px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
 }
 
 main .pertanyaan .faq .accordion {

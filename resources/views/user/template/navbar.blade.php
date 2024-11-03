@@ -61,7 +61,7 @@
                     </li>
                     <form method="Post" action="/logout">
                     @csrf
-                    <button type="submit" class="ms-2 mt-3 mx-2">Logout</button>
+                    <button type="submit" class="ms-2 mt-3 mx-2 hover:bg-amber-300 py-1 px-1 rounded-lg">Logout</button>
                     </form>
                      @else
 
