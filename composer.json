@@ -12,6 +12,8 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
+        "maatwebsite/excel": "^1.1",
+        "phpoffice/phpspreadsheet": "^3.3",
         "ramsey/uuid": "^4.7"
     },
     "require-dev": {

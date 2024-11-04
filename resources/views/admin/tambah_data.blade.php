@@ -1,4 +1,3 @@
-
 @extends('admin.template.aside')
 
 @section('container')
@@ -19,17 +18,15 @@
                     <input type="text" id="name" name="nama_barang" class="form-control" style="width: 30%;" required>
                 </div>
 
-               <div class="form-group mb-3">
+                <div class="form-group mb-3">
                     <label for="stock">Stok Barang:</label>
-                    <input type="number" id="stock" name="stock_barang" class="form-control" style="width: 20%;" required>
+                    <input type="number" id="stock" name="stok_barang" class="form-control" style="width: 20%;" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="price">Harga Barang:</label>
                     <input type="number" id="price" name="harga_barang" class="form-control" style="width: 25%;" required>
                 </div>
-
-             
 
                 <div class="form-group mb-3">
                     <label for="description">Deskripsi:</label>
@@ -42,10 +39,8 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <div style="position: absolute; top: 300px; right: 70px; width: 20%;">
-                        <input type="file" id="image" name="imag" class="form-control" required>
-                        <label for="image">Gambar Barang</label>
-                    </div>
+                    <label for="image">Gambar Barang:</label>
+                    <input type="file" id="image" name="img" class="form-control" style="width: 30%;" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="background-color: #ff6f5e; color: white; float: right; margin-top: 30px;">Tambah Data</button>
@@ -55,7 +50,5 @@
 </div>
 </div>
 </div>
-
-
 
 @endsection
