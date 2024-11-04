@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\barang;
+use App\Models\Barang;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class adminDashboardController extends Controller
 {
-    public function index(){
-        return view('admin/dashboard', [
+    public function index()
+    {
+        $barangs = Barang::all();
+
+        return view('admin.dashboard', [
             'title' => 'ADMIN | Dashboard',
-            'page' => 'Dasboard'
+            'page' => 'Dashboard',
+            'barangs' => $barangs,
         ]);
     }
 
@@ -33,37 +37,56 @@ class adminDashboardController extends Controller
         ]);
     }
 
-    public function tambah_data(){
-        return view('admin.barang.tambah_data',[
+    public function tambah_data()
+    {
+        return view('admin.tambah_data', [
             'title' => 'ADMIN | Tambah Data',
             'page' => 'Dashboard - Tambah Data'
         ]);
     }
 
+ 
+public function updateBarang(Request $request, $id)
+{
+    $barang = Barang::findOrFail($id); 
 
-    public function simpanBarang(Request $request){
-         $data = $request->validate([
-            'nama_barang' => 'required',
-            'img' => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'stok_barang' => 'required|numeric',
-            'harga_barang' => 'required|numeric',
-            'deks_barang' => 'required',
-            'created_at' => 'required',
-         ]);
+    $data = $request->validate([
+        'nama_barang' => 'required|string|max:255',
+        'stok_barang' => 'required|numeric',
+        'harga_barang' => 'required|numeric',
+        'deks_barang' => 'required|string',
+        'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048' 
+    ]);
 
-       
-            $data['id_barang'] = (String) Str::uuid();
-        if($request->hasFile('img')){
-            $image = $request->file('img');
-            $data['img'] =  $image->hashName();
-              $image->storeAs('public/barang',   $data['img']);
-        } else {
-            return back();
-        }
+    // Update the fields
+    $barang->nama_barang = $data['nama_barang'];
+    $barang->stok_barang = $data['stok_barang'];
+    $barang->harga_barang = $data['harga_barang'];
+    $barang->deks_barang = $data['deks_barang'];
 
-      
-         barang::create($data);
-         return redirect()->route('dash_admin')->with('message' , "Tambah Data Barang Berhasil !");
+    // Check for a new image and update if provided
+    if ($request->hasFile('img')) {
+        // Store new image and update the img field
+        $barang->img = $request->file('img')->store('images', 'public');
     }
+
+    $barang->save();
+
+    return redirect()->route('dash_admin')->with('success', 'Data barang berhasil diperbarui.');
+}
+
+
+
+    public function simpanBarang(Request $request)
+{
+    $data = $request->validate([
+        'nama_barang' => 'required|string|max:255',
+        'stok_barang' => 'required|numeric',
+        'harga_barang' => 'required|numeric',
+        'deks_barang' => 'required|string',
+        'created_at' => 'required|date',
+        'img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+    ]);
+}
 
 }

@@ -1,4 +1,3 @@
-
 @extends('admin.template.aside')
 
 @section('container')
@@ -26,12 +25,14 @@
                 </div>
                     @enderror
 
-               <div class="form-group mb-3">
+                <div class="form-group mb-3">
                     <label for="stock">Stok Barang:</label>
+
                     <input type="number" id="stock" name="stok_barang" class="form-control @error('stok_barang')
                         is-invalid
                     @enderror" style="width: 20%;" value="{{old ('stok_barang')}}" required>
                       @error('stok_barang')
+
                 </div>
                  <div class="invalid-feedback">
                 {{$message}}
@@ -42,8 +43,6 @@
                     <label for="price">Harga Barang:</label>
                     <input type="number" id="price" min="1" name="harga_barang" class="form-control" style="width: 25%;" required>
                 </div>
-
-             
 
                 <div class="form-group mb-3">
                     <label for="description">Deskripsi:</label>
@@ -56,6 +55,7 @@
                 </div>
 
                 <div class="form-group mb-3">
+
                     <div style="position: absolute; top: 300px; right: 70px; width: 20%;">
                         <input type="file" id="image" name="img" class="form-control @error('img')
                         is-invalid
@@ -67,7 +67,6 @@
                             {{ $message }}
                         </div>
                         @enderror
-
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="background-color: #ff6f5e; color: white; float: right; margin-top: 30px;">Tambah Data</button>
@@ -77,7 +76,5 @@
 </div>
 </div>
 </div>
-
-
 
 @endsection

@@ -13,6 +13,7 @@ use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\LaporanPenjualanController;
 use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\ExcelExportController;
 
         // TESTING AMBIL DATA KASBON
 // Route::get('/', [KasbonController::class, 'index']);
@@ -71,8 +72,11 @@ Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/editBarang/{slug}', [adminDashboardController::class,'edit_barang']);
         
         Route::post('/simpanBarang', [adminDashboardController::class,'simpanBarang']);
-
-
+        Route::get('/tambah-data', [adminDashboardController::class, 'tambah_data'])->name('tambah-data');
+        Route::get('/edit-data/{id}', [adminDashboardController::class, 'editBarang'])->name('edit-data');
+        Route::post('/update-data/{id}', [adminDashboardController::class, 'updateBarang'])->name('update-data');
+        Route::get('/export', [ExcelExportController::class, 'export'])->name('export');
+        
                 // DASHBOARD LAPORAN PENJUALAN
         Route::get('/laporan-penjualan', [LaporanPenjualanController::class,'index']);
 
@@ -84,6 +88,4 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::post('/simpan-data-kasbon', [KasbonController::class, 'simpan_data']);
 
-
 });
-

@@ -1,5 +1,5 @@
+@extends('admin.template.aside')
 
-  @extends('admin.template.aside')
     <!-- Navbar -->
 
     <!-- End Navbar -->
@@ -15,8 +15,5 @@
     
   
   @endsection
-
-
-
 
 
