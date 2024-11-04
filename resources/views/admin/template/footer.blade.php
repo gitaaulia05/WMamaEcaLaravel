@@ -1,5 +1,8 @@
     {{-- JS TAMBAH DATA KASBON --}}
   <script src="{{asset('js/local/tambahKasbon.js')}}"></script>
+
+      {{-- EDIT DATA PREVIEW IMAGE DAHSBOARD BARANG --}}
+        <script src="{{asset('js/local/previewImage.js')}}"></script>
   <!--   Core JS Files   -->
   <script src="{{asset('js/core/popper.min.js')}}"></script>
     <script src="{{asset('js/core/bootstrap.min.js')}}"></script>

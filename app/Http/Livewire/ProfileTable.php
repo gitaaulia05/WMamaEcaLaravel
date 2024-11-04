@@ -16,9 +16,14 @@ class ProfileTable extends Component
     {
         return view('livewire.profile-table', [
             "title" => "PROFILE | USER",
-            "data" => pembelian::with(['detail_pembelian.namaBarang' => function($query){
-                    $query->where('nama_barang' , 'like' , '%'.$this->search.'%');
-            }])->where('id_user' , Auth::id())->orderBy('created_at', 'desc')->paginate(10),
+           // Controller atau Livewire Component
+            "data" => pembelian::where('id_user', Auth::id())
+            ->whereHas('detail_pembelian.namaBarang', function($query) {
+                $query->where('nama_barang', 'like', '%' . $this->search . '%');
+            })
+            ->with(['detail_pembelian.namaBarang'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(10),
 
         ]);
     }

@@ -26,29 +26,30 @@
             </tr>
         </thead>
         <tbody>
-         @foreach($data as $d)
-            <tr class="bg-white border-b-[1px] border-slate-200 dark:bg-white  ">
-                <th scope="row" class="px-6 py-4 font-medium text-slate-700 whitespace-nowrap dark:text-black">
-                  <div class="d-flex px-2 py-1">
-                            <img src="{{asset('images/img/team-2.jpg')}}" class=" h-11 rounded-md" alt="user1">
+    @foreach($data as $d)
+    <tr class="bg-white border-b-[1px] border-slate-200 dark:bg-white">
+        <!-- Kolom Gambar -->
+        <th scope="row" class="px-6 py-4 font-medium text-slate-700 whitespace-nowrap dark:text-black">
+            <div class="d-flex px-2 py-1">
+                <img src="{{ asset('images/img/team-2.jpg') }}" class="h-11 rounded-md" alt="user1">
+            </div>
+        </th>
+        
+        <!-- Kolom Nama Produk -->
+        <td class="px-6 py-4 text-slate-700 capitalize">
+            @foreach($d->detail_pembelian as $detail)
+                <span>{{ $detail->namaBarang->nama_barang }}</span>@if(!$loop->last), @endif
+            @endforeach
+        </td>
 
-                </th>
-                <td class="px-6 py-4 text-slate-700 capitalize">
-
-                       {{$d->detail_pembelian->pluck('namaBarang.nama_barang')->implode(', ')}}
-
-                </td>
-                <td class="px-6 py-4 text-slate-700 ">
-                     <a href="/pesanan/{{$d->slug}}" class="bg-orange-400 text-white rounded-md">
-                     <span class="px-4 py-5 my-5 text-center">
-                         Detail
-                     </span>
-
-                        </a>
-                </td>
-            </tr>
-
-              @endforeach
+        <!-- Kolom Aksi -->
+        <td class="px-6 py-4 text-slate-700">
+            <a href="/pesanan/{{ $d->slug }}" class="bg-orange-400 text-white rounded-md">
+                <span class="px-4 py-5 my-5 text-center">Detail</span>
+            </a>
+        </td>
+    </tr>
+@endforeach
         </tbody>
     </table>
 </div>

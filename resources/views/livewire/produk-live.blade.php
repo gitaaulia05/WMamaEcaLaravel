@@ -20,7 +20,8 @@
                     <div class="barang-content  mx-3 my-3 ">
 
                 <div class="barang-image">
-                 <img src="{{asset('images/img/ivancik.jp g')}}" class="rounded-md">
+
+                 <img src="{{asset( $b->img)}}" class="rounded-md">
                  </div>
 
 

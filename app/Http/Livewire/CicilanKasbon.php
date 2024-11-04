@@ -5,35 +5,24 @@ namespace App\Http\Livewire;
 use App\Models\kasbon;
 use Livewire\Component;
 use App\Models\pembelian;
-use App\Models\detailKasbon;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 
-class DetailRinciLive extends Component
+class CicilanKasbon extends Component
 {   
-
-     public $search = '';
-     use WithPagination;
-     public $slug;
-    public $paginationTheme = 'bootstrap';
+    public $search = '';
+    use WithPagination;
+    public $slug;
     public function render()
     {
-        return view('livewire.detail-rinci-live' , [
-            'title' => "Admin | Detail Data Kasbon",
-            'page' => 'Detail Data Kasbon',
+        return view('livewire.cicilan-kasbon' , [
+            "title" => "Cicilan Kasbon | USER",
            'data' => kasbon::with(['detKasbon'=> function($query){
                     $query->orderBy('created_at' ,'desc');
                     $query->where('cicilan_ke' , 'like' ,'%'.$this->search.'%');
            }, 'pembelian.users'])->where('slug' , $this->slug)->first(),
-
             'pembelian' => pembelian::with(['detail_pembelian.namaBarang' , 'users'])->where('slug' , $this->slug)->first(),
-
 
         ]);
     }
-
-    public function updatingSearch()
-    {
-            $this->resetPage();
-    }
-
 }

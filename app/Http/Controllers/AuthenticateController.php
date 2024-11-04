@@ -55,7 +55,7 @@ class AuthenticateController extends Controller
     public function destroy(){
         Auth::logout();
 
-        return redirect('/login');
+        return redirect('/');
     }
 
 

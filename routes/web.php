@@ -41,6 +41,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::get('/profile', [UserController::class, 'profile']);
         Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
+        Route::get('/cicilanKasbon/{slug}', [UserController::class, 'cicilan_kasbon']);
+
         Route::get('/update-profile', [UserController::class, 'update_profile']);
 
         Route::get('/keranjang', [UserController::class, 'keranjang']);
@@ -65,6 +67,9 @@ Route::middleware('auth' , 'cekUser')->group(function () {
                 // DASHBOARD ADMIN
         Route::get('/dashboard-admin', [adminDashboardController::class,'index'])->name('dash_admin');
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);
+        Route::get('/detailBarang/{slug}', [adminDashboardController::class,'detail_barang']);
+        Route::get('/editBarang/{slug}', [adminDashboardController::class,'edit_barang']);
+        
         Route::post('/simpanBarang', [adminDashboardController::class,'simpanBarang']);
 
 

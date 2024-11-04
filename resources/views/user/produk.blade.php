@@ -5,5 +5,4 @@
  @livewire('produk-live')
 
 
-
   @endsection

@@ -56,8 +56,6 @@ class UserController extends Controller
 
     public function pesanan($slug)
     {
-
-       
         return view('user.pesanan' , [
             "title" => "PROFILE | USER",
             "data" => pembelian::with(['detail_pembelian' => function($query) use ($slug){
@@ -66,6 +64,13 @@ class UserController extends Controller
 
             "data1" => detail_pembelian::with('namaBarang')->where('slug' , $slug)->get(),
         ]);
+    }
+
+    public function cicilan_kasbon($slug){
+        return view('user.cicilan_kasbon' , [
+            "title" => "Cicilan Kasbon | USER",
+            'slug' => $slug
+        ] );
     }
 
     public function keranjang(){
