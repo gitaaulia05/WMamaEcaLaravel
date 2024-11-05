@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Helpers\keranjangHelp;
+use App\Models\users;
 use App\Models\barang;
 use Livewire\Component;
 use App\Models\keranjang;
 use Illuminate\Support\Str;
+use App\Helpers\keranjangHelp;
 use App\Models\keranjangDetail;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +22,7 @@ class BarangUser extends Component
     public $maxBarang;
     public $counter = '';
 
+    public $totalHarga;
    
     public function mount($slug)
 
@@ -56,6 +58,7 @@ class BarangUser extends Component
         return view('livewire.barang-user' , [
             "title" => "Detail Barang",
             "data" => barang::where('slug' , $this->slug)->first(),
+            "pembeli" => users::where('id_user' , Auth::id())->first(),
         ]);
     }
 
@@ -70,8 +73,9 @@ class BarangUser extends Component
            elseif($kuantitasIni  < 1) {
                 session()->flash('disabled' , 'Masukkan Barang minimal 1 buah');
          }
-            keranjangHelp::setKuantitasDipilih($this->kuantitas , array_keys($this->checkBarang));
 
+         $HargaBarang = barang::where('slug' , $this->slug)->first();
+        $this->totalHarga = $HargaBarang->harga_barang * $this->kuantitas[0];
 
     }
 
@@ -122,11 +126,8 @@ class BarangUser extends Component
     public function simpanBarangDanBeliLangsung()
     {
 
-        $barang_dipilih =  keranjangHelp::setBarangDipilih($this->checkBarang);
-       
-       
+        $barang_dipilih =  keranjangHelp::setBarangDipilih($this->checkBarang); 
         $barang = barang::where('id_barang' , $barang_dipilih)->first();
-
          $kuantitas = keranjangHelp::setKuantitasDipilih($this->kuantitas , array_keys($this->checkBarang));
 
 

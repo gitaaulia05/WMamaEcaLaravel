@@ -41,7 +41,7 @@
           <div class="kuantitas">
              <label>Kuantitas:</label>
          <input wire:model="kuantitas.0" wire:input="checkKuantitas" name="kuantitas" type="number" value="1"  min="1"  max="{{$maxBarang}}"  oninput ="if(this.value < 1) this.value=1; if(this.value > {{$maxBarang}}) this.value={{$maxBarang}};" class="border-2 border-gray-100 focus:border-orange-500 focus:ring-0 focus:outline-none rounded-md">
-
+        <h1>{{$totalHarga}}</h1>
          @if (session()->has('kuantitasMessage'))
            <h1 class="text-center text-red-400">{{session('kuantitasMessage')}}</h1>
          @endif
@@ -49,10 +49,10 @@
 
     
         @if(session()->has('disabled') || $data->is_arsip == 1)
-        <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" disabled type="submit" id="masukkan">Masukkan keranjang</button>
+        <button class="bg-orange-300 text-white px-1 py-1 rounded-lg mr-6" disabled type="submit" id="masukkan">Masukkan keranjang</button>
         <p class="text-red-500">{{session('disabled')}}</p>
           @else
-          <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan">Masukkan keranjang</button>
+          <button class="bg-orange-400 text-white px-1 py-1 rounded-lg mr-6" type="submit" id="masukkan">Masukkan keranjang</button>
         @endif
 
         
@@ -61,8 +61,13 @@
 
         @else 
        <input id="beliCheckbox"  wire:model="checkBarang.{{$data->id_barang}}" type="checkbox" wire:click="simpanBarangDanBeliLangsung" class=" text-white px-1 py-1 rounded-lg hidden peer">
-
-       <label for="beliCheckbox" class="ms-6 bg-orange-400  text-white px-1 py-1 rounded-lg hover:bg-orange-300">Beli Sekarang</label>
+          @if($pembeli->limit < $data->harga_barang || $totalHarga > $pembeli->limit)
+           <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" id="masukkan" disabled >Beli Sekarang</button>
+           <p class="text-red-400">Limit Kamu Tidak Mencukupi Untuk Membeli Barang Ini</p>
+          @else
+             <label for="beliCheckbox" class="ms-6 bg-orange-400  text-white px-1 py-1 rounded-lg hover:bg-orange-300">Beli Sekarang</label>
+          @endif
+    
 
   @endif 
 

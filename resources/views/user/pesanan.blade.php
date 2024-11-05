@@ -28,7 +28,7 @@
 @endforeach
 
 <div class="flex justify-end mt-0 px-12">
-    <a href="/profile" class="bg-orange-500 text-white font-bold py-2 px-4 rounded">Kembali</a>
+    <a href="/profile" class="bg-orange-500 text-white font-bold py-2 px-4 rounded mr-5">Kembali</a>
     <a href="/cicilanKasbon/{{$d->slug}}" class="bg-orange-500 text-white font-bold py-2 px-4 rounded">Lihat Detail Cicilan</a>
 </div>
 

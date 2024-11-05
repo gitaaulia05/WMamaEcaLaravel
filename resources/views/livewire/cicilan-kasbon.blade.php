@@ -4,11 +4,12 @@
         <input type="text" class="w-full py-2 px-3 focus:outline-none focus:ring focus:ring-orange-300 rounded-r-lg" wire:model.live="search" placeholder="Cari Nama Barang ...">
     </div>
 
-      @if($data === null)
-        <h1>Anda belum Membuat Cicilan</h1>
+      @if($data->detKasbon->isEmpty())
+       <div class="w-fit bg-red-400 mx-auto">
+        <h1 class="mx-6 py-5">Anda belum Membuat Cicilan Buat</h1>
+       </div>
     @else
       @foreach ($data->detKasbon as $d )
-
 
         <div class="mx-auto bg-slate-50 w-10/12">
 

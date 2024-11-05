@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\users;
 use App\Models\barang;
 use App\Models\pembelian;
 use Illuminate\Support\Str;
@@ -50,7 +51,8 @@ class UserController extends Controller
     public function profile()
     {
         return view('user.profile' , [
-            "title" => "PROFILE | USER"
+            "title" => "PROFILE | USER",
+            "data" => users::where('id_user' , Auth::id())->first(),
         ]);
     }
 
