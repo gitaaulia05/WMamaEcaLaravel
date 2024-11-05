@@ -70,13 +70,16 @@ Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);
         Route::get('/detailBarang/{slug}', [adminDashboardController::class,'detail_barang']);
         Route::get('/editBarang/{slug}', [adminDashboardController::class,'edit_barang']);
+        Route::delete('/hapusBarang/{slug}', [adminDashboardController::class,'destroy']);
         
         Route::post('/simpanBarang', [adminDashboardController::class,'simpanBarang']);
-        Route::get('/tambah-data', [adminDashboardController::class, 'tambah_data'])->name('tambah-data');
-        Route::get('/edit-data/{id}', [adminDashboardController::class, 'editBarang'])->name('edit-data');
-        Route::post('/update-data/{id}', [adminDashboardController::class, 'updateBarang'])->name('update-data');
+        // Route::get('/tambah-data', [adminDashboardController::class, 'tambah_data'])->name('tambah-data');
+        // Route::get('/edit-data/{id}', [adminDashboardController::class, 'editBarang'])->name('edit-data');
+        // Route::post('/update-data/{id}, [adminDashboardController::class, 'updateBarang'])->name('update-data');
+
+        Route::put('/ubahBarang/{slug}', [adminDashboardController::class, 'updateBarang']);
         Route::get('/export', [ExcelExportController::class, 'export'])->name('export');
-        
+                
                 // DASHBOARD LAPORAN PENJUALAN
         Route::get('/laporan-penjualan', [LaporanPenjualanController::class,'index']);
 

@@ -14,10 +14,10 @@
             <form class="form" action="/create-user" method="post">
                 @csrf
                 <div class="input-container">
-                    <input type="text" name="nama" placeholder="Masukkan nama" value="{{ old('nama') }}">
-                    <input type="text" name="alamat" placeholder="Masukkan alamat" value="{{ old('alamat') }}">
+                    <input type="text" name="nama" placeholder="Masukkan nama" value="{{ old('nama') }}" required>
+                    <input type="text" name="alamat" placeholder="Masukkan alamat" value="{{ old('alamat') }}" required>
                     
-                    <input type="number" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Masukkan nomor handphone" maxlength="12" value="{{ old('no_hp') }}">
+                    <input type="number" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Masukkan nomor handphone" maxlength="12" value="{{ old('no_hp') }}" required>
                     @error('no_hp')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -25,7 +25,7 @@
                     @enderror
 
 
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan password">
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password Harus Berisi Huruf dan Angka Minimal 8 Karakter" required>
                     @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}

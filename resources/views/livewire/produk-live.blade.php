@@ -5,11 +5,6 @@
     </div>
 
 
-      <div class="flex items-center ml-16 mt-4 w-80 mb-10 bg-white shadow-md rounded-lg">
-
-              <span class="px-3 text-gray-500"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="w-full py-2 px-3 focus:outline-none focus:ring focus:ring-orange-300 rounded-r-lg" wire:model.live="search"  placeholder="Cari Nama Barang ...">
-            </div>
 
     <div class="container list-barang px-10 py-10">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -64,6 +59,16 @@
                     </div>
                 @endif
             @endforeach
+              
         </div>
+        
     </div>
+
+    <div class="w-11/12 pb-5 ">
+        <div class="flex justify-end">
+ {{ $data->links('vendor.pagination.custom-pagination') }}
+    </div>
+    </div>
+ 
+
 </div>

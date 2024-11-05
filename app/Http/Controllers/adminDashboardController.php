@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang;
-use App\Http\Controllers\Controller;
+
+use App\Models\barang;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class adminDashboardController extends Controller
 {
@@ -39,16 +41,16 @@ class adminDashboardController extends Controller
 
     public function tambah_data()
     {
-        return view('admin.tambah_data', [
+        return view('admin.barang.tambah_data', [
             'title' => 'ADMIN | Tambah Data',
             'page' => 'Dashboard - Tambah Data'
         ]);
     }
 
  
-public function updateBarang(Request $request, $id)
+public function updateBarang(Request $request, $slug)
 {
-    $barang = Barang::findOrFail($id); 
+    $barang = Barang::where('slug' , $slug)->first(); 
 
     $data = $request->validate([
         'nama_barang' => 'required|string|max:255',
@@ -64,15 +66,15 @@ public function updateBarang(Request $request, $id)
     $barang->harga_barang = $data['harga_barang'];
     $barang->deks_barang = $data['deks_barang'];
 
-    // Check for a new image and update if provided
     if ($request->hasFile('img')) {
-        // Store new image and update the img field
-        $barang->img = $request->file('img')->store('images', 'public');
+            if($barang->img && Storage::disk('public')->exists($barang->img)){
+                Storage::disk('public')->delete($barang->img);
+            }
+        $barang->img = $request->file('img')->store('barang' , 'public');
     }
 
     $barang->save();
-
-    return redirect()->route('dash_admin')->with('success', 'Data barang berhasil diperbarui.');
+    return redirect()->route('dash_admin')->with('message-success', 'Data barang berhasil diperbarui.');
 }
 
 
@@ -87,6 +89,24 @@ public function updateBarang(Request $request, $id)
         'created_at' => 'required|date',
         'img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
     ]);
+
+            $data['img'] = $request->file('img');
+            $data['img'] = $request->file('img')->store('barang', 'public');
+            $data['id_barang'] = (String) Str::uuid();
+                barang::create($data);
+                return redirect('dashboard-admin')->with('message-success' , 'Tambah Data Barang Berhasil!');
 }
+
+
+        public function destroy($slug)
+        {
+           $barang = barang::where('slug' , $slug)->first();
+
+           Storage::delete('storage/barang/' .$barang->img);
+
+           $barang->delete();
+
+          return redirect('dashboard-admin')->with('message-success' , 'Hapus Barang Berhasil');
+        }
 
 }

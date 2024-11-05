@@ -21,6 +21,7 @@ class CicilanKasbon extends Component
                     $query->orderBy('created_at' ,'desc');
                     $query->where('cicilan_ke' , 'like' ,'%'.$this->search.'%');
            }, 'pembelian.users'])->where('slug' , $this->slug)->first(),
+
             'pembelian' => pembelian::with(['detail_pembelian.namaBarang' , 'users'])->where('slug' , $this->slug)->first(),
 
         ]);

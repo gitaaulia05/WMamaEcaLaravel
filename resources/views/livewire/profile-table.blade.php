@@ -46,5 +46,11 @@
                 </tbody>
             </table>
         </div>
+
+     <div class="w-11/12 pb-5 mt-5">
+        <div class="flex justify-end">
+ {{ $data->links('vendor.pagination.custom-pagination') }}
+    </div>
+    </div>
     </div>
 </div>

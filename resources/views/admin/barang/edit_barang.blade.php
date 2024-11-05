@@ -10,7 +10,7 @@
             <h5>Tambah Data Barang</h5>
         </div>
         <div class="card-body">
-            <form class="form-b" action="/UbahBarang" method="POST" enctype="multipart/form-data">
+            <form class="form-b" action="/ubahBarang/{{$barang->slug}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -54,21 +54,22 @@
 
                 <div class="form-group mb-3">
                     <label for="date">Tanggal Input:</label>
-                    <input type="date" id="date" name="created_at" value="{{ $barang->created_at->format('d/m/Y')}}" class="form-control" style="width: 18%;" required>
+                    <input type="date" id="date" name="created_at" value="{{ $barang->created_at->format('Y-m-d')}}" class="form-control" style="width: 18%;" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <div style="position: absolute; top: 300px; right: 70px; width: 20%;">
                  
-                      <img id="imagePreview" src="{{ old('img') ? asset('storage/barang' . old('img')) : asset('storage/barang/' . $barang->img) }}" alt="Preview Image" style="display: block; width: 100%; margin-top: 10px;">
+                      <img id="imagePreview" src="{{ old('img') ? asset('storage/' . old('img')) : asset('storage/' . $barang->img) }}" alt="Preview Image" style="display: block; width: 100%; margin-top: 10px;">
 
                         <input type="file" id="image" name="img" class="form-control @error('img')
                         is-invalid
-                    @enderror" required onchange="previewImage(event)" >
+                    @enderror" onchange="previewImage(event)">
                    
                         <label for="image">Gambar Barang</label>
-                          @error('img')
+                         
                     </div>
+                     @error('img')
                     <div class="invalid-feedback" >
                             {{ $message }}
                         </div>

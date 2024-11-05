@@ -23,7 +23,7 @@ class ProfileTable extends Component
             })
             ->with(['detail_pembelian.namaBarang'])
             ->orderBy('created_at', 'desc')
-            ->paginate(10),
+            ->paginate(20),
 
         ]);
     }
