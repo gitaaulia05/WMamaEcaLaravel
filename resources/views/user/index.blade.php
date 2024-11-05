@@ -191,18 +191,18 @@
                     </div>
                     <div class="fitur-content">
                         <div class="photo">
-                            <img src="assets/testimoni2.png">
+                            <img src="{{asset('images/img/team-1.jpg')}}">
 
                             <div class="desc-client">
-                                <h1 class="nama" >David Anderson</h1>
-                                <p class="pekerjaan">Petani</p>
+                                <h1 class="nama" >Ariana Aurelia</h1>
+                                <p class="pekerjaan">Ibu Rumah Tangga</p>
                             </div>
 
                             <div class="ikon-quote">
                                 <i class="fas fa-quote-left" id="quote"></i>
                             </div>
                         </div>
-                            <p class="fSubTest">Sebagai petani, fluktuasi harga dan cuaca yang tidak menentu sering menjadi tantangan. Kasbon sembako memberi kami kepastian dan stabilitas dalam membeli kebutuhan pokok kami, memungkinkan kami untuk fokus pada pertanian tanpa khawatir akan kelaparan.</p>
+                            <p class="fSubTest">Sebagai ibu rumah tangga, fluktuasi harga dan cuaca sering menjadi tantangan. Kasbon sembako memberi kepastian dalam membeli kebutuhan pokok, membuat kami lebih tenang mengurus keluarga.</p>
                     </div>
 
 

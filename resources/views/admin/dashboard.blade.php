@@ -11,7 +11,7 @@
         @livewire('dashboard-barang')
       </div>
     
-  
+
   @endsection
 
 

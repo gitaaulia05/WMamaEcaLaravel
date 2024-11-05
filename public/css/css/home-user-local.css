@@ -290,7 +290,9 @@ main .fitur .fitur-content .photo {
     display: flex;
     justify-content: space-around;
     padding-top: 1rem;
-
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 main .fitur .fitur-content .photo .desc-client{
