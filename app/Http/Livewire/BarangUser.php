@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
+
 use App\Models\users;
 
 use Livewire\Component;
@@ -9,7 +10,7 @@ use Illuminate\Support\Str;
 use App\Helpers\keranjangHelp;
 use App\Models\keranjangDetail;
 use Illuminate\Support\Facades\Auth;
-use App\Models\barang;
+
 
 
 class BarangUser extends Component
@@ -25,7 +26,7 @@ class BarangUser extends Component
     public $counter = '';
 
     public $totalHarga;
-   
+
     public function mount($slug)
 
     {
@@ -47,14 +48,14 @@ class BarangUser extends Component
         }
 
         $this->kuantitas[0] = 1;
-     
+
 
         // $this->maxBarang = ($data->stok_barang - $dataKeranjang->kuantitas) < 0 ?  1:  $data->stok_barang - $dataKeranjang->kuantitas;
 
-         $this->maxBarang = ($dataKeranjang && $dataKeranjang->kuantitas !== null )  ? $data->stok_barang - $dataKeranjang->kuantitas 
+         $this->maxBarang = ($dataKeranjang && $dataKeranjang->kuantitas !== null )  ? $data->stok_barang - $dataKeranjang->kuantitas
          : $data->stok_barang ;
 
-           
+
          $this->datas = $data;
 
 
@@ -70,13 +71,13 @@ class BarangUser extends Component
     }
 
 
-    public function checkKuantitas() 
+    public function checkKuantitas()
     {
           $kuantitasIni = isset($this->kuantitas[0]) ? (int)$this->kuantitas[0] : 1;
-       
+
         if($kuantitasIni  >= $this->maxBarang ){
             session()->flash('kuantitasMessage' , 'Anda telah Memasukkan Barang Anda Tidak Bisa Menambahkan Jumlah Barang. Karena melebihi batas stok !' );
-         } 
+         }
            elseif($kuantitasIni  < 1) {
                 session()->flash('disabled' , 'Masukkan Barang minimal 1 buah');
          }
@@ -86,45 +87,45 @@ class BarangUser extends Component
 
     }
 
-    
+
     public function simpanBarang(){
 
         $keranjangCheck = keranjang::where('id_user' , Auth::id())->first();
 
-    
+
             if(!$keranjangCheck){
                 $keranjangData['id_keranjang'] = (String) Str::uuid();
                 $keranjangData['id_user'] = Auth::id();
               keranjang::create($keranjangData);
- 
+
             }
             $keranjang = keranjang::where('id_user' , Auth::id())->first();
-         
+
             $dataBarang = keranjangDetail::whereHas('keranjang' , function($query){
                 $query->where('id_user' , Auth::id());
             })->where('id_barang' , $this->id_barang)->first();
 
                 if(!$dataBarang){
-                    
+
                     $data = $this->validate([
                         'id_barang' =>'required',
-                        
+
                     ]);
                     $data['kuantitas'] = isset($this->kuantitas[0]) ? (int) $this->kuantitas[0] : 1;
                     $data['id_keranjang'] = $keranjang->id_keranjang;
                     $data['id_detail_keranjang'] = (String) Str::uuid();
                     keranjangDetail::create($data);
                 }  else{
-                   
+
                     $dataBarang->update([
                         'kuantitas' => (int) reset($this->kuantitas) + $dataBarang->kuantitas,
-                      
+
                     ]);
                 }
-              
+
                 $this->dispatch('cartUpdated');
 
-               
+
                 session()->flash('message', 'Barang telah ditambahkan ke keranjang.');
 
     }
@@ -133,7 +134,7 @@ class BarangUser extends Component
     public function simpanBarangDanBeliLangsung()
     {
 
-        $barang_dipilih =  keranjangHelp::setBarangDipilih($this->checkBarang); 
+        $barang_dipilih =  keranjangHelp::setBarangDipilih($this->checkBarang);
         $barang = barang::where('id_barang' , $barang_dipilih)->first();
          $kuantitas = keranjangHelp::setKuantitasDipilih($this->kuantitas , array_keys($this->checkBarang));
 
@@ -143,22 +144,22 @@ class BarangUser extends Component
          }  else {
             $harga[0] =0;
          }
-        
-     
+
+
          $this->hargaBarang = keranjangHelp::setHargaDipilih($harga, array_keys($this->checkBarang));
 
              if(empty($barang_dipilih)) {
-              
+
             session()->flash('message', 'Tidak ada barang yang dipilih.');
             return redirect()->back();
         } else {
-           
+
             session()->put('barang_dipilih' , $barang_dipilih);
         return app('App\Http\Livewire\KeranjangLive')->pembelianPass();
         }
-    
-       
+
+
     }
-    
-   
+
+
 }
