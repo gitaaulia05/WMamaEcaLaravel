@@ -18,7 +18,19 @@
                 <span class="d-sm-inline d-none">{{ auth()->user()->nama }}</span>
                 <form method="POST" action="/logout" class="d-inline ms-2">
                 @csrf
-                <button type="submit" style="padding: 0 2px 0;">Log Out</button>
+                <style>
+                  .btn-no-outline {
+                      border: none;
+                      background-color: transparent;
+                      padding: 0;
+                      color: #0b0b0b;
+                      cursor: pointer;
+                  }
+                  .btn-no-outline:hover {
+                      color: #ff3300;
+                  }
+              </style>
+                <button type="submit" class="btn-no-outline">Log Out</button>
                 </form>
                 @endauth
               </a>

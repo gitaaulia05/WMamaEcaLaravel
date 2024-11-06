@@ -14,6 +14,9 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
 
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+
   <link href="{{ asset('css/css/nucleo-icons.css')}}" rel="stylesheet" />
 
     <link href="{{ asset('css/css/nucleo-svg.css')}}" rel="stylesheet" />
@@ -27,7 +30,7 @@
       <link  id="pagestyle" href="{{ asset('css/css/soft-ui-dashboard.css?v=1.0.3')}}" rel="stylesheet" />
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-      
+
           {{-- @stack('styles') --}}
           @livewireStyles
 </head>
@@ -45,7 +48,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  {{ Request::is('dashboard-admin')  ? 'active' : '' }}" href="/dashboard-admin">
+          <a class="nav-link  {{ Request::is('dashboard-admin') || Request::is('tambah-data/*') ? 'active' : '' }}" href="/dashboard-admin">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>

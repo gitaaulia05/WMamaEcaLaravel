@@ -3,7 +3,7 @@
               <span class="input-group-text text-body">
                 <i class="fas fa-search" aria-hidden="true"></i>
               </span>
-              <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari ID Detail Kasbon di sini...">
+              <input type="text" class="form-control" wire:model.live="search"  placeholder="Cari Cicilan Ke">
             </div>
 
       @foreach ($data->detKasbon as $d )

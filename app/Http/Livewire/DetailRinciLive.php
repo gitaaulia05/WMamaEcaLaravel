@@ -22,7 +22,7 @@ class DetailRinciLive extends Component
             'page' => 'Detail Data Kasbon',
            'data' => kasbon::with(['detKasbon'=> function($query){
                     $query->orderBy('created_at' ,'desc');
-                    $query->where('id_det_kasbon' , 'like' ,'%'.$this->search.'%');
+                    $query->where('cicilan_ke' , 'like' ,'%'.$this->search.'%');
            }, 'pembelian.users'])->where('slug' , $this->slug)->first(),
 
             'pembelian' => pembelian::with(['detail_pembelian.namaBarang' , 'users'])->where('slug' , $this->slug)->first(),

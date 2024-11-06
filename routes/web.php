@@ -3,6 +3,7 @@
 use App\Livewire\KasbonTable;
 use App\Http\Livewire\Pembelian;
 use App\Http\Livewire\DetailKasbon;
+use App\Http\Livewire\KeranjangLive;
 use App\Http\Livewire\PembelianLive;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\LaporanPenjualanController;
 use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\ExcelExportController;
 
         // TESTING AMBIL DATA KASBON
 // Route::get('/', [KasbonController::class, 'index']);
@@ -40,9 +42,13 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::get('/profile', [UserController::class, 'profile']);
         Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
+        Route::get('/cicilanKasbon/{slug}', [UserController::class, 'cicilan_kasbon']);
+
         Route::get('/update-profile', [UserController::class, 'update_profile']);
 
         Route::get('/keranjang', [UserController::class, 'keranjang']);
+
+        route::post('/beli-langsung' , [KeranjangLive::class , 'pembelianPass']);
 
         Route::get('/pembelian/{token}' , [UserController::class , 'pembelianPlain'] );
 
@@ -57,13 +63,23 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::post('/logout',[AuthenticateController::class,'destroy'])->middleware('auth');
 
-Route::middleware(['auth', 'cekAdmin'])->group(function () {
+        Route::middleware(['auth', 'cekAdmin'])->group(function () {
 
                 // DASHBOARD ADMIN
         Route::get('/dashboard-admin', [adminDashboardController::class,'index'])->name('dash_admin');
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);
+        Route::get('/detailBarang/{slug}', [adminDashboardController::class,'detail_barang']);
+        Route::get('/editBarang/{slug}', [adminDashboardController::class,'edit_barang']);
+        Route::delete('/hapusBarang/{slug}', [adminDashboardController::class,'destroy']);
+        
+        Route::post('/simpanBarang', [adminDashboardController::class,'simpanBarang']);
+        // Route::get('/tambah-data', [adminDashboardController::class, 'tambah_data'])->name('tambah-data');
+        // Route::get('/edit-data/{id}', [adminDashboardController::class, 'editBarang'])->name('edit-data');
+        // Route::post('/update-data/{id}, [adminDashboardController::class, 'updateBarang'])->name('update-data');
 
-
+        Route::put('/ubahBarang/{slug}', [adminDashboardController::class, 'updateBarang']);
+        Route::get('/export', [ExcelExportController::class, 'export'])->name('export');
+                
                 // DASHBOARD LAPORAN PENJUALAN
         Route::get('/laporan-penjualan', [LaporanPenjualanController::class,'index']);
         Route::get('/detailLaporanPenjualan/{slug}', [LaporanPenjualanController::class,'detail_laporan']);
@@ -76,6 +92,4 @@ Route::middleware(['auth', 'cekAdmin'])->group(function () {
 
         Route::post('/simpan-data-kasbon', [KasbonController::class, 'simpan_data']);
 
-
 });
-

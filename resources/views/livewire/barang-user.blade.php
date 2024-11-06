@@ -1,4 +1,4 @@
-<div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden px-6 py-8 ">
+<div class="width-11/12   shadow-lg rounded-lg overflow-hidden px-6 py-8 mb-10 font-serif">
 {{-- dari file detail_barang --}}
   @if(session()->has('message'))
 
@@ -6,53 +6,79 @@
     <div class="relative p-4 w-full max-w-md max-h-full mx-auto py-48">
         <div class="relative bg-white opacity-100 rounded-lg shadow ">
             <div class="p-4 md:p-5 text-center">
-              
+
                  <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
             <path fill="#c8e6c9" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#4caf50" d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z"></path>
             </svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">barang masuk</h3>
-              
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{{ session('message')}}</h3>
+
             </div>
         </div>
     </div>
 </div>
     @endif
 
-
-    <form wire:submit.prevent="simpanBarang">
+<form wire:submit.prevent="simpanBarang">
        @csrf
-       <input wire:model="id_barang" hidden name="id_barang" value="{{$data->id_barang}}" readonly>
 
-       <div class="mb-4">
-         <h2 class="text-lg font-semibold"> Nama Produk: {{$data->nama_barang}}</h2>
-       </div>
-       <div class="mb-4">
-         <h2 class="text-gray-600"> Stock: {{$data->stok_barang}}</h2>
-       </div>
-       <div class="mb-4">
-         <h2 class="text-gray-600">Deksripsi: {{$data->deks_barang}}</h2>
-       </div>
-       <div class="mb-4">
-         <label>Kuantitas:</label>
-         <input wire:model="kuantitas" wire:input="checkKuantitas" name="kuantitas" type="number" value="1"  min="1"  max="{{$maxBarang}}"  oninput ="if(this.value > {{$maxBarang}}) this.value={{$maxBarang}};">
-         
+    <div class="grid lg:grid-cols-2 " >
+
+
+
+   {{-- start gambar produk --}}
+        <div class="Gambar-produk bg-[#F2F2F2] w-10/12 rounded-xl mx-9">
+      <img src="{{asset('images/img/bruce-mars.jpg')}}" class="w-1/2 rounded-xl shadow-sm mx-auto py-10">
+    </div>
+    {{-- end gambar produk --}}
+
+      {{-- start deks produk --}}
+        <div class="Deks-produk-Button ">
+        <h1 class=" text-4xl pt-5 lg:text-3xl lg:pt-0 mb-2 capitalize">{{$data->nama_barang}}</h1>
+        <h1 class=" pt-2 text-2xl lg:text-3xl lg:pt-3">Rp. {{$data->harga_barang}}</h1>
+        <h1 class="pt-3 lg:text-lg lg:mt-5">Deskripsi</h1>
+        <p class="pt-1 text-sm lg:text-md text-slate-700 text-pretty leading-relaxed">{{$data->deks_barang}}</p>
+
+          <div class="kuantitas">
+             <label>Kuantitas:</label>
+         <input wire:model="kuantitas.0" wire:input="checkKuantitas" name="kuantitas" type="number" value="1"  min="1"  max="{{$maxBarang}}"  oninput ="if(this.value < 1) this.value=1; if(this.value > {{$maxBarang}}) this.value={{$maxBarang}};" class="border-2 border-gray-100 focus:border-orange-500 focus:ring-0 focus:outline-none rounded-md">
+        <h1>{{$totalHarga}}</h1>
          @if (session()->has('kuantitasMessage'))
            <h1 class="text-center text-red-400">{{session('kuantitasMessage')}}</h1>
          @endif
-       </div>
-        @if(session()->has('disabled'))
- <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" disabled type="submit" id="masukkan">Masukkan keranjang</button>
- <p class="text-red-500">{{session('disabled')}}</p>
-  @else
-   <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan">Masukkan keranjang</button>
-  @endif
+          </div>
 
+    
+        @if(session()->has('disabled') || $data->is_arsip == 1)
+        <button class="bg-orange-300 text-white px-1 py-1 rounded-lg mr-6" disabled type="submit" id="masukkan">Masukkan keranjang</button>
+        <p class="text-red-500">{{session('disabled')}}</p>
+          @else
+          <button class="bg-orange-400 text-white px-1 py-1 rounded-lg mr-6" type="submit" id="masukkan">Masukkan keranjang</button>
+        @endif
 
-  </form>
-  <button class="bg-orange-400 text-white px-1 py-1 rounded-lg" type="submit" id="masukkan" >Beli Sekarang</button>
+        
+  @if($data->is_arsip == 1)
+  <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" id="masukkan" disabled >Beli Sekarang</button>
 
-  <div class="mb-1">
- 
- 
+        @else 
+       <input id="beliCheckbox"  wire:model="checkBarang.{{$data->id_barang}}" type="checkbox" wire:click="simpanBarangDanBeliLangsung" class=" text-white px-1 py-1 rounded-lg hidden peer">
+          @if($pembeli->limit < $data->harga_barang || $totalHarga > $pembeli->limit)
+           <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" id="masukkan" disabled >Beli Sekarang</button>
+           <p class="text-red-400">Limit Kamu Tidak Mencukupi Untuk Membeli Barang Ini</p>
+          @else
+             <label for="beliCheckbox" class="ms-6 bg-orange-400  text-white px-1 py-1 rounded-lg hover:bg-orange-300">Beli Sekarang</label>
+          @endif
+    
+
+  @endif 
+
+    </div>
+
+    </div>
+    {{-- end deks produk --}}
+
+    </div>
+</form>
+  
+
 </div>
 </div>

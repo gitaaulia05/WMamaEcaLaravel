@@ -9,22 +9,22 @@
                 <p class="sub">Warung Sembako Mamah Eca <span class="help">Siap Membantumu</span>  </p>
                 <button>Selengkapnya</button>
 
- 
+
             </div>
 
             <aside>
                 <div class="content-image">
-                    <image src="assets/thumbHome.jpeg">
+                    <image src="{{asset('images/img/model2.jpg')}}" >
                 </div>
             </aside>
-          
+
         </article>
 
     <div class="penawaran utama" id="layanan">
         <button >Fitur Terbaik </button>
     </div>
 
-        
+
         <article class="layanan" >
             <div class="lPembukaan">
                 <h1 class="judul-layanan">Layanan Kami</h1>
@@ -35,25 +35,25 @@
                 @else
                     <a href="/login">Dapatkan Sekarang</a>
                 @endauth
-              
+
                 </button>
             </div>
             <aside >
                 <div class="layanan-image">
-                    <img src="assets/feature.jpeg">
+                    <img src="{{asset('images/img/model1.jpg')}}">
                 </div>
-            </aside>   
+            </aside>
          </article>
 
             <article class="fitur">
 
-                <div class="fitur-content">   
+                <div class="fitur-content">
 
-                   
+
                         <div class="ikon-fitur">
                             <i class="fas fa-money-bill-wave-alt"></i>
                         </div>
-                                    
+
                     <h1 class="fJudul">Proses Cepat</h1>
                     <p  class="fSub">Dapatkan kasbon sembako dalam hitungan menit. Tanpa ribet, tanpa menunggu. Cepat, andal, dan transparan. </p>
                 </div>
@@ -71,7 +71,7 @@
                     <div class="ikon-fitur">
                           <i class="fas fa-bell"></i>
                     </div>
-                  
+
                     <h1 class="fJudul" >Pengingat</h1>
                     <p  class="fSub">Dengan fitur Pengingat kami, Anda tidak akan pernah lagi melewatkan tanggal jatuh tempo pembayaran.</p>
                 </div>
@@ -92,7 +92,7 @@
         <article class="pertanyaan " id="pertanyaan">
 
             <aside>
-                <img src="assets/faq.jpeg">
+                <img src="{{asset('images/img/model3.jpg')}}">
             </aside>
 
             <div class="faq">
@@ -120,13 +120,13 @@
                         </div>
                         <hr class="divider-accordion">
                     </li>
-                    
+
                     <li>
                         <input type="checkbox" name="accordion" id="third">
                         <label for="third">Apakah layanan kasbon tersedia untuk semua produk sembako?</label>
                         <div class="content-faq">
-                           
-        ya, layanan kasbon tersedia untuk sebagian besar produk sembako yang ditawarkan. 
+
+        ya, layanan kasbon tersedia untuk sebagian besar produk sembako yang ditawarkan.
                         </div>
                     </li>
 
@@ -137,16 +137,16 @@
 
         <article>
             <div class="sapaan-testi">
-                <h3 class="testimoni">Testimoni</h3> 
+                <h3 class="testimoni">Testimoni</h3>
                 <h1 class="text-client">Apa Kata Dari Para Pelanggan Kami !</h1>
             </div>
-              
+
             <div class="fitur">
-                
+
                     <div class="fitur-content">
                         <div class="photo">
                             <img src="assets/testimoni1.png">
-                            
+
                             <div class="desc-client">
                                 <h1 class="nama" >Jennifer Susanto</h1>
                                 <p class="pekerjaan">Ibu Rumah Tangga</p>
@@ -161,7 +161,7 @@
                     <div class="fitur-content">
                         <div class="photo">
                             <img src="assets/testimoni3.png">
-                            
+
                             <div class="desc-client">
                                 <h1 class="nama" >Olivia Taylor</h1>
                                 <p class="pekerjaan">Ibu Rumah Tangga</p>
@@ -176,7 +176,7 @@
                     <div class="fitur-content">
                         <div class="photo">
                             <img src="assets/testimoni4.png">
-                            
+
                             <div class="desc-client">
                                 <h1 class="nama" >Stephanie Hartono</h1>
                                 <p class="pekerjaan">Ibu Rumah Tangga</p>
@@ -191,21 +191,21 @@
                     </div>
                     <div class="fitur-content">
                         <div class="photo">
-                            <img src="assets/testimoni2.png">
-                            
+                            <img src="{{asset('images/img/team-1.jpg')}}">
+
                             <div class="desc-client">
-                                <h1 class="nama" >David Anderson</h1>
-                                <p class="pekerjaan">Petani</p>
+                                <h1 class="nama" >Ariana Aurelia</h1>
+                                <p class="pekerjaan">Ibu Rumah Tangga</p>
                             </div>
 
                             <div class="ikon-quote">
                                 <i class="fas fa-quote-left" id="quote"></i>
                             </div>
                         </div>
-                            <p class="fSubTest">Sebagai petani, fluktuasi harga dan cuaca yang tidak menentu sering menjadi tantangan. Kasbon sembako memberi kami kepastian dan stabilitas dalam membeli kebutuhan pokok kami, memungkinkan kami untuk fokus pada pertanian tanpa khawatir akan kelaparan.</p>
+                            <p class="fSubTest">Sebagai ibu rumah tangga, fluktuasi harga dan cuaca sering menjadi tantangan. Kasbon sembako memberi kepastian dalam membeli kebutuhan pokok, membuat kami lebih tenang mengurus keluarga.</p>
                     </div>
-                    
-                 
+
+
             </div>
         </article>
 
@@ -230,7 +230,7 @@
                         <i class="fab fa-whatsapp-square"></i>
                         <p class="text-icon wa">WhatsApp</p>
                      </li>
-                     
+
                 </ul>
 
             </div>

@@ -31,19 +31,19 @@ class AuthenticateController extends Controller
         ]);
 
         if(!Auth::attempt($credentials)) {
-                throw ValidationException::withMessages([
-                    'no_hp' => 'Maaf , nomor handphone anda tidak valid'
-                ]);
+                // throw ValidationException::withMessages([
+                //     'no_hp' => 'Maaf , nomor handphone anda tidak valid'
+                // ]);
+                return back()->with('loginError', 'Login Gagal !');
         }
         $user = Auth::user();
-    
-
         request()->session()->regenerate();
      
             if ($user->is_admin == 1) {
-                return redirect()->route('dash_admin');  // Redirect admin users to admin dashboard
+                return redirect()->route('dash_admin');  
              } else if($user->is_admin == 0) {
-                return redirect('/produk');  // Redirect normal users to their dashboard
+                return redirect('/produk');
+             
          }else {
             return back()->with('loginError', 'Login Gagal !');
          }
@@ -54,7 +54,7 @@ class AuthenticateController extends Controller
     public function destroy(){
         Auth::logout();
 
-        return redirect('/login');
+        return redirect('/');
     }
 
 
@@ -72,7 +72,7 @@ class AuthenticateController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required|numeric|digits:12|unique:users',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8|regex:/[a-z]/|regex:/[0-9]/'
 
         ]);
         $validateData['id_user'] = (string) Str::uuid();
