@@ -646,13 +646,8 @@ class ComposerStaticInit2ff20ac68f5b8aac10695a379686f717
         'App\\Http\\Livewire\\KasbonTablel' => __DIR__ . '/../..' . '/app/Http/Livewire/KasbonTablel.php',
         'App\\Http\\Livewire\\KeranjangCounter' => __DIR__ . '/../..' . '/app/Http/Livewire/KeranjangCounter.php',
         'App\\Http\\Livewire\\KeranjangLive' => __DIR__ . '/../..' . '/app/Http/Livewire/KeranjangLive.php',
-<<<<<<< HEAD
-        'App\\Http\\Livewire\\Pembelian' => __DIR__ . '/../..' . '/app/Http/Livewire/Pembelian.php',
-        'App\\Http\\Livewire\\PembelianLive' => __DIR__ . '/../..' . '/app/Http/Livewire/PembelianLive.php',
-=======
         'App\\Http\\Livewire\\PembelianLive' => __DIR__ . '/../..' . '/app/Http/Livewire/PembelianLive.php',
         'App\\Http\\Livewire\\ProdukLive' => __DIR__ . '/../..' . '/app/Http/Livewire/ProdukLive.php',
->>>>>>> 788b33f254af8dcfd7b1501962161c2819819d91
         'App\\Http\\Livewire\\ProfileTable' => __DIR__ . '/../..' . '/app/Http/Livewire/ProfileTable.php',
         'App\\Http\\Livewire\\Test' => __DIR__ . '/../..' . '/app/Http/Livewire/Test.php',
         'App\\Http\\Middleware\\cekAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/cekAdmin.php',
