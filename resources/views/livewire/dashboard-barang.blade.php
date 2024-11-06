@@ -41,12 +41,12 @@
 
       <div class="row">
         @foreach ($barang as $b)
-        <div class="col-2 col-lg-3">
+        <div class="col-2 col-lg-3 w-25" >
           <div class="card mb-4" >
               @if($b->is_arsip == 0)
-        <img src="{{ asset('storage/'.$b->img) }}" class="card-img-top w" alt="Gambar Produk">
+        <img src="{{ asset('storage/'.$b->img) }}" class="card-img-top w-100 uniform-image" alt="Gambar Produk">
         @else
-          <img src="{{ asset('storage/'.$b->img) }}" class="card-img-top opacity-75 position-relative" alt="Gambar Produk">
+          <img src="{{ asset('storage/'.$b->img) }}" class="card-img-top opacity-75 position-relative uniform-image" alt="Gambar Produk">
           <div class="position-absolute top-50 start-50 translate-middle">
 
       <p class="card-text my-lg-7 mx-lg-2">- BARANG HABIS -</p>

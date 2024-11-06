@@ -1,4 +1,4 @@
-<div>
+<div >
 
    @if (session()->has('message'))
        <h1>{{session('message')}}</h1>
@@ -49,10 +49,10 @@
                       <input  wire:model="checkBarang.{{$d->barang->id_barang}}" wire:click="pembelian" type="checkbox" value="{{$d->barang->id_barang}}">
 
                         <div class="hapus-keranjang bg-orange-500 rounded-full text-center w-fit hover:bg-orange-300">
-
                          <button  wire:click="hapusBarang({{$d->barang->id_barang}})" class="mx-5 text-white"> hapus </button>
 
-
+            
+                         
                         </div>
                         </div>
                 </td>
@@ -74,10 +74,11 @@
 
 
             @if ($harga_barangLive >  $user->limit )
-                 <button type="button" disabled wire:click="limitOut"  class="bg-orange-600"> Lanjut Bayar</button>
-                 <p>Anda melebihi limit kasbon </p>
+                 <button type="button" disabled wire:click="limitOut"  class="bg-orange-600  text-white py-2 px-3 rounded-md"> Lanjut Bayar</button>
+                 <p class="text-red-600">Anda melebihi limit kasbon </p>
                  @else
                     <button type="button" wire:click="setSessionLive"  class="bg-orange-500 text-white py-2 px-3 rounded-md"> Lanjut Bayar</button>
+                   
             @endif
 
 

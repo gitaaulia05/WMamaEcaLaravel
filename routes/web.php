@@ -68,7 +68,7 @@ Route::middleware('auth' , 'cekUser')->group(function () {
                 // DASHBOARD ADMIN
         Route::get('/dashboard-admin', [adminDashboardController::class,'index'])->name('dash_admin');
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);
-        Route::get('/detailBarang/{slug}', [adminDashboardController::class,'detail_barang']);
+        Route::get('/detailBarang/{slug}', [adminDashboardController::class,'detail_barang'])->name('detail_barang');
         Route::get('/editBarang/{slug}', [adminDashboardController::class,'edit_barang']);
         Route::delete('/hapusBarang/{slug}', [adminDashboardController::class,'destroy']);
         

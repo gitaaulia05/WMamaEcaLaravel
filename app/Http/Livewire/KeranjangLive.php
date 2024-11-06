@@ -51,10 +51,12 @@ class KeranjangLive extends Component
     }
 
     public function hapusBarang($id_barang){
-       keranjangDetail::where('id_barang' , $id_barang)->delete();
+    $keranjang =   keranjangDetail::where('id_barang' , $id_barang)->first();
+       $keranjang->delete();
        // untuk update angka di keranjang nav (keranjang counter.)
         $this->dispatch('cartUpdated');
         session()->flash('message' , 'data berhasil dihapus');
+
 
     }
 
