@@ -2,6 +2,8 @@
 
 @section('container')
 
+
+
 <div class="container-fluid py-4">
       <div class="row">
       <div class="col-12 col-md-10 col-lg-12">
@@ -26,8 +28,7 @@
 
                     @foreach($data as $d)
 
-            {{ $d->namaBarang->id_barang }}
-                    
+       
                  
                     <tr>
                       <td>
@@ -41,10 +42,12 @@
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">{{ $d->namaBarang->id_barang }}</p>
+                        <p class="text-xs font-weight-bold mb-0">{{ $d->total }}</p>
                       </td>
+
+                   
                       <td class="align-middle text-center text-sm">
-                        <a href=" " class="btn btn-orange"
+                        <a href="/detailLaporanPenjualan/{{ $d->namaBarang->slug }}" class="btn btn-orange"
                             style="background-color: #ff8567; color: white; padding: 0.25rem 0.75rem; border-radius: 0.25rem; border: none; margin: 5px; text-transform: none;">Detail
                         </a>
                       </td>

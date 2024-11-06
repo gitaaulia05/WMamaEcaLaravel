@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\keranjangDetail;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class barang extends Model
 {
@@ -25,6 +26,10 @@ class barang extends Model
     
     public function JenisBarang(){
         return $this->hasMany(JenisBarang::class, 'id_barang', 'id_barang' );
+    }
+
+    public function keranjangDetail(){
+        return $this->hasMany(keranjangDetail::class, 'id_barang', 'id_barang' );
     }
 
     // BIKIN SLUG DISINI 

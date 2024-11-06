@@ -33,8 +33,7 @@ class PembelianLive extends Component
         $this->barangDipilih = $barang_dipilih;
 
        $this->hargaBarang = session()->get('harga_barang' , []);
-    
-  
+
         $sessiontoken = session()->get('token' , []);
 
         if($token !== $sessiontoken){
@@ -44,20 +43,30 @@ class PembelianLive extends Component
         if(empty($barang_dipilih)){
             return redirect()->back();
         } else {
-            $this->dataBarang = keranjangDetail::with(['barang' , 'keranjang.users' => function($query){
+            $this->dataBarang = keranjangDetail::whereHas('keranjang' , function($query) {
+                $query->where('id_user' , Auth::id());
+            })->with(['barang' , 'keranjang.users' => function($query){
                 $query->where('id_user' , Auth::id());
             }])->whereIn('id_barang', $barang_dipilih)->get();
         }
         
 
+        foreach($this->dataBarang as $u){
+            $this->kuantitas = $u->kuantitas;
+        }
+
     }
 
     public function render()
     {
-        
+        $barang = array_keys(array_filter($this->dataBarang->toArray()));
+
         return view('livewire.pembelian-live', [
             "title" => "Pembelian Barang",
             "data" => $this->dataBarang,
+            "filterUser" => keranjangDetail::whereHas('keranjang' , function($query) {
+                $query->where('id_user' , Auth::id());
+            })->with('keranjang.users')->get(),
             "hargaBarang" => $this->hargaBarang,
             
     ] );
@@ -75,7 +84,12 @@ class PembelianLive extends Component
 
             foreach( $this->barangDipilih as $barang){
                 // karena yang di dapat hanya bilangan bukan array
-                $barang = barang::find($barang);
+                $barang = barang::where('id_barang', $barang)->first();
+
+                $detailKeranjang = keranjangDetail::whereHas('keranjang' , function($query){
+                    $query->where('id_user' , Auth::Id());
+                })->where('id_barang', $barang->id_barang)->first();
+
 
                 detail_pembelian::create([
                     'id_det_pem' => (String) Str::uuid(),
@@ -85,6 +99,14 @@ class PembelianLive extends Component
                     'harga_perProduk' => $barang->harga_barang,
                     'slug' => $pembelianFinal->slug,
                 ]);
+
+                $barangUpdate = $barang->update([
+                    'stok_barang' => $barang->stok_barang - $this->kuantitas,
+
+                ]);
+
+                $detailKeranjang->delete();
+
             }
 
                 kasbon::create([
@@ -99,6 +121,8 @@ class PembelianLive extends Component
                 $updated = $userUpdate->update([
                     'limit' =>$userUpdate->limit - $this->hargaBarang,
                 ]);
+
+
 
                return redirect('/keranjang');
 

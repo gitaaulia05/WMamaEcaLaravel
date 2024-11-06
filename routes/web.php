@@ -52,6 +52,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
 
         Route::get('/', [UserController::class, 'index'])->name('home');
+        Route::get('/produk', [UserController::class, 'produk']);
+
 
         Route::post('/logout',[AuthenticateController::class,'destroy'])->middleware('auth');
 
@@ -64,6 +66,7 @@ Route::middleware(['auth', 'cekAdmin'])->group(function () {
 
                 // DASHBOARD LAPORAN PENJUALAN
         Route::get('/laporan-penjualan', [LaporanPenjualanController::class,'index']);
+        Route::get('/detailLaporanPenjualan/{slug}', [LaporanPenjualanController::class,'detail_laporan']);
 
                 // DASHBOARD KASBON
          Route::get('/kasbon', [KasbonController::class, 'index']);

@@ -16,6 +16,13 @@ class UserController extends Controller
     public function index(){
             return view('user.index',[   
                 "title" => 'USER',
+               
+                
+            ]);
+    }  
+    public function produk(){
+            return view('user.produk',[   
+                "title" => 'Katalog Produk',
                 "data" => barang::all(),
                 
             ]);

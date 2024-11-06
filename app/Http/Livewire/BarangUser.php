@@ -17,12 +17,19 @@ class BarangUser extends Component
     public $id_user;
     public $id_barang;
     public $kuantitas;
+
+    public $maxBarang;
     public $counter = '';
 
     public function mount($slug)
 
     {
-        $data = barang::where('slug', $slug)->first();
+
+        $data = Barang::where('slug', $slug)->first();
+        $dataKeranjang = keranjangDetail::whereHas('keranjang' , function($query){
+            $query->where('id_user' , Auth::id());
+        })->where('id_barang', $data->id_barang)->first();
+
 
         if ($data) {
             // Inisialisasi properti dari data yang diterima
@@ -32,7 +39,11 @@ class BarangUser extends Component
             abort(404, 'Barang tidak ditemukan');
         }
 
-        $this->kuantitas =1;
+        $this->kuantitas = 1;
+     
+
+        // $this->maxBarang = ($data->stok_barang - $dataKeranjang->kuantitas) < 0 ?  1:  $data->stok_barang - $dataKeranjang->kuantitas;
+           
     }
 
     public function render()
@@ -43,9 +54,26 @@ class BarangUser extends Component
         ]);
     }
 
+
+    public function checkKuantitas() 
+    {
+
+
+    if($this->kuantitas >= $this->maxBarang ){
+        session()->flash('kuantitasMessage' , 'Anda telah Memasukkan Barang  Anda Tidak Bisa Menambahkan Jumlah Barang. Karena melebihi batas stok !' );
+} 
+
+ if($this->kuantitas < 1) {
+    session()->flash('disabled' , 'Masukkan Barang minimal 1 buah');
+ }
+
+    }
+
     
     public function simpanBarang(){
-      
+
+       
+
         $keranjangCheck = keranjang::where('id_user' , Auth::id())->first();
 
             if(!$keranjangCheck){
@@ -55,8 +83,10 @@ class BarangUser extends Component
  
             }
             $keranjang = keranjang::where('id_user' , Auth::id())->first();
-
-            $dataBarang = keranjangDetail::where('id_barang' , $this->id_barang)->first();
+         
+            $dataBarang = keranjangDetail::whereHas('keranjang' , function($query){
+                $query->where('id_user' , Auth::id());
+            })->where('id_barang' , $this->id_barang)->first();
 
                 if(!$dataBarang){
                     
@@ -76,8 +106,11 @@ class BarangUser extends Component
               
                 $this->dispatch('cartUpdated');
 
-                session()->flash('message' , 'barang berhasil masuk keranjang');
+               
+                session()->flash('message', 'Barang telah ditambahkan ke keranjang.');
+
     }
+    
 
 
 }
