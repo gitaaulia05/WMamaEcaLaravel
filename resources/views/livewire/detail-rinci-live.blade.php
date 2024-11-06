@@ -25,12 +25,12 @@
                     <span class="mb-2 text-s">Nama Pembeli: <span class="text-dark font-weight-bold ms-sm-2">{{$data->pembelian->users->nama}}</span></span>
 
                     <span class="mb-2 text-s">Detail Barang :
-                   
+
                     <span class="text-dark ms-sm-2 font-weight-bold">
                        {{ $pembelian->detail_pembelian->pluck('namaBarang.nama_barang')->implode(', ') }}
                            </span>
                     </span>
-			 
+
                     <span class="text-s">Total Bayar:
                     <span class="text-dark ms-sm-2 font-weight-bold">{{$d->total_bayar}}</span>
                   </div>
