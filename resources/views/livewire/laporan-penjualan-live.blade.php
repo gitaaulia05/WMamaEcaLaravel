@@ -10,14 +10,18 @@
       <div class="col-lg-6">
             <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown link
+         Filter per Minggu
         </a>
 
+
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+              @for ( $i= $bulanLalu;  $i<$tanggal; $i->addDays(7))
+                    <li><a class="dropdown-item" href="#" wire:click="tanggalFilter('{{$i->format('Y-m-d')}}')" >{{$i->format('Y-m-d')}}</a></li>
+              @endfor
+
+
         </ul>
+
       </div>
       </div>
       </div>

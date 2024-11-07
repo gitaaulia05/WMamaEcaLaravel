@@ -6,6 +6,7 @@ use App\Models\users;
 
 use Livewire\Component;
 use App\Models\keranjang;
+use App\Models\barang;
 use Illuminate\Support\Str;
 use App\Helpers\keranjangHelp;
 use App\Models\keranjangDetail;
