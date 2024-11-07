@@ -10,7 +10,7 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 lg:w-11/12 mx-auto">
                 <thead class="text-xs text-slate-400 uppercase bg-white border-b-[1px] border-slate-200">
                     <tr>
-                        <th scope="col" class="px-6 py-3">Gambar</th>
+                     
                         <th scope="col" class="px-6 py-3">Nama Produk</th>
                         <th scope="col" class="px-6 py-3">Aksi</th>
                     </tr>
@@ -18,7 +18,7 @@
                 <tbody>
                     @if($data->isEmpty())
                         <tr>
-                            <td colspan="3" class="text-center py-4">No products found</td>
+                            <td colspan="3" class="text-center py-4">Tidak Ada Data</td>
                         </tr>
                     @else
                         @foreach($data as $d)
@@ -27,11 +27,7 @@
                                 $imageUrl = Storage::exists($imagePath) ? asset($imagePath) : asset('images/default_image.png');
                             @endphp
                             <tr class="bg-white border-b-[1px] border-slate-200 dark:bg-white">
-                                <td class="px-6 py-4">
-                                    <div class="flex px-2 py-1">
-                                        <img src="{{ $imageUrl }}" alt="{{ $d->namaBarang->nama_barang ?? 'No Image' }}" class="h-16 w-16 object-cover rounded">
-                                    </div>
-                                </td>
+                               
                                 <td class="px-6 py-4 text-slate-700 capitalize">
                                     {{ $d->detail_pembelian->pluck('namaBarang.nama_barang')->implode(', ') }}
                                 </td>

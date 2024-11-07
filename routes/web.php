@@ -52,7 +52,7 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::get('/pembelian/{token}' , [UserController::class , 'pembelianPlain'] );
 
-     
+
 
 });
 
@@ -68,10 +68,10 @@ Route::middleware('auth' , 'cekUser')->group(function () {
                 // DASHBOARD ADMIN
         Route::get('/dashboard-admin', [adminDashboardController::class,'index'])->name('dash_admin');
         Route::get('/tambah-data', [adminDashboardController::class,'tambah_data']);
-        Route::get('/detailBarang/{slug}', [adminDashboardController::class,'detail_barang']);
+        Route::get('/detailBarang/{slug}', [adminDashboardController::class,'detail_barang'])->name('detail_barang');
         Route::get('/editBarang/{slug}', [adminDashboardController::class,'edit_barang']);
         Route::delete('/hapusBarang/{slug}', [adminDashboardController::class,'destroy']);
-        
+
         Route::post('/simpanBarang', [adminDashboardController::class,'simpanBarang']);
         // Route::get('/tambah-data', [adminDashboardController::class, 'tambah_data'])->name('tambah-data');
         // Route::get('/edit-data/{id}', [adminDashboardController::class, 'editBarang'])->name('edit-data');
@@ -79,7 +79,7 @@ Route::middleware('auth' , 'cekUser')->group(function () {
 
         Route::put('/ubahBarang/{slug}', [adminDashboardController::class, 'updateBarang']);
         Route::get('/export', [ExcelExportController::class, 'export'])->name('export');
-                
+
                 // DASHBOARD LAPORAN PENJUALAN
         Route::get('/laporan-penjualan', [LaporanPenjualanController::class,'index']);
         Route::get('/detailLaporanPenjualan/{slug}', [LaporanPenjualanController::class,'detail_laporan']);

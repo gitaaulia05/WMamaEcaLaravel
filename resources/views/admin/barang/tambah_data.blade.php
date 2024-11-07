@@ -56,17 +56,20 @@
 
                 <div class="form-group mb-3">
 
-                    <div style="position: absolute; top: 300px; right: 70px; width: 20%;">
-                        <input type="file" id="image" name="img" class="form-control @error('img')
-                        is-invalid
-                    @enderror" value="{{old ('img')}}" required>
-                        <label for="image">Gambar Barang</label>
-                          @error('img')
-                    </div>
-                    <div class="invalid-feedback" >
-                            {{ $message }}
+                        <div style="position: absolute; top: 300px; right: 70px; width: 20%;">
+
+
+
+                            <input type="file" id="image" name="img" class="form-control @error('img')
+                            is-invalid
+                        @enderror" value="{{old ('img')}}" required >
+                            <label for="image">Gambar Barang</label>
+                            @error('img')
                         </div>
-                        @enderror
+                        <div class="invalid-feedback    " >
+                                {{ $message }}
+                            </div>
+                            @enderror
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="background-color: #ff6f5e; color: white; float: right; margin-top: 30px;">Tambah Data</button>

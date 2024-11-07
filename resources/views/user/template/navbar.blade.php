@@ -79,7 +79,7 @@
         </div>
     </header>
 
-    <main class="main lg:blur-none bg-white lg:opacity-100 pt-24 px-10">
+    <main class="main lg:blur-none bg-white lg:opacity-100 pt-24 px-10 font-serif">
     @yield('container')
     </main>
 
