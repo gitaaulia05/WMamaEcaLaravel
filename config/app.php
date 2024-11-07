@@ -122,4 +122,8 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'providers' => [
+    Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
+    ],
+
 ];

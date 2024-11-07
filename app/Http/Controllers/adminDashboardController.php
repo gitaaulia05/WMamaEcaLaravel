@@ -94,6 +94,8 @@ public function updateBarang(Request $request, $slug)
             $data['img'] = $request->file('img')->store('barang', 'public');
             $data['id_barang'] = (String) Str::uuid();
                 barang::create($data);
+
+                notify()->success('Laravel Notify is awesome!');
                 return redirect('dashboard-admin')->with('message-success' , 'Tambah Data Barang Berhasil!');
 }
 
