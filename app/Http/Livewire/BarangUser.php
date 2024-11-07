@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Livewire;
-<<<<<<< HEAD
 
 
-=======
+
 use App\Models\users;
-use App\Models\barang;
->>>>>>> 788b33f254af8dcfd7b1501962161c2819819d91
+
+
 use Livewire\Component;
 use App\Models\keranjang;
 use Illuminate\Support\Str;
