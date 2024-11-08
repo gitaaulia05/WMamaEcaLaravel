@@ -2,16 +2,9 @@
 
 namespace App\Http\Livewire;
 
-<<<<<<< HEAD
-
 
 use App\Models\users;
 
-
-=======
-use App\Models\users;
-
->>>>>>> 09ffec979f5a857faf0d6a6b58a55c70455a42ea
 use Livewire\Component;
 use App\Models\keranjang;
 use App\Models\barang;

@@ -2,15 +2,15 @@
 export default {
   content: [
     "./resources/**/*.blade.php",
-
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
   ],
   theme: {
     extend: {
-     fontFamily :{
-          serif : ['Merriweather'],
-     },
+      fontFamily :{
+        serif : ['Merriweather'],
+   },
     },
   },
   plugins: [],
 }
-

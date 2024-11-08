@@ -11,8 +11,10 @@
     <title>{{$title}}</title>
 
   <link href="{{ asset('css/css/home-user-local.css')}}" rel="stylesheet" />
-      @vite('resources/css/app.css')
+  
+       @vite('resources/css/app.css')
         @livewireStyles
+         @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
 

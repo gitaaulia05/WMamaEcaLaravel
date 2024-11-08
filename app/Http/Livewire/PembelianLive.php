@@ -122,7 +122,8 @@ class PembelianLive extends Component
             }
 
                 kasbon::create([
-                    'id_kasbon' => (String) Str::uuid(),
+                    'id_kasbon' => 
+                    (String) Str::uuid(),
                     'id_pembelian' => $pembelian['id_pembelian'],
                     'slug' => $pembelianFinal->slug, 
                     'total_kasbon' => array_sum($this->hargaBarang),

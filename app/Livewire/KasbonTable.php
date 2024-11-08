@@ -1,7 +1,5 @@
 <?php
 
-
-
 use Livewire\Component;
 use App\Models\pembelian;
 use Livewire\WithPagination;
