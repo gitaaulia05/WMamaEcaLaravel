@@ -1,12 +1,12 @@
         <div class="font-serif">
     <div class="flex items-center ml-16 mt-4 w-80 mb-10 bg-white shadow-md rounded-lg">
         <span class="px-3 text-gray-500"><i class="fas fa-search" aria-hidden="true"></i></span>
-        <input type="text" class="w-full py-2 px-3 focus:outline-none focus:ring focus:ring-orange-300 rounded-r-lg" wire:model.live="search" placeholder="Cari Nama Barang ...">
+        <input type="text" class="w-full py-2 px-3 focus:outline-none focus:ring focus:ring-orange-300 rounded-r-lg" wire:model.live="search" placeholder="Cari Nomor Angsuran">
     </div>
 
       @if($data->detKasbon->isEmpty())
        <div class="w-fit bg-red-400 mx-auto">
-        <h1 class="mx-6 py-5">Anda belum Membuat Cicilan Buat</h1>
+        <h1 class="mx-6 py-5">Anda belum Membuat Cicilan.</h1>
        </div>
     @else
       @foreach ($data->detKasbon as $d )

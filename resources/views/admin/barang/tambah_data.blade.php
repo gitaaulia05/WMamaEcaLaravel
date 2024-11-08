@@ -58,8 +58,6 @@
 
                         <div style="position: absolute; top: 300px; right: 70px; width: 20%;">
 
-
-
                             <input type="file" id="image" name="img" class="form-control @error('img')
                             is-invalid
                         @enderror" value="{{old ('img')}}" required >

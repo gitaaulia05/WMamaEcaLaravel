@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b83d31c38e29f0a372ba3378e66758b22ac448f6',
+        'reference' => 'c0fa80dc375cc8669070bd3338189bd5abb3fc45',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -449,9 +449,9 @@
             'dev_requirement' => false,
         ),
         'laravel-lang/lang' => array(
-            'pretty_version' => '15.9.2',
-            'version' => '15.9.2.0',
-            'reference' => '88dbca09821a7e49edf5a1a53160a2ec21ceb389',
+            'pretty_version' => '15.9.3',
+            'version' => '15.9.3.0',
+            'reference' => '48f7e2401929b15f0beff9a78e168e9596beea0b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel-lang/lang',
             'aliases' => array(),
@@ -523,7 +523,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b83d31c38e29f0a372ba3378e66758b22ac448f6',
+            'reference' => 'c0fa80dc375cc8669070bd3338189bd5abb3fc45',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -662,9 +662,9 @@
             'dev_requirement' => true,
         ),
         'nesbot/carbon' => array(
-            'pretty_version' => '3.8.1',
-            'version' => '3.8.1.0',
-            'reference' => '10ac0aa86b8062219ce21e8189123d611ca3ecd9',
+            'pretty_version' => '3.8.2',
+            'version' => '3.8.2.0',
+            'reference' => 'e1268cdbc486d97ce23fef2c666dc3c6b6de9947',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
@@ -898,8 +898,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1110,11 +1110,9 @@
             'dev_requirement' => false,
         ),
         'symfony/console' => array(
-
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '3284aafcac338b6e86fd955ee4d794cbe434151a',
-
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
@@ -1139,11 +1137,9 @@
             'dev_requirement' => false,
         ),
         'symfony/error-handler' => array(
-
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '010e44661f4c6babaf8c4862fe68c24a53903342',
-
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/error-handler',
             'aliases' => array(),
@@ -1183,22 +1179,18 @@
             'dev_requirement' => false,
         ),
         'symfony/http-foundation' => array(
-
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '5183b61657807099d98f3367bcccb850238b17a9',
-
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/http-kernel' => array(
-
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '7f137cda31fd41e422edcdc01915f2c095b84399',
-
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -1304,11 +1296,9 @@
             'dev_requirement' => false,
         ),
         'symfony/process' => array(
-
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '9b8a40b7289767aa7117e957573c2a535efe6585',
-
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
@@ -1375,11 +1365,9 @@
             'dev_requirement' => false,
         ),
         'symfony/var-dumper' => array(
-
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => 'f6ea51f669760cacd7464bf7eaa0be87b8072db1',
-
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),

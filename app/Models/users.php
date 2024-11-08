@@ -21,10 +21,12 @@ class users extends Authenticatable
     protected $fillable= [
         'id_user',
         'nama',
+        'img',
         'no_hp',
         'limit',
         'alamat',
         'password', 
+      
     ];
 
     protected $hidden = [

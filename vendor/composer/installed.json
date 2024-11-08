@@ -1900,17 +1900,17 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "15.9.2",
-            "version_normalized": "15.9.2.0",
+            "version": "15.9.3",
+            "version_normalized": "15.9.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "88dbca09821a7e49edf5a1a53160a2ec21ceb389"
+                "reference": "48f7e2401929b15f0beff9a78e168e9596beea0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/88dbca09821a7e49edf5a1a53160a2ec21ceb389",
-                "reference": "88dbca09821a7e49edf5a1a53160a2ec21ceb389",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/48f7e2401929b15f0beff9a78e168e9596beea0b",
+                "reference": "48f7e2401929b15f0beff9a78e168e9596beea0b",
                 "shasum": ""
             },
             "require": {
@@ -1926,7 +1926,7 @@
                 "phpunit/phpunit": "^10.0",
                 "symfony/var-dumper": "^7.0"
             },
-            "time": "2024-11-03T10:29:41+00:00",
+            "time": "2024-11-04T11:47:57+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3430,7 +3430,6 @@
             "install-path": "../livewire/livewire"
         },
         {
-
             "name": "mockery/mockery",
             "version": "1.6.12",
             "version_normalized": "1.6.12.0",
@@ -3685,17 +3684,17 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.8.1",
-            "version_normalized": "3.8.1.0",
+            "version": "3.8.2",
+            "version_normalized": "3.8.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "10ac0aa86b8062219ce21e8189123d611ca3ecd9"
+                "reference": "e1268cdbc486d97ce23fef2c666dc3c6b6de9947"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/10ac0aa86b8062219ce21e8189123d611ca3ecd9",
-                "reference": "10ac0aa86b8062219ce21e8189123d611ca3ecd9",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e1268cdbc486d97ce23fef2c666dc3c6b6de9947",
+                "reference": "e1268cdbc486d97ce23fef2c666dc3c6b6de9947",
                 "shasum": ""
             },
             "require": {
@@ -3722,7 +3721,7 @@
                 "phpunit/phpunit": "^10.5.20",
                 "squizlabs/php_codesniffer": "^3.9.0"
             },
-            "time": "2024-11-03T16:02:24+00:00",
+            "time": "2024-11-07T17:46:48+00:00",
             "bin": [
                 "bin/carbon"
             ],
@@ -6639,7 +6638,6 @@
         },
         {
             "name": "symfony/console",
-
             "version": "v7.1.7",
             "version_normalized": "7.1.7.0",
             "source": {
@@ -6651,7 +6649,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/3284aafcac338b6e86fd955ee4d794cbe434151a",
                 "reference": "3284aafcac338b6e86fd955ee4d794cbe434151a",
-
                 "shasum": ""
             },
             "require": {
@@ -6683,9 +6680,7 @@
                 "symfony/stopwatch": "^6.4|^7.0",
                 "symfony/var-dumper": "^6.4|^7.0"
             },
-
             "time": "2024-11-05T15:34:55+00:00",
-
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -6719,9 +6714,7 @@
                 "terminal"
             ],
             "support": {
-
                 "source": "https://github.com/symfony/console/tree/v7.1.7"
-
             },
             "funding": [
                 {
@@ -6879,7 +6872,6 @@
         },
         {
             "name": "symfony/error-handler",
-
             "version": "v7.1.7",
             "version_normalized": "7.1.7.0",
             "source": {
@@ -6891,8 +6883,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/error-handler/zipball/010e44661f4c6babaf8c4862fe68c24a53903342",
                 "reference": "010e44661f4c6babaf8c4862fe68c24a53903342",
-
- 
                 "shasum": ""
             },
             "require": {
@@ -6909,9 +6899,7 @@
                 "symfony/http-kernel": "^6.4|^7.0",
                 "symfony/serializer": "^6.4|^7.0"
             },
-
             "time": "2024-11-05T15:34:55+00:00",
-
             "bin": [
                 "Resources/bin/patch-type-declarations"
             ],
@@ -6942,9 +6930,7 @@
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
             "support": {
-
                 "source": "https://github.com/symfony/error-handler/tree/v7.1.7"
-
             },
             "funding": [
                 {
@@ -7204,7 +7190,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/5183b61657807099d98f3367bcccb850238b17a9",
                 "reference": "5183b61657807099d98f3367bcccb850238b17a9",
-
                 "shasum": ""
             },
             "require": {
@@ -7226,9 +7211,7 @@
                 "symfony/mime": "^6.4|^7.0",
                 "symfony/rate-limiter": "^6.4|^7.0"
             },
-
             "time": "2024-11-06T09:02:46+00:00",
-
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -7256,9 +7239,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-
                 "source": "https://github.com/symfony/http-foundation/tree/v7.1.7"
-
             },
             "funding": [
                 {
@@ -7278,7 +7259,6 @@
         },
         {
             "name": "symfony/http-kernel",
-
             "version": "v7.1.7",
             "version_normalized": "7.1.7.0",
             "source": {
@@ -7290,7 +7270,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/7f137cda31fd41e422edcdc01915f2c095b84399",
                 "reference": "7f137cda31fd41e422edcdc01915f2c095b84399",
-
                 "shasum": ""
             },
             "require": {
@@ -7349,9 +7328,7 @@
                 "symfony/var-exporter": "^6.4|^7.0",
                 "twig/twig": "^3.0.4"
             },
-
             "time": "2024-11-06T09:54:34+00:00",
-
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -7379,9 +7356,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-
                 "source": "https://github.com/symfony/http-kernel/tree/v7.1.7"
-
             },
             "funding": [
                 {
@@ -8310,7 +8285,6 @@
         },
         {
             "name": "symfony/process",
-
             "version": "v7.1.7",
             "version_normalized": "7.1.7.0",
             "source": {
@@ -8322,15 +8296,12 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/process/zipball/9b8a40b7289767aa7117e957573c2a535efe6585",
                 "reference": "9b8a40b7289767aa7117e957573c2a535efe6585",
-
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2"
             },
-
             "time": "2024-11-06T09:25:12+00:00",
-
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -8358,9 +8329,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-
                 "source": "https://github.com/symfony/process/tree/v7.1.7"
-
             },
             "funding": [
                 {
@@ -8895,7 +8864,6 @@
         },
         {
             "name": "symfony/var-dumper",
-
             "version": "v7.1.7",
             "version_normalized": "7.1.7.0",
             "source": {
@@ -8907,7 +8875,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/var-dumper/zipball/f6ea51f669760cacd7464bf7eaa0be87b8072db1",
                 "reference": "f6ea51f669760cacd7464bf7eaa0be87b8072db1",
-
                 "shasum": ""
             },
             "require": {
@@ -8925,9 +8892,7 @@
                 "symfony/uid": "^6.4|^7.0",
                 "twig/twig": "^3.0.4"
             },
-
             "time": "2024-11-05T15:34:55+00:00",
-
             "bin": [
                 "Resources/bin/var-dump-server"
             ],
@@ -8965,9 +8930,7 @@
                 "dump"
             ],
             "support": {
-
                 "source": "https://github.com/symfony/var-dumper/tree/v7.1.7"
-
             },
             "funding": [
                 {

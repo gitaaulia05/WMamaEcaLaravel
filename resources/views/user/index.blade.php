@@ -7,9 +7,6 @@
             <div class="sambutan" >
                 <h1 class="greeting"> Sembako Harianmu Ada di sini, Belanja Nyaman Tanpa Khawatir! </h1>
                 <p class="sub">Warung Sembako Mamah Eca <span class="help">Siap Membantumu</span>  </p>
-                <button>Selengkapnya</button>
-
-
             </div>
 
             <aside>
@@ -67,14 +64,7 @@
                     <p  class="fSub"> Tidak perlu lagi bingung tentang pembayaran apa yang telah dilakukan atau yang masih harus dilakukan</p>
                 </div>
 
-                <div class="fitur-content">
-                    <div class="ikon-fitur">
-                          <i class="fas fa-bell"></i>
-                    </div>
-
-                    <h1 class="fJudul" >Pengingat</h1>
-                    <p  class="fSub">Dengan fitur Pengingat kami, Anda tidak akan pernah lagi melewatkan tanggal jatuh tempo pembayaran.</p>
-                </div>
+               
 
               <div class="fitur-content">
                 <div class="ikon-fitur">
@@ -145,8 +135,7 @@
 
                     <div class="fitur-content">
                         <div class="photo">
-                            <img src="assets/testimoni1.png">
-
+                           
                             <div class="desc-client">
                                 <h1 class="nama" >Jennifer Susanto</h1>
                                 <p class="pekerjaan">Ibu Rumah Tangga</p>
@@ -160,8 +149,7 @@
                     </div>
                     <div class="fitur-content">
                         <div class="photo">
-                            <img src="assets/testimoni3.png">
-
+                            
                             <div class="desc-client">
                                 <h1 class="nama" >Olivia Taylor</h1>
                                 <p class="pekerjaan">Ibu Rumah Tangga</p>
@@ -175,7 +163,7 @@
                     </div>
                     <div class="fitur-content">
                         <div class="photo">
-                            <img src="assets/testimoni4.png">
+                            
 
                             <div class="desc-client">
                                 <h1 class="nama" >Stephanie Hartono</h1>
@@ -191,8 +179,7 @@
                     </div>
                     <div class="fitur-content">
                         <div class="photo">
-                            <img src="{{asset('images/img/team-1.jpg')}}">
-
+                          
                             <div class="desc-client">
                                 <h1 class="nama" >Ariana Aurelia</h1>
                                 <p class="pekerjaan">Ibu Rumah Tangga</p>
@@ -219,7 +206,7 @@
 
                 <p class="warung-alamat">Komplek Gading Tutuka 2 Blok P1 No 29, RT. 01, RW 12 Desa Ciluncat  <br> Kec. Cangkuang Kab Bandung, Jawa Barat </p>
 
-                  <div class="ikon-chat">
+                  {{-- <div class="ikon-chat">
 
                 <ul>
                     <li class="line">
@@ -233,7 +220,7 @@
 
                 </ul>
 
-            </div>
+            </div> --}}
         </div>
 
         </article>

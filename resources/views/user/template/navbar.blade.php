@@ -33,7 +33,7 @@
                         <ul class="flex flex-col text-center mx-auto my-auto rounded-md w-11/12 gap-4 pb-3 pt-3 lg:flex-row lg:pt-1 lg:bg-white cursor-pointer" >
                             <li class=" {{ Request::is('/') ? 'bg-amber-300' : 'hover:bg-amber-300' }} py-1 lg:px-0 lg:py-0 rounded-lg"><a class="li mx-1  lg:mx-3" href="/">Beranda</a></li>
                             <li class=" {{ Request::is('produk') || Request::is('barang/*') ? 'bg-amber-300' : 'hover:bg-amber-300' }} py-1 lg:px-0 lg:py-0 rounded-lg"><a class="li mx-1  lg:mx-3" href="/produk">Produk</a></li>
-                            <li class=" {{ Request::is('profile') || Request::is('pesanan/*') ? 'bg-amber-300' : 'hover:bg-amber-300' }} py-1 lg:px-0 lg:py-0 rounded-lg"><a class="li mx-1  lg:mx-3" href="/profile">Profile</a></li>
+                            <li class=" {{ Request::is('profile') || Request::is('pesanan/*')  ||  Request::is('ubah-profile') || Request::is('cicilanKasbon/*')  ? 'bg-amber-300' : 'hover:bg-amber-300'  }} py-1 lg:px-0 lg:py-0 rounded-lg"><a class="li mx-1  lg:mx-3" href="/profile">Profile</a></li>
                         </ul>
                     </nav>
 
@@ -58,7 +58,7 @@
 
                     <li>
 
-                       <img src="{{asset('images/img/bruce-mars.jpg')}}" class="rounded-full h-10 mt-1" >
+                       <img src="{{$gambar->img ? asset('storage/' . $gambar->img) : asset('images/img/default_img.png')}}" class="rounded-full h-10 mt-1" >
                     {{-- <svg viewBox="0 0 24 24" class="h-8" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_429_11117)"> <path d="M21 12C21 13.8569 20.4376 15.5825 19.4739 17.0157C17.858 19.4189 15.1136 21 12 21C8.88636 21 6.14202 19.4189 4.52609 17.0157C3.56237 15.5825 3 13.8569 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#292929" stroke-width="2.5"></path> <path d="M14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9C10 7.89543 10.8954 7 12 7C13.1046 7 14 7.89543 14 9Z" stroke="#292929" stroke-width="2.5"></path> <path d="M15 15H8.99998C7.18822 15 5.6578 16.2045 5.16583 17.8564C6.81645 19.7808 9.26583 21 12 21C14.7341 21 17.1835 19.7808 18.8341 17.8564C18.3421 16.2045 16.8117 15 15 15Z" stroke="#292929" stroke-width="2.5"></path> </g> <defs> <clipPath id="clip0_429_11117"> <rect width="24" height="24" fill="white"></rect> </clipPath> </defs> </g></svg> --}}
                     </li>
                     <form method="Post" action="/logout">
@@ -85,9 +85,36 @@
     @yield('container')
     </main>
 
-  <footer>
 
-  </footer>
+
+
+
+<footer class="bg-white rounded-lg shadow m-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="{{asset('images/logo1-removebg-preview.png')}}" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 ">
+                <li>
+                    <a href="/" class="hover:underline me-4 md:me-6">Beranda</a>
+                </li>
+                <li>
+                    <a href="/produk" class="hover:underline me-4 md:me-6">Produk</a>
+                </li>
+                <li>
+                    <a href="/profile" class="hover:underline me-4 md:me-6">Profile</a>
+                </li>
+              
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center ">© 2024 <a href="https://flowbite.com/" class="hover:underline">Warung Mama Eca</a></span>
+    </div>
+</footer>
+
+
 
     <script src="{{asset('js/local/navbarUser.js')}}" ></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>

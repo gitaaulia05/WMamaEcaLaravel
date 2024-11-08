@@ -47,17 +47,21 @@
          @endif
           </div>
 
-    
+
+          <div class="grid grid-cols-2 pt-2">
+          <div class="masukKeranjang">
         @if(session()->has('disabled') || $data->is_arsip == 1)
         <button class="bg-orange-300 text-white px-1 py-1 rounded-lg mr-6" disabled type="submit" id="masukkan">Masukkan keranjang</button>
         <p class="text-red-500">{{session('disabled')}}</p>
           @else
           <button class="bg-orange-400 text-white px-1 py-1 rounded-lg mr-6" type="submit" id="masukkan">Masukkan keranjang</button>
         @endif
+        </div>
 
         
+          <div class="beliSekarang">
   @if($data->is_arsip == 1)
-  <button class="bg-orange-300 text-white px-1 py-1 rounded-lg" id="masukkan" disabled >Beli Sekarang</button>
+  <button class="bg-orange-300 text-white px-1 py-1 rounded-lg mt-2" id="masukkan" disabled >Beli Sekarang</button>
 
         @else 
        <input id="beliCheckbox"  wire:model="checkBarang.{{$data->id_barang}}" type="checkbox" wire:click="simpanBarangDanBeliLangsung" class=" text-white px-1 py-1 rounded-lg hidden peer">
@@ -67,9 +71,11 @@
           @else
              <label for="beliCheckbox" class="ms-6 bg-orange-400  text-white px-1 py-1 rounded-lg hover:bg-orange-300">Beli Sekarang</label>
           @endif
-    
-
   @endif 
+</div>
+
+</div>
+
 
     </div>
 

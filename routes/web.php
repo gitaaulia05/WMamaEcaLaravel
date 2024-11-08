@@ -44,7 +44,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
         Route::get('/pesanan/{slug}', [UserController::class, 'pesanan']);
         Route::get('/cicilanKasbon/{slug}', [UserController::class, 'cicilan_kasbon']);
 
-        Route::get('/update-profile', [UserController::class, 'update_profile']);
+        Route::get('/ubah-profile', [UserController::class, 'update_profile']);
+        Route::post('/UbahProfile', [UserController::class, 'simpanUpdate']);
 
         Route::get('/keranjang', [UserController::class, 'keranjang']);
 
