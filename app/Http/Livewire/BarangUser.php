@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
-
-
 use App\Models\users;
-
 use Livewire\Component;
 use App\Models\keranjang;
 use App\Models\barang;

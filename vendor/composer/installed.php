@@ -898,8 +898,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1110,9 +1110,11 @@
             'dev_requirement' => false,
         ),
         'symfony/console' => array(
+
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '3284aafcac338b6e86fd955ee4d794cbe434151a',
+
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
@@ -1137,9 +1139,11 @@
             'dev_requirement' => false,
         ),
         'symfony/error-handler' => array(
+
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '010e44661f4c6babaf8c4862fe68c24a53903342',
+
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/error-handler',
             'aliases' => array(),
@@ -1179,18 +1183,22 @@
             'dev_requirement' => false,
         ),
         'symfony/http-foundation' => array(
+
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '5183b61657807099d98f3367bcccb850238b17a9',
+
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/http-kernel' => array(
+
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '7f137cda31fd41e422edcdc01915f2c095b84399',
+
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -1296,9 +1304,11 @@
             'dev_requirement' => false,
         ),
         'symfony/process' => array(
+
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => '9b8a40b7289767aa7117e957573c2a535efe6585',
+
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
@@ -1365,9 +1375,11 @@
             'dev_requirement' => false,
         ),
         'symfony/var-dumper' => array(
+
             'pretty_version' => 'v7.1.7',
             'version' => '7.1.7.0',
             'reference' => 'f6ea51f669760cacd7464bf7eaa0be87b8072db1',
+
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),

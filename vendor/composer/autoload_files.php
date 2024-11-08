@@ -35,6 +35,7 @@ return array(
     '493c6aea52f6009bab023b26c21a386a' => $vendorDir . '/laravel/framework/src/Illuminate/Support/functions.php',
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '40275907c8566c390185147049ef6e5d' => $vendorDir . '/livewire/livewire/src/helpers.php',
+    '38ea50801e981fa2297115e1c44a148b' => $vendorDir . '/mckenziearts/laravel-notify/src/helpers.php',
     'c72349b1fe8d0deeedd3a52e8aa814d8' => $vendorDir . '/mockery/mockery/library/helpers.php',
     'ce9671a430e4846b44e1c68c7611f9f5' => $vendorDir . '/mockery/mockery/library/Mockery.php',
     'a1cfe24d14977df6878b9bf804af2d1c' => $vendorDir . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
