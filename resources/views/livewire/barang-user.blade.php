@@ -41,7 +41,7 @@
           <div class="kuantitas">
              <label>Kuantitas:</label>
          <input wire:model="kuantitas.0" wire:input="checkKuantitas" name="kuantitas" type="number" value="1"  min="1"  max="{{$maxBarang}}"  oninput ="if(this.value < 1) this.value=1; if(this.value > {{$maxBarang}}) this.value={{$maxBarang}};" class="border-2 border-gray-100 focus:border-orange-500 focus:ring-0 focus:outline-none rounded-md">
-        <h1>{{$totalHarga}}</h1>
+
          @if (session()->has('kuantitasMessage'))
            <h1 class="text-center text-red-400">{{session('kuantitasMessage')}}</h1>
          @endif
@@ -50,7 +50,7 @@
 
           <div class="grid grid-cols-2 pt-2">
           <div class="masukKeranjang">
-        @if(session()->has('disabled') || $data->is_arsip == 1)
+        @if(session()->has('disabled') || $data->is_arsip == 1 || $maxBarang == 0)
         <button class="bg-orange-300 text-white px-1 py-1 rounded-lg mr-6" disabled type="submit" id="masukkan">Masukkan keranjang</button>
         <p class="text-red-500">{{session('disabled')}}</p>
           @else
@@ -60,7 +60,7 @@
 
         
           <div class="beliSekarang">
-  @if($data->is_arsip == 1)
+  @if($data->is_arsip == 1 || $maxBarang == 0)
   <button class="bg-orange-300 text-white px-1 py-1 rounded-lg mt-2" id="masukkan" disabled >Beli Sekarang</button>
 
         @else 

@@ -95,7 +95,6 @@ public function updateBarang(Request $request, $slug)
             $data['id_barang'] = (String) Str::uuid();
                 barang::create($data);
 
-                notify()->success('Laravel Notify is awesome!');
                 return redirect('dashboard-admin')->with('message-success' , 'Tambah Data Barang Berhasil!');
 }
 

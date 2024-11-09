@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class KeranjangLive extends Component
 {
-     public $kuantitas= [];
+     public $kuantitas=[];
      public $checkBarang= [];
      public $dataBarang=[];
      public $barangDipilih=[];
@@ -32,10 +32,13 @@ class KeranjangLive extends Component
         }
 
 
+
+
      }
 
     public function render()
     {
+       
         return view('livewire.keranjang-live' , [
             "title" => "Keranjang",
             "keranjang" => keranjangDetail::whereHas('keranjang', function($query) {
@@ -53,15 +56,14 @@ class KeranjangLive extends Component
     public function hapusBarang($id_barang){
     $keranjang =   keranjangDetail::where('id_barang' , $id_barang)->first();
        $keranjang->delete();
-       // untuk update angka di keranjang nav (keranjang counter.)
+      
         $this->dispatch('cartUpdated');
-        session()->flash('message' , 'data berhasil dihapus');
-
+        session()->flash('message' , 'Barang Berhasil Dihapus');
 
     }
 
     public function updateKuantitas($id_barang ){
-
+            // dd('hm');
         $keranjangUpdate = keranjangDetail::whereHas('keranjang' ,function($query){
             $query->where('id_user', Auth::id());
         }
@@ -70,18 +72,15 @@ class KeranjangLive extends Component
             $keranjangUpdate->update([
                 'kuantitas' => $this->kuantitas[$id_barang] 
         ]);
-
-
-
     
     }
 
+  
+
     public function pembelian()
     {
-        // pakai ini karena kalo $this->checkBarang mengembalikan array asosiatif, untuk mengambil id_barang
-        
+      
         $barang_dipilih = array_keys(array_filter($this->checkBarang));
-     
          $this->dataBarang = keranjangDetail::with(['barang'])->whereHas('keranjang' , function($query){
             $query->where('id_user' , auth::id());
          })->whereIn('id_barang' ,$barang_dipilih)->get();

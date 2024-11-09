@@ -48,6 +48,8 @@ Route::middleware('auth' , 'cekUser')->group(function () {
         Route::post('/UbahProfile', [UserController::class, 'simpanUpdate']);
 
         Route::get('/keranjang', [UserController::class, 'keranjang']);
+        Route::post('/update-kuantitas', [KeranjangLive::class, 'updateKuantitas'])->name('update.kuantitas');
+        Route::delete('/hapusKeranjang/{id_barang}' ,  [UserController::class, 'hapusBarang']);
 
         route::post('/beli-langsung' , [KeranjangLive::class , 'pembelianPass']);
 

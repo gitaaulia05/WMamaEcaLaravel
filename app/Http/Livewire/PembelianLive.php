@@ -36,8 +36,8 @@ class PembelianLive extends Component
  
         $this->kuantitas = keranjanghelp::getKuantitasDipilihSession();
         $this->hargaBarang = keranjanghelp::getHargaDipilihSession();
-     
-    
+
+
         $sessiontoken = session()->get('token' , []);
 
         if($token !== $sessiontoken){
@@ -74,7 +74,7 @@ class PembelianLive extends Component
 
         public function simpanData(){
      
-            $pembelian['total_bayar'] = is_array($this->hargaBarang) ? array_sum($this->hargaBarang) : $this->hargaBarang;;
+            $pembelian['total_bayar'] = is_array($this->hargaBarang) ? array_sum($this->hargaBarang) : $this->hargaBarang;
 
             $pembelian['id_pembelian'] = (String) Str::uuid();
            
@@ -83,7 +83,7 @@ class PembelianLive extends Component
             $pembelianFinal =  pembelian::create($pembelian);
 
             foreach( $this->barangDipilih as $barang){
-                // karena yang di dapat hanya bilangan bukan array
+              
                 $barang = barang::where('id_barang', $barang)->first();
 
                 $detailKeranjang = keranjangDetail::whereHas('keranjang' , function($query){
@@ -102,18 +102,19 @@ class PembelianLive extends Component
                     'slug' => $pembelianFinal->slug,
                 ]);
 
-                $barangUpdate = $barang->update([
-                    'stok_barang' => $barang->stok_barang - $kuantitas ,  
+                $stokBaru = $barang->stok_barang - $kuantitas;
+
+               $barang->update([
+                    'stok_barang' => $barang->stok_barang - $kuantitas 
                 ]);
 
-                if($barang->stok_barang - $kuantitas == 0){
+                if($stokBaru <= 0){
                     $barang->update([
                         'is_arsip' => 1,
                     ]);
                 }
 
-                // $detailKeranjang->delete();
-                   // Tambahkan pengecekan sebelum delete
+                
         if ($detailKeranjang) {
             $detailKeranjang->delete();
         }
@@ -137,7 +138,7 @@ class PembelianLive extends Component
 
 
 
-               return redirect('/profile');
+               return redirect('/profile')->with('message' , 'Berhasil Membeli Barang!');
 
         }
 }

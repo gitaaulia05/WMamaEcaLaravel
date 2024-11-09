@@ -37,14 +37,14 @@
                     <div class="list-barang-card bg-slate-50 shadow-sm hover:scale-105 mb-5 hover:shadow-lg transition duration-500">
                         <div class="barang-content mx-3 my-3">
                             <div class="barang-image">
-                                <figure class="relative max-w-sm transition-all duration-300 cursor-pointer">
-                                    <a href="#">
-                                        <img class="rounded-lg opacity-40" src="{{ asset('storage/' . ($b->img ?? 'default_image.png')) }}" alt="Image of {{ $b->nama_barang }}">
-                                    </a>
-                                    <figcaption class="absolute px-4 text-sm lg:text-lg md:text-lg text-black bottom-3 lg:bottom-32 md:bottom-32 lg:left-6 md:left-8">
-                                        <p>- Stok Barang Habis -</p>
-                                    </figcaption>
-                                </figure>
+
+                            <figure class="relative max-w-sm ">
+                    <img class="rounded-lg opacity-40" src="{{ asset('storage/' . ($b->img ?? 'default_image.png')) }}" alt="Image of {{ $b->nama_barang }}">
+        <figcaption class="absolute px-4 text-lg text-black bottom-6">
+            <p>- Stok Barang Habis -</p>
+        </figcaption>
+        </figure>
+
                             </div>
                             <div class="text-button-barang mt-3" id="text-button">
                                 <p class="text-center">{{ $b->nama_barang }}</p>

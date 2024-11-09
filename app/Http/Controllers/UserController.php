@@ -102,6 +102,7 @@ class UserController extends Controller
         return view('user.update_profile' , [
             "title" => "USER | Ubah Profile",
             "gambar" =>  users::where('id_user' , Auth::id())->first(),
+            "data" =>  users::where('id_user' , Auth::id())->first(),
            
         ]);
     }
@@ -134,6 +135,16 @@ class UserController extends Controller
     
     }
  
+    public function hapusBarang($id_barang){
+        $keranjang =   keranjangDetail::where('id_barang' , $id_barang)->first();
+           $keranjang->delete();
+          
+            // $this->dispatch('cartUpdated');
+            // session()->flash('message' , 'Barang Berhasil Dihapus');
+            return redirect()->back()->with('message' , 'Data Profile Berhasil Diubah');
+    
+    
+        }
   
 }
 
